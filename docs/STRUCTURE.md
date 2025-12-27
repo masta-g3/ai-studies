@@ -19,7 +19,8 @@ This repo prioritizes discoverability and maintainability over complexity.
 | Package Manager | uv | Fast, reliable |
 | Data Storage | CSV/JSON | Simple, git-friendly, no DB overhead |
 | Documentation | Markdown | Portable, renders on GitHub |
-| Visualization | matplotlib/seaborn | Standard, sufficient |
+| Exploratory Viz | matplotlib/seaborn | Quick iteration during analysis |
+| Publication Viz | D3.js | Interactive, consistent blog style (TBD) |
 
 ## Architecture
 
@@ -132,6 +133,20 @@ Each finding links back to resources and experiments:
 ## Open Questions
 [What we still don't know]
 ```
+
+## Visualization Workflow
+
+Two-stage approach:
+
+1. **Exploratory** (Python): matplotlib/seaborn for quick iteration
+   - Used during analysis to validate hypotheses
+   - Output to `notebooks/` or inline in scripts
+
+2. **Publication** (D3.js): Interactive visualizations for blog
+   - Ported from exploratory findings once analysis is complete
+   - Consistent visual style across all posts (style guide TBD)
+   - Sophisticated, interactive, accessible
+   - Stored in separate blog repo, data exported from here as JSON/CSV
 
 ## Commands
 
