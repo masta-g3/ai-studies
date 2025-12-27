@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://llmpedia_user:altoids@5.161.106.149:5432/llmpedia"
+      ],
+      "env": {}
+    }
+  }
+}
