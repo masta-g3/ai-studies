@@ -28,8 +28,13 @@ This repo prioritizes discoverability and maintainability over complexity.
 embeddings/
 ├── src/                    # Python modules
 │   ├── __init__.py
-│   └── db.py               # PostgreSQL utilities (papers, embeddings)
+│   ├── db.py               # PostgreSQL utilities (papers, embeddings)
+│   ├── llm.py              # LiteLLM wrapper for Gemini
+│   └── discover.py         # Hierarchy discovery via LLM
 ├── experiments/            # Exploratory analysis scripts
+│   ├── run_discovery.py    # CLI for hierarchy discovery
+│   └── render_hierarchy.py # Render hierarchy as tree/markdown
+├── data/                   # Generated outputs (gitignored)
 ├── docs/
 │   ├── plans/              # Active feature plans
 │   ├── history/            # Archived completed features

@@ -19,3 +19,4 @@ data/raw/*.csv
 
 # UV
 uv.lock
+data/*.json
