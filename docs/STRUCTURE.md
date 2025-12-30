@@ -26,20 +26,22 @@ This repo prioritizes discoverability and maintainability over complexity.
 
 ```
 embeddings/
-├── src/                    # Python modules
+├── src/                           # Shared Python modules
 │   ├── __init__.py
-│   ├── db.py               # PostgreSQL utilities (papers, embeddings)
-│   ├── llm.py              # LiteLLM wrapper for Gemini
-│   └── discover.py         # Hierarchy discovery via LLM
-├── experiments/            # Exploratory analysis scripts
-│   ├── run_discovery.py    # CLI for hierarchy discovery
-│   └── render_hierarchy.py # Render hierarchy as tree/markdown
-├── data/                   # Generated outputs (gitignored)
+│   ├── db.py                      # PostgreSQL utilities (papers, embeddings)
+│   └── llm.py                     # LiteLLM wrapper for Gemini
+├── experiments/                   # Study-specific scripts
+│   └── 20251230_granularity/      # Concept granularity study
+│       ├── discover.py            # Hierarchy discovery logic
+│       ├── run_discovery.py       # CLI entry point
+│       └── render_hierarchy.py    # Tree/markdown rendering
+├── data/                          # Generated outputs (gitignored)
+│   └── 20251230_granularity/      # Study outputs
 ├── docs/
-│   ├── plans/              # Active feature plans
-│   ├── history/            # Archived completed features
+│   ├── plans/                     # Active feature plans
+│   ├── history/                   # Archived completed features
 │   └── STRUCTURE.md
-├── features.json           # Feature backlog
+├── features.json                  # Feature backlog
 ├── pyproject.toml
 └── README.md
 ```

@@ -3,11 +3,13 @@
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
-from src.discover import run_discovery
+sys.path.insert(0, str(Path(__file__).parent))
+from discover import run_discovery
 
-DATA_DIR = Path("data")
+DATA_DIR = Path("data/20251230_granularity")
 
 
 def main():

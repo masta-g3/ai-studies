@@ -19,4 +19,6 @@ data/raw/*.csv
 
 # UV
 uv.lock
-data/*.json
+
+# Generated study data
+data/**/*.json
