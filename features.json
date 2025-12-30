@@ -1,1 +1,71 @@
-[]
+[
+  {
+    "id": "gran-001",
+    "description": "Database utilities can fetch papers and embeddings by category",
+    "steps": [
+      "Run src/db.py with test query for 'reasoning_models'",
+      "Verify returns papers with arxiv_code, title, summary",
+      "Verify fetch_embeddings returns 3072-dim vectors"
+    ],
+    "status": "done",
+    "priority": 1,
+    "depends_on": [],
+    "discovered_from": null,
+    "spec_file": "docs/history/20251229_gran-001_db_utilities.md",
+    "created_at": "2025-12-29"
+  },
+  {
+    "id": "gran-002",
+    "description": "Hierarchy discovery script batches papers to LLM and identifies natural subgroups",
+    "steps": [
+      "Script fetches ~500 papers from a category",
+      "Batches abstracts/summaries to LLM, asks to identify subgroups",
+      "Output: proposed subcategories with paper assignments",
+      "Reusable for discovering sub-subgroups within subcategories",
+      "Iterate with user to validate and refine 2 hierarchy levels"
+    ],
+    "status": "pending",
+    "priority": 1,
+    "depends_on": [
+      "gran-001"
+    ],
+    "discovered_from": null,
+    "spec_file": "docs/plans/concept-granularity.md",
+    "created_at": "2025-12-29"
+  },
+  {
+    "id": "gran-003",
+    "description": "Classification script assigns papers to discovered hierarchy with balanced sampling",
+    "steps": [
+      "Takes validated hierarchy as input",
+      "Classifies papers into subcategory/sub-subcategory",
+      "Applies quotas for balanced dataset (~125 per category)",
+      "Outputs data/curated_papers.json with ~500 labeled papers"
+    ],
+    "status": "pending",
+    "priority": 2,
+    "depends_on": [
+      "gran-002"
+    ],
+    "discovered_from": null,
+    "spec_file": "docs/plans/concept-granularity.md",
+    "created_at": "2025-12-29"
+  },
+  {
+    "id": "gran-004",
+    "description": "Analysis scripts compute summary statistics on curated dataset — metrics TBD",
+    "steps": [
+      "Define metrics based on research question (during planning)",
+      "Implement analysis script for curated dataset",
+      "Output summary statistics and initial visualizations"
+    ],
+    "status": "pending",
+    "priority": 2,
+    "depends_on": [
+      "gran-003"
+    ],
+    "discovered_from": null,
+    "spec_file": "docs/plans/concept-granularity.md",
+    "created_at": "2025-12-29"
+  }
+]
