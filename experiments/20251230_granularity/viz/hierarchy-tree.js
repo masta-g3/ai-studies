@@ -20,27 +20,48 @@ const files = [
   'hierarchy_multimodal_integration.json'
 ];
 
+// Convert papers array to leaf children
+function papersToChildren(papers) {
+  if (!papers || papers.length === 0) return undefined;
+  return papers.map(p => ({
+    name: p.title,
+    arxiv_code: p.arxiv_code,
+    isPaper: true
+  }));
+}
+
 // Data transformation
 function transformData(json) {
-  const children = json.subcategories.map(sub => ({
-    name: sub.name,
-    description: sub.description,
-    paper_count: sub.paper_count,
-    papers: sub.papers,
-    children: sub.children?.map(child => ({
-      name: child.name,
-      description: child.description,
-      paper_count: child.paper_count,
-      papers: child.papers
-    }))
-  }));
+  const children = json.subcategories.map(sub => {
+    // If sub has children (sub-subcategories), add papers to those
+    if (sub.children?.length > 0) {
+      return {
+        name: sub.name,
+        description: sub.description,
+        paper_count: sub.paper_count,
+        children: sub.children.map(child => ({
+          name: child.name,
+          description: child.description,
+          paper_count: child.paper_count,
+          children: papersToChildren(child.papers)
+        }))
+      };
+    }
+    // Otherwise add papers directly to subcategory
+    return {
+      name: sub.name,
+      description: sub.description,
+      paper_count: sub.paper_count,
+      children: papersToChildren(sub.papers)
+    };
+  });
 
   if (json.unassigned?.length > 0) {
     children.push({
       name: "Unassigned",
       description: "Papers not fitting any subcategory",
       paper_count: json.unassigned.length,
-      papers: json.unassigned
+      children: papersToChildren(json.unassigned)
     });
   }
 
@@ -130,23 +151,30 @@ function render() {
   // Label - truncate based on available space after indent, with padding
   update.select('.label')
     .attr('x', d => d.x + LABEL_X)
+    .attr('class', d => d.data.isPaper ? 'label paper' : 'label')
     .text(d => {
       const availableWidth = LABEL_AREA_WIDTH - d.x - LABEL_X - LABEL_PAD;
-      const maxChars = Math.floor(availableWidth / 8.5);  // ~8.5px per char in mono
+      const maxChars = Math.floor(availableWidth / 8.5);
       return truncate(d.data.name, maxChars);
+    })
+    .style('cursor', d => d.data.isPaper ? 'pointer' : null)
+    .on('click', (event, d) => {
+      if (d.data.isPaper && d.data.arxiv_code) {
+        window.open(`https://arxiv.org/abs/${d.data.arxiv_code}`, '_blank');
+      }
     });
 
-  // Bar - position after label area
+  // Bar - position after label area (hide for papers)
   const barX = LABEL_AREA_WIDTH + LABEL_PAD;
   update.select('.bar')
     .attr('x', barX)
     .transition().duration(300)
-    .attr('width', d => barScale(d.data.paper_count));
+    .attr('width', d => d.data.isPaper ? 0 : barScale(d.data.paper_count || 0));
 
-  // Count
+  // Count (hide for papers - arxiv shown in tooltip)
   update.select('.count')
-    .attr('x', d => barX + barScale(d.data.paper_count) + 10)
-    .text(d => d.data.paper_count);
+    .attr('x', d => barX + barScale(d.data.paper_count || 0) + 10)
+    .text(d => d.data.isPaper ? '' : d.data.paper_count);
 
   // Tooltip events
   update
@@ -181,10 +209,14 @@ function collapseAll() {
 
 // Tooltip functions
 function showTooltip(event, d) {
-  if (d.data.description) {
-    tooltip
-      .style('opacity', 1)
-      .html(d.data.description);
+  let content = null;
+  if (d.data.isPaper) {
+    content = `<strong>${d.data.arxiv_code}</strong><br>${d.data.name}`;
+  } else if (d.data.description) {
+    content = d.data.description;
+  }
+  if (content) {
+    tooltip.style('opacity', 1).html(content);
   }
 }
 

@@ -86,6 +86,16 @@ svg {
 
 .label { fill: var(--text-primary); }
 
+.label.paper {
+  fill: var(--text-secondary);
+  font-size: 12px;
+}
+
+.label.paper:hover {
+  fill: var(--bar-fill);
+  text-decoration: underline;
+}
+
 .bar {
   fill: var(--bar-fill);
   rx: 2;
