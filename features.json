@@ -67,5 +67,23 @@
     "discovered_from": null,
     "spec_file": "docs/plans/concept-granularity.md",
     "created_at": "2025-12-29"
+  },
+  {
+    "id": "gran-002.1",
+    "description": "Interactive D3.js visualization of hierarchy data (indented tree with bars)",
+    "steps": [
+      "Create viz/ directory with HTML/CSS/JS",
+      "Implement indented tree layout with quantitative bars",
+      "Add collapse/expand interactivity",
+      "Add file selector for all hierarchy files"
+    ],
+    "status": "done",
+    "priority": 2,
+    "depends_on": [
+      "gran-002"
+    ],
+    "discovered_from": "gran-002",
+    "spec_file": "docs/history/20251230_gran-002.1_hierarchy_viz.md",
+    "created_at": "2025-12-30"
   }
 ]

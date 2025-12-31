@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --bar-fill: #2563eb;
+  --bar-hover: #1d4ed8;
+  --structure-gray: #d1d5db;
+  --bg: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg);
+  padding: 24px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--structure-gray);
+  padding-bottom: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+select {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid var(--structure-gray);
+  border-radius: 4px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+button {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--structure-gray);
+  border-radius: 4px;
+  background: var(--bg);
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+button:hover {
+  background: #f3f4f6;
+}
+
+main {
+  overflow-x: auto;
+}
+
+svg {
+  display: block;
+  overflow: visible;
+}
+
+.row { cursor: pointer; }
+
+.toggle {
+  fill: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle:hover { fill: var(--text-primary); }
+
+.label { fill: var(--text-primary); }
+
+.bar {
+  fill: var(--bar-fill);
+  rx: 2;
+}
+
+.row:hover .bar { fill: var(--bar-hover); }
+
+.count {
+  fill: var(--text-secondary);
+  font-size: 12px;
+}
+
+#tooltip {
+  position: absolute;
+  background: var(--text-primary);
+  color: var(--bg);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  max-width: 300px;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.15s;
+}

@@ -34,7 +34,11 @@ embeddings/
 │   └── 20251230_granularity/      # Concept granularity study
 │       ├── discover.py            # Hierarchy discovery logic
 │       ├── run_discovery.py       # CLI entry point
-│       └── render_hierarchy.py    # Tree/markdown rendering
+│       ├── render_hierarchy.py    # Tree/markdown rendering
+│       └── viz/                   # D3.js interactive visualization
+│           ├── index.html
+│           ├── style.css
+│           └── hierarchy-tree.js
 ├── data/                          # Generated outputs (gitignored)
 │   └── 20251230_granularity/      # Study outputs
 ├── docs/
