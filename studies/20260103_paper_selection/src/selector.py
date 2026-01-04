@@ -3,7 +3,7 @@
 import time
 from dataclasses import dataclass
 
-from src.llm import call_gemini, parse_json_response
+from src.llm import call_gemini, parse_json_response, DEFAULT_MODEL
 
 
 SELECTION_PROMPT = '''You are evaluating AI/LLM research papers for interestingness.
@@ -59,6 +59,8 @@ class Selection:
 class SelectionResult:
     selections: list[Selection]
     usage: dict
+    model: str
+    reasoning_effort: str | None = None
 
 
 def format_papers_for_prompt(papers: list) -> str:
@@ -73,12 +75,19 @@ def format_papers_for_prompt(papers: list) -> str:
     return "\n".join(lines)
 
 
-def select_papers(papers: list, top_k: int = 5) -> SelectionResult:
+def select_papers(
+    papers: list,
+    top_k: int = 5,
+    model: str = DEFAULT_MODEL,
+    reasoning_effort: str | None = None,
+) -> SelectionResult:
     """Have LLM select top-k interesting papers.
 
     Args:
         papers: List of PaperSample objects
         top_k: Number of papers to select
+        model: Model identifier
+        reasoning_effort: Thinking level - "minimal", "low", "medium", "high", or None
 
     Returns:
         SelectionResult with selections and token usage
@@ -86,7 +95,7 @@ def select_papers(papers: list, top_k: int = 5) -> SelectionResult:
     papers_text = format_papers_for_prompt(papers)
     prompt = SELECTION_PROMPT.format(top_k=top_k, papers_text=papers_text)
 
-    response = call_gemini(prompt, json_mode=True)
+    response = call_gemini(prompt, model=model, json_mode=True, reasoning_effort=reasoning_effort)
     data = parse_json_response(response)
 
     selections = [
@@ -94,11 +103,21 @@ def select_papers(papers: list, top_k: int = 5) -> SelectionResult:
         for s in data["selections"]
     ]
 
-    return SelectionResult(selections=selections, usage=response.usage)
+    return SelectionResult(
+        selections=selections,
+        usage=response.usage,
+        model=response.model,
+        reasoning_effort=response.reasoning_effort,
+    )
 
 
 def run_multi_selection(
-    papers: list, top_k: int = 5, runs: int = 30, delay: float = 0.5
+    papers: list,
+    top_k: int = 5,
+    runs: int = 30,
+    delay: float = 0.5,
+    model: str = DEFAULT_MODEL,
+    reasoning_effort: str | None = None,
 ) -> list[SelectionResult]:
     """Run selection multiple times to build distribution.
 
@@ -107,13 +126,15 @@ def run_multi_selection(
         top_k: Number of papers to select per run
         runs: Number of runs
         delay: Seconds between API calls (rate limiting)
+        model: Model identifier
+        reasoning_effort: Thinking level - "minimal", "low", "medium", "high", or None
 
     Returns:
         List of SelectionResult objects
     """
     results = []
     for i in range(runs):
-        result = select_papers(papers, top_k)
+        result = select_papers(papers, top_k, model=model, reasoning_effort=reasoning_effort)
         results.append(result)
         if i < runs - 1:
             time.sleep(delay)

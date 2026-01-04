@@ -1,0 +1,50 @@
+<main class="viz-main">
+<header class="viz-header">
+<p class="intro">I want to find the most interesting papers from a pool of ~200 recent AI publications. Rather than read all abstracts myself, I asked an LLM to select the top 5. This task—picking or ranking items from a collection—is increasingly common in LLM workflows, from content curation to research triage. But how reliable is a single response?</p><br/>
+<p class="intro">I tested two approaches: <strong>single-shot</strong>, where I take the model's first answer as-is, and <strong>consensus</strong>, where I run the same prompt 30 times and keep papers that appear in more than half the responses. The results below show what each method selected.</p>
+</header>
+
+<section id="sel-conclusion">
+<div class="model-selector">
+<span class="model-label">Results for</span>
+<select id="sel-model"></select>:
+</div>
+<p class="conclusion">Multi-run consensus clearly outperforms single-shot selection. The consensus papers—those chosen consistently across 30 runs—read as genuinely interesting when reviewing their abstracts: process reward models, representation hijacking, and test-time compute reuse. The single-shot selection, by contrast, includes two hallucinated arXiv codes that don't exist in the source pool. Only 1 of its 5 picks overlaps with the consensus set. For selection tasks, running multiple samples and taking majority votes is worth the extra compute.</p>
+</section>
+
+<section id="sel-stats"></section>
+
+<section id="sel-comparison">
+<div class="comparison-container">
+<div class="column" id="sel-single-column">
+<h3>Single-shot <span class="count"></span></h3>
+<div class="column-subtitle">Papers from one sampled run</div>
+<div class="paper-list"></div>
+</div>
+<div class="column" id="sel-consensus-column">
+<h3>Top 5 by frequency <span class="threshold"></span></h3>
+<div class="column-subtitle">Muted = below 50% threshold</div>
+<div class="paper-list"></div>
+</div>
+</div>
+</section>
+
+<section id="sel-frequency">
+<h3 class="collapsible">
+<span class="toggle-icon">&#x25BC;</span>
+All Selections <span class="count"></span>
+<span class="bar-label">% of 30 runs</span>
+<select id="sel-sort">
+<option value="frequency">Sort by frequency</option>
+<option value="title">Sort by title</option>
+</select>
+</h3>
+<div class="marker-legend">
+<span><span class="marker-consensus">*</span> in top 5</span>
+<span><span class="marker-single">·</span> in single-shot</span>
+</div>
+<div class="paper-list" id="sel-freq-list"></div>
+</section>
+</main>
+
+<div id="sel-tooltip" class="viz-tooltip"></div>

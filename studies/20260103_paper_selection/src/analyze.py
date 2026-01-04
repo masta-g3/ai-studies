@@ -2,8 +2,16 @@
 
 import argparse
 import json
+import re
 from collections import Counter
 from pathlib import Path
+
+
+def model_id_to_display_name(model_id: str) -> str:
+    """Convert model ID to human-readable display name."""
+    # gemini-3-flash-preview -> Gemini 3 Flash Preview
+    words = model_id.replace("-", " ").split()
+    return " ".join(w.capitalize() for w in words)
 
 
 def compute_run_similarity(runs: list) -> list[dict]:
@@ -22,15 +30,17 @@ def compute_run_similarity(runs: list) -> list[dict]:
     return similarities
 
 
-def analyze_results(data_dir: Path) -> dict:
-    """Analyze results and prepare visualization data."""
-    with open(data_dir / "papers_pool.json") as f:
-        pool = {p["arxiv_code"]: p for p in json.load(f)}
+def analyze_results(run_dir: Path, pool: dict) -> dict:
+    """Analyze results and prepare visualization data.
 
-    with open(data_dir / "single_shot.json") as f:
+    Args:
+        run_dir: Directory containing single_shot.json and multi_run_results.json
+        pool: Paper pool dict keyed by arxiv_code
+    """
+    with open(run_dir / "single_shot.json") as f:
         single = json.load(f)
 
-    with open(data_dir / "multi_run_results.json") as f:
+    with open(run_dir / "multi_run_results.json") as f:
         multi = json.load(f)
 
     z = multi["params"]["z"]
@@ -90,6 +100,14 @@ def analyze_results(data_dir: Path) -> dict:
     # Consensus papers (>50% selection rate)
     consensus_papers = [p for p in papers_with_freq if p["percentage"] > 50]
 
+    # Top 5 by frequency (for comparison with single-shot)
+    top_5_papers = []
+    for p in papers_with_freq[:5]:
+        top_5_papers.append({
+            **p,
+            "above_threshold": p["percentage"] > 50,
+        })
+
     # Run-to-run stability
     run_similarities = compute_run_similarity(multi["runs"])
     avg_similarity = (
@@ -115,6 +133,7 @@ def analyze_results(data_dir: Path) -> dict:
         "summary": summary,
         "single_shot": single_shot_papers,
         "consensus": consensus_papers,
+        "top_5": top_5_papers,
         "frequency_distribution": papers_with_freq,
         "run_similarities": run_similarities,
     }
@@ -125,28 +144,73 @@ def main():
     parser.add_argument(
         "--data-dir",
         type=Path,
-        default=Path("data/20250103_paper_selection"),
+        default=Path(__file__).parent.parent / "data",
+        help="Directory containing papers_pool.json and runs/ subdirectory",
+    )
+    parser.add_argument(
+        "--publish-dir",
+        type=Path,
+        default=Path(__file__).parent.parent / "publish" / "viz",
+        help="Output directory for viz data files",
     )
     args = parser.parse_args()
 
-    results = analyze_results(args.data_dir)
+    # Load paper pool
+    with open(args.data_dir / "papers_pool.json") as f:
+        pool = {p["arxiv_code"]: p for p in json.load(f)}
 
-    output_path = args.data_dir / "viz_data.json"
-    with open(output_path, "w") as f:
-        json.dump(results, f, indent=2)
+    # Find all model runs
+    runs_dir = args.data_dir / "runs"
+    if not runs_dir.exists():
+        print(f"Error: No runs directory found at {runs_dir}")
+        return
 
-    # Console summary
-    s = results["summary"]
-    print(f"\n=== Summary ===")
-    print(
-        f"Pool: {s['pool_size']} papers | Runs: {s['total_runs']} × {s['papers_per_run']} selections"
-    )
-    print(
-        f"Unique selected: {s['unique_papers_selected']} | Consensus (>50%): {s['consensus_count']}"
-    )
-    print(f"Avg run similarity: {s['avg_run_similarity']:.1%}")
-    print(f"Single-shot in consensus: {s['single_in_consensus']}/{s['papers_per_run']}")
-    print(f"\nViz data: {output_path}")
+    model_dirs = [d for d in runs_dir.iterdir() if d.is_dir()]
+    if not model_dirs:
+        print(f"Error: No model runs found in {runs_dir}")
+        return
+
+    # Create output directories
+    viz_data_dir = args.publish_dir / "data"
+    viz_data_dir.mkdir(parents=True, exist_ok=True)
+
+    # Process each model
+    models_index = {"default": None, "models": []}
+    for model_dir in sorted(model_dirs):
+        model_id = model_dir.name
+        print(f"\n=== Analyzing {model_id} ===")
+
+        results = analyze_results(model_dir, pool)
+
+        # Save per-model viz data
+        output_path = viz_data_dir / f"{model_id}.json"
+        with open(output_path, "w") as f:
+            json.dump(results, f, indent=2)
+
+        # Add to models index
+        models_index["models"].append({
+            "id": model_id,
+            "name": model_id_to_display_name(model_id),
+            "file": f"data/{model_id}.json",
+        })
+
+        # Console summary
+        s = results["summary"]
+        print(f"Pool: {s['pool_size']} papers | Runs: {s['total_runs']} × {s['papers_per_run']} selections")
+        print(f"Unique selected: {s['unique_papers_selected']} | Consensus (>50%): {s['consensus_count']}")
+        print(f"Avg run similarity: {s['avg_run_similarity']:.1%}")
+        print(f"Single-shot in consensus: {s['single_in_consensus']}/{s['papers_per_run']}")
+        print(f"Saved: {output_path}")
+
+    # Set default to first model
+    if models_index["models"]:
+        models_index["default"] = models_index["models"][0]["id"]
+
+    # Write models index
+    models_path = args.publish_dir / "models.json"
+    with open(models_path, "w") as f:
+        json.dump(models_index, f, indent=2)
+    print(f"\nModels index: {models_path} ({len(models_index['models'])} models)")
 
 
 if __name__ == "__main__":

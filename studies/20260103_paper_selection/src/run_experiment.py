@@ -2,11 +2,23 @@
 
 import argparse
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
 from sample import sample_papers, get_sample_distribution, PaperSample
-from selector import select_papers, run_multi_selection
+from selector import select_papers, run_multi_selection, DEFAULT_MODEL
+
+
+def model_to_id(model: str, reasoning_effort: str | None = None) -> str:
+    """Convert model string to filesystem-safe ID."""
+    # Remove provider prefix (e.g., "gemini/" -> "")
+    name = model.split("/")[-1] if "/" in model else model
+    # Replace unsafe chars with hyphens
+    base_id = re.sub(r"[^a-zA-Z0-9-]", "-", name).strip("-")
+    if reasoning_effort:
+        return f"{base_id}-{reasoning_effort}"
+    return base_id
 
 
 def save_json(data: dict | list, path: Path):
@@ -50,6 +62,14 @@ def main():
     )
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--delay", type=float, default=0.5, help="Delay between API calls")
+    parser.add_argument("--model", type=str, default=DEFAULT_MODEL, help="LLM model to use")
+    parser.add_argument(
+        "--reasoning-effort",
+        type=str,
+        choices=["minimal", "low", "medium", "high"],
+        default="medium",
+        help="Reasoning/thinking effort level (default: medium)",
+    )
     parser.add_argument(
         "--output-dir",
         type=Path,
@@ -105,13 +125,19 @@ def main():
             return
 
         papers = load_pool(pool_path)
+        model_id = model_to_id(args.model, args.reasoning_effort)
+        run_dir = args.output_dir / "runs" / model_id
         print(f"Loaded {len(papers)} papers from pool")
+        print(f"Model: {args.model} (id: {model_id})")
+        print(f"Reasoning effort: {args.reasoning_effort}")
 
         # Single-shot baseline
         print("\n=== Single-shot selection ===")
-        single = select_papers(papers, top_k=args.x)
+        single = select_papers(papers, top_k=args.x, model=args.model, reasoning_effort=args.reasoning_effort)
         single_data = {
             "timestamp": datetime.now().isoformat(),
+            "model": args.model,
+            "reasoning_effort": args.reasoning_effort,
             "params": {"n": len(papers), "x": args.x},
             "selections": [
                 {"arxiv_code": s.arxiv_code, "reasoning": s.reasoning}
@@ -119,14 +145,18 @@ def main():
             ],
             "usage": single.usage,
         }
-        save_json(single_data, args.output_dir / "single_shot.json")
+        save_json(single_data, run_dir / "single_shot.json")
         print(f"Selected: {[s.arxiv_code for s in single.selections]}")
 
         # Multi-run
         print(f"\n=== Multi-run selection ({args.z} runs) ===")
-        multi = run_multi_selection(papers, top_k=args.x, runs=args.z, delay=args.delay)
+        multi = run_multi_selection(
+            papers, top_k=args.x, runs=args.z, delay=args.delay, model=args.model, reasoning_effort=args.reasoning_effort
+        )
         multi_data = {
             "timestamp": datetime.now().isoformat(),
+            "model": args.model,
+            "reasoning_effort": args.reasoning_effort,
             "params": {"n": len(papers), "x": args.x, "z": args.z},
             "runs": [
                 {
@@ -140,8 +170,9 @@ def main():
                 for i, r in enumerate(multi)
             ],
         }
-        save_json(multi_data, args.output_dir / "multi_run_results.json")
+        save_json(multi_data, run_dir / "multi_run_results.json")
         print(f"Completed {args.z} runs")
+        print(f"Results saved to {run_dir}")
 
         # Quick summary
         total_tokens = sum(r.usage["prompt_tokens"] + r.usage["completion_tokens"] for r in multi)
