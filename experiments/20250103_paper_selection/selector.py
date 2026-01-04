@@ -29,6 +29,7 @@ SELECTION_PROMPT = '''You are evaluating AI/LLM research papers for interestingn
 ## Task
 
 From the papers below, select the TOP {top_k} most interesting papers.
+Use the exact arxiv_code values shown in brackets (e.g., [1] 2501.12345).
 
 Return JSON:
 ```json

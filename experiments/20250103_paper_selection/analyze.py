@@ -36,15 +36,22 @@ def analyze_results(data_dir: Path) -> dict:
     z = multi["params"]["z"]
     x = multi["params"]["x"]
 
-    # Selection frequency across runs
+    # Selection frequency across runs (filter hallucinated codes)
     selection_counts = Counter()
     reasoning_by_paper = {}
+    hallucinated = set()
 
     for run in multi["runs"]:
         for sel in run["selections"]:
             code = sel["arxiv_code"]
+            if code not in pool:
+                hallucinated.add(code)
+                continue
             selection_counts[code] += 1
             reasoning_by_paper.setdefault(code, []).append(sel["reasoning"])
+
+    if hallucinated:
+        print(f"Warning: {len(hallucinated)} hallucinated arxiv codes skipped: {hallucinated}")
 
     # Build paper data with frequency
     papers_with_freq = []
@@ -61,11 +68,13 @@ def analyze_results(data_dir: Path) -> dict:
         })
 
     # Single-shot papers (with flag for comparison)
-    single_codes = {s["arxiv_code"] for s in single["selections"]}
+    single_codes = {s["arxiv_code"] for s in single["selections"] if s["arxiv_code"] in pool}
     single_shot_papers = []
     freq_by_code = {p["arxiv_code"]: p for p in papers_with_freq}
     for sel in single["selections"]:
         code = sel["arxiv_code"]
+        if code not in pool:
+            continue
         paper = pool[code]
         freq_entry = freq_by_code.get(code)
         single_shot_papers.append({
