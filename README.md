@@ -1,6 +1,6 @@
-# Embeddings Research
+# AI Studies
 
-A structured research repository for exploring embedding concepts from machine learning. Collects resources from academic papers, blogs, and publications, synthesizes findings, and prepares accessible content for publication.
+A structured research repository for AI/ML topics. Collects resources from academic papers, blogs, and publications, synthesizes findings, and prepares accessible content for publication.
 
 ## Quick Start
 
@@ -12,7 +12,7 @@ source .venv/bin/activate
 ## Structure
 
 - `src/` - Shared Python modules
-- `studies/` - Self-contained research studies (each with `src/`, `viz/`, `data/`)
+- `studies/` - Self-contained research studies (each with `src/`, `publish/`, `data/`)
 - `docs/` - Project documentation
 
 See [docs/STRUCTURE.md](docs/STRUCTURE.md) for detailed architecture.

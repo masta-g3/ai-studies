@@ -1,8 +1,8 @@
-# Embeddings Research - Project Structure
+# AI Studies - Project Structure
 
 ## Vision
 
-A lightweight research repository for investigating embedding concepts from machine learning. The goal is to:
+A lightweight research repository for investigating AI/ML topics. The goal is to:
 
 1. **Collect** resources (papers, blogs, publications) via MCP paper archive + web search
 2. **Analyze** embeddings through structured Python experiments
@@ -25,7 +25,7 @@ This repo prioritizes discoverability and maintainability over complexity.
 ## Architecture
 
 ```
-embeddings/
+ai-studies/
 ├── src/                           # Shared Python modules
 │   ├── __init__.py
 │   ├── db.py                      # PostgreSQL utilities (papers, embeddings)
@@ -33,7 +33,9 @@ embeddings/
 ├── studies/                       # Self-contained research studies
 │   └── YYYYMMDD_topic/            # Each study is a dated directory
 │       ├── src/                   # Study-specific scripts
-│       ├── viz/                   # D3.js interactive visualizations
+│       ├── publish/               # Blog-ready outputs
+│       │   ├── viz/               # D3.js files (app.html, style.css, main.js)
+│       │   └── index.qmd          # Quarto document
 │       └── data/                  # Generated outputs (gitignored)
 ├── docs/
 │   ├── plans/                     # Active feature plans
@@ -56,8 +58,8 @@ Studies emerge through conversation, not upfront scaffolding. The user drives di
 1. **Question** — User defines what we're investigating
 2. **Explore** — Query database, read papers, gather context (iterative, user-guided)
 3. **Build** — Scripts in `studies/{date}_{topic}/src/`, outputs to `studies/{date}_{topic}/data/`
-4. **Visualize** — D3.js in `viz/` subdirectory, following [VISUAL_GUIDE.md](VISUAL_GUIDE.md)
-5. **Publish** — Synthesize findings for blog (separate repo)
+4. **Visualize** — D3.js in `publish/viz/`, following [VISUAL_GUIDE.md](VISUAL_GUIDE.md)
+5. **Publish** — Quarto document in `publish/index.qmd`, synced to blog repo
 
 Steps 2-4 often interleave. Don't pre-scaffold—build what's needed when it's needed.
 
@@ -67,7 +69,7 @@ Steps 2-4 often interleave. Don't pre-scaffold—build what's needed when it's n
 
 **Study structure**: Each study is self-contained:
 - `src/` — Study-specific scripts (not meant for reuse)
-- `viz/` — D3.js visualizations
+- `publish/` — Blog outputs (`viz/` for D3.js, `index.qmd` for Quarto)
 - `data/` — Generated outputs (gitignored)
 
 **Shared code**: Top-level `src/` for utilities reusable across studies.

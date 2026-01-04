@@ -310,10 +310,10 @@ Before generating output:
 
 ## File Output Structure
 
-Each study should produce a complete post folder:
+Each study produces blog-ready output in `studies/{study}/publish/`:
 
 ```
-YYYYMMDD_study-slug/
+publish/
 ├── index.qmd      # Quarto wrapper (see template below)
 └── viz/
     ├── app.html       # HTML fragment (no doctype/head/body)
@@ -350,7 +350,7 @@ format:
 <script src="viz/main.js" defer></script>
 ```
 
-The folder name should follow the pattern `YYYYMMDD_slug` (e.g., `20260103_llm-resampling`).
+When synced to the blog repo, this becomes `posts/YYYYMMDD_slug/` (e.g., `posts/20260103_llm-resampling/`).
 
 ## Quarto Integration
 
