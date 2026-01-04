@@ -102,5 +102,22 @@
     "discovered_from": null,
     "spec_file": "docs/history/20250103_sel-001_paper_selection.md",
     "created_at": "2025-01-03"
+  },
+  {
+    "id": "struct-001",
+    "description": "Consolidate experiments/ and data/ into unified studies/ directory structure",
+    "steps": [
+      "Create studies/ with per-study src/, viz/, data/ subdirectories",
+      "Move 20251230_granularity files",
+      "Move 20250103_paper_selection files",
+      "Update import paths and data paths in scripts",
+      "Update .gitignore and documentation"
+    ],
+    "status": "done",
+    "priority": 1,
+    "depends_on": [],
+    "discovered_from": null,
+    "spec_file": "docs/history/20250103_struct-001_studies_consolidation.md",
+    "created_at": "2025-01-03"
   }
 ]

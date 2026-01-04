@@ -11,11 +11,9 @@ source .venv/bin/activate
 
 ## Structure
 
-- `src/` - Python analysis scripts
-- `data/` - CSVs and experimental data
-- `research/` - Questions, resources, and findings
+- `src/` - Shared Python modules
+- `studies/` - Self-contained research studies (each with `src/`, `viz/`, `data/`)
 - `docs/` - Project documentation
-- `notebooks/` - Exploratory analysis
 
 See [docs/STRUCTURE.md](docs/STRUCTURE.md) for detailed architecture.
 

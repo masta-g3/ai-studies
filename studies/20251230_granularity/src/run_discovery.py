@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from discover import run_discovery
 
-DATA_DIR = Path("data/20251230_granularity")
+DATA_DIR = Path(__file__).parent.parent / "data"
 
 
 def main():

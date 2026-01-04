@@ -30,17 +30,11 @@ embeddings/
 │   ├── __init__.py
 │   ├── db.py                      # PostgreSQL utilities (papers, embeddings)
 │   └── llm.py                     # LiteLLM wrapper for Gemini
-├── experiments/                   # Study-specific scripts
-│   └── 20251230_granularity/      # Concept granularity study
-│       ├── discover.py            # Hierarchy discovery logic
-│       ├── run_discovery.py       # CLI entry point
-│       ├── render_hierarchy.py    # Tree/markdown rendering
-│       └── viz/                   # D3.js interactive visualization
-│           ├── index.html
-│           ├── style.css
-│           └── hierarchy-tree.js
-├── data/                          # Generated outputs (gitignored)
-│   └── 20251230_granularity/      # Study outputs
+├── studies/                       # Self-contained research studies
+│   └── YYYYMMDD_topic/            # Each study is a dated directory
+│       ├── src/                   # Study-specific scripts
+│       ├── viz/                   # D3.js interactive visualizations
+│       └── data/                  # Generated outputs (gitignored)
 ├── docs/
 │   ├── plans/                     # Active feature plans
 │   ├── history/                   # Archived completed features
@@ -61,7 +55,7 @@ Studies emerge through conversation, not upfront scaffolding. The user drives di
 
 1. **Question** — User defines what we're investigating
 2. **Explore** — Query database, read papers, gather context (iterative, user-guided)
-3. **Build** — Scripts in `experiments/{date}_{topic}/`, outputs to `data/{date}_{topic}/`
+3. **Build** — Scripts in `studies/{date}_{topic}/src/`, outputs to `studies/{date}_{topic}/data/`
 4. **Visualize** — D3.js in `viz/` subdirectory, following [VISUAL_GUIDE.md](VISUAL_GUIDE.md)
 5. **Publish** — Synthesize findings for blog (separate repo)
 
@@ -71,11 +65,17 @@ Steps 2-4 often interleave. Don't pre-scaffold—build what's needed when it's n
 
 **Naming**: Studies use `YYYYMMDD_topic` prefix for chronological grouping.
 
-**Code location**:
-- `src/` — Shared utilities (reusable across studies)
-- `experiments/` — Study-specific scripts (not meant for reuse)
+**Study structure**: Each study is self-contained:
+- `src/` — Study-specific scripts (not meant for reuse)
+- `viz/` — D3.js visualizations
+- `data/` — Generated outputs (gitignored)
 
-**Data**: Generated outputs live in `data/` (gitignored). Raw JSON for traceability.
+**Shared code**: Top-level `src/` for utilities reusable across studies.
+
+**Running scripts**: From project root with `PYTHONPATH=.`:
+```bash
+PYTHONPATH=. python studies/20251230_granularity/src/run_discovery.py --help
+```
 
 **Features**: Tracked in `features.json` with epic prefixes (e.g., `gran-001`, `gran-002`). Plans start in `docs/plans/`, archived to `docs/history/` on completion.
 

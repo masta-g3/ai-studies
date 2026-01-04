@@ -4,11 +4,6 @@ __pycache__/
 .venv/
 *.egg-info/
 
-# Data (keep structure, ignore large files)
-data/raw/*.json
-data/raw/*.csv
-!data/raw/.gitkeep
-
 # IDE
 .idea/
 .vscode/
@@ -21,4 +16,4 @@ data/raw/*.csv
 uv.lock
 
 # Generated study data
-data/**/*.json
+studies/*/data/

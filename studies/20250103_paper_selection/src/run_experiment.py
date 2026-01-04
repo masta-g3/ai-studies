@@ -53,7 +53,7 @@ def main():
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("data/20250103_paper_selection"),
+        default=Path(__file__).parent.parent / "data",
     )
 
     args = parser.parse_args()
