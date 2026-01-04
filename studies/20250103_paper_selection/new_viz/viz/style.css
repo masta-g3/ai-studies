@@ -22,15 +22,11 @@
   margin-bottom: 48px;
 }
 
-.viz-main h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.subtitle {
+.intro {
   color: var(--mid-gray);
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 600px;
 }
 
 /* Headline Stats */

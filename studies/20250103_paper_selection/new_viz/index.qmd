@@ -1,0 +1,21 @@
+---
+title: "LLM Paper Selection Experiment"
+description: "Comparing single-shot LLM paper selection against multi-run consensus voting."
+date: "2025-01-03"
+categories: [experiments, llm]
+resources:
+  - "viz/viz_data.json"
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+<div class="viz-container">
+{{< include viz/app.html >}}
+</div>
+
+<link rel="stylesheet" href="viz/style.css">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>window.VIZ_DATA_PATH = './viz/viz_data.json';</script>
+<script src="viz/main.js" defer></script>
