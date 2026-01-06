@@ -39,21 +39,41 @@ function hideTooltip() {
   tooltip.classed('visible', false);
 }
 
-// Render headline stats as prose sentence (Tufte: integrate verbal and statistical)
+// Render dynamic conclusion based on data
+function renderConclusion(summary, topX) {
+  const overlap = summary.single_in_consensus;
+  const total = summary.papers_per_run;
+  const similarity = Math.round(summary.avg_run_similarity * 100);
+  const topPct = topX[0]?.percentage || 0;
+  const unique = summary.unique_papers_selected;
+
+  let text;
+  if (unique <= 10 && similarity >= 50) {
+    // High: best
+    text = `Single-shot is enough. The model locks onto ${unique} papers with ${Math.round(topPct)}% top agreement—and the picks match the criteria (surprising findings, not benchmark increments).`;
+  } else if (overlap >= 2 && similarity >= 45) {
+    // Medium: good
+    text = `Single-shot mostly works. Slightly more exploration (${unique} papers), similar top picks to higher effort. ${overlap}/${total} single-shot picks land in consensus.`;
+  } else if (overlap >= 1 && similarity >= 20) {
+    // Low: partial
+    text = `Single-shot is unreliable. The model wanders across ${unique} papers with only ${similarity}% consistency—some strong picks buried in noise. Multi-run voting helps surface them.`;
+  } else {
+    // Minimal: noise
+    text = `Don't trust this. ${unique} scattered papers, ${similarity}% consistency, and single-shot picks are essentially random (${overlap}/${total} consensus overlap). Even multi-run struggles to find signal.`;
+  }
+
+  d3.select('#sel-conclusion .conclusion').text(text);
+}
+
+// Render headline stats as sparkline only
 function renderHeadlineStats(summary, runSimilarities) {
   const container = d3.select('#sel-stats');
   container.html('');
 
-  // Prose sentence instead of stat chips
-  container.append('p')
-    .attr('class', 'stats-sentence')
-    .html(`Across <strong>${summary.total_runs}</strong> runs selecting <strong>${summary.papers_per_run}</strong> papers each from a pool of <strong>${summary.pool_size}</strong>, the LLM chose <strong>${summary.unique_papers_selected}</strong> unique papers. <strong>${summary.consensus_count}</strong> appeared in &gt;50% of runs (consensus). Only <strong>${summary.single_in_consensus}</strong> of the single-shot selection overlaps with consensus.`);
-
-  // Keep sparkline for run similarity
   const simRow = container.append('div').attr('class', 'similarity-row');
   simRow.append('span')
     .attr('class', 'similarity-label')
-    .text(`Run similarity: ${Math.round(summary.avg_run_similarity * 100)}%`);
+    .text(`Run-to-run consistency: ${Math.round(summary.avg_run_similarity * 100)}%`);
 
   const sparkline = simRow.append('div').attr('class', 'sparkline');
   const maxJaccard = d3.max(runSimilarities, d => d.jaccard) || 1;
@@ -158,9 +178,9 @@ function toggleDetail(container, paper, options) {
 }
 
 // Render comparison section
-function renderComparison(singleShot, top5, consensusCount) {
+function renderComparison(singleShot, topX, papersPerRun) {
   const singleShotCodes = new Set(singleShot.map(p => p.arxiv_code));
-  const top5Codes = new Set(top5.map(p => p.arxiv_code));
+  const topXCodes = new Set(topX.map(p => p.arxiv_code));
 
   // Single-shot column
   const singleColumn = d3.select('#sel-single-column');
@@ -168,25 +188,26 @@ function renderComparison(singleShot, top5, consensusCount) {
   const singleList = singleColumn.select('.paper-list');
   singleList.html('');
   singleShot.forEach(paper => {
-    renderPaperRow(singleList, paper, { showOverlap: true, singleShotCodes, consensusCodes: top5Codes });
+    renderPaperRow(singleList, paper, { showOverlap: true, singleShotCodes, consensusCodes: topXCodes });
   });
 
-  // Top 5 column (was consensus)
-  const top5Column = d3.select('#sel-consensus-column');
-  const aboveCount = top5.filter(p => p.above_threshold).length;
-  top5Column.select('.threshold').text(`(${aboveCount} above 50%)`);
-  top5Column.select('.count').text(`(${top5.length})`);
-  const top5List = top5Column.select('.paper-list');
-  top5List.html('');
-  top5.forEach(paper => {
-    renderPaperRow(top5List, paper, { showOverlap: true, singleShotCodes, consensusCodes: top5Codes });
+  // Top X column
+  const topXColumn = d3.select('#sel-consensus-column');
+  topXColumn.select('h3').html(`Top ${papersPerRun} by frequency <span class="threshold"></span>`);
+  const aboveCount = topX.filter(p => p.above_threshold).length;
+  topXColumn.select('.threshold').text(`(${aboveCount} above 50%)`);
+  topXColumn.select('.count').text(`(${topX.length})`);
+  const topXList = topXColumn.select('.paper-list');
+  topXList.html('');
+  topX.forEach(paper => {
+    renderPaperRow(topXList, paper, { showOverlap: true, singleShotCodes, consensusCodes: topXCodes });
   });
 }
 
 // Render frequency list
 function renderFrequencyList(papers, sortBy = 'frequency') {
   const singleShotCodes = new Set(data.single_shot.map(p => p.arxiv_code));
-  const top5Codes = new Set(data.top_5.map(p => p.arxiv_code));
+  const topXCodes = new Set(data.top_x.map(p => p.arxiv_code));
 
   const sorted = [...papers].sort((a, b) => {
     if (sortBy === 'frequency') return b.frequency - a.frequency;
@@ -200,7 +221,7 @@ function renderFrequencyList(papers, sortBy = 'frequency') {
   list.html('');
 
   sorted.forEach(paper => {
-    renderPaperRow(list, paper, { showMarkers: true, singleShotCodes, consensusCodes: top5Codes });
+    renderPaperRow(list, paper, { showMarkers: true, singleShotCodes, consensusCodes: topXCodes });
   });
 }
 
@@ -209,7 +230,14 @@ function populateModelDropdown() {
   const select = d3.select('#sel-model');
   select.html('');
 
-  modelsIndex.models.forEach(model => {
+  const effortOrder = ['minimal', 'low', 'medium', 'high'];
+  const sorted = [...modelsIndex.models].sort((a, b) => {
+    const aIdx = effortOrder.findIndex(e => a.id.endsWith(e));
+    const bIdx = effortOrder.findIndex(e => b.id.endsWith(e));
+    return aIdx - bIdx;
+  });
+
+  sorted.forEach(model => {
     select.append('option')
       .attr('value', model.id)
       .text(model.name);
@@ -226,9 +254,11 @@ async function loadModelData(modelId) {
   const dataPath = DATA_BASE_PATH + model.file;
   data = await d3.json(dataPath);
 
+  renderConclusion(data.summary, data.top_x);
   renderHeadlineStats(data.summary, data.run_similarities);
-  renderComparison(data.single_shot, data.top_5, data.summary.consensus_count);
+  renderComparison(data.single_shot, data.top_x, data.summary.papers_per_run);
   renderFrequencyList(data.frequency_distribution);
+  d3.select('#legend-top-x').text(data.summary.papers_per_run);
 }
 
 // Setup event handlers

@@ -70,6 +70,14 @@
   border-radius: 0;
 }
 
+/* Insight (in footer) */
+.insight {
+  font-size: 13px;
+  color: var(--mid-gray);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
 /* Comparison Section */
 #sel-comparison {
   margin-bottom: 48px;
@@ -389,6 +397,22 @@
 
 .viz-tooltip .tooltip-abstract {
   line-height: 1.5;
+}
+
+/* Footer / Takeaway */
+.viz-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.takeaway {
+  font-size: 14px;
+  color: var(--mid-gray);
+}
+
+.takeaway strong {
+  color: var(--black);
 }
 
 /* Responsive */

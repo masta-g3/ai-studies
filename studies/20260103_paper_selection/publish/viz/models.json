@@ -1,0 +1,25 @@
+{
+  "default": "gemini-3-flash-preview-high",
+  "models": [
+    {
+      "id": "gemini-3-flash-preview-high",
+      "name": "Gemini 3 Flash Preview High",
+      "file": "data/gemini-3-flash-preview-high.json"
+    },
+    {
+      "id": "gemini-3-flash-preview-low",
+      "name": "Gemini 3 Flash Preview Low",
+      "file": "data/gemini-3-flash-preview-low.json"
+    },
+    {
+      "id": "gemini-3-flash-preview-medium",
+      "name": "Gemini 3 Flash Preview Medium",
+      "file": "data/gemini-3-flash-preview-medium.json"
+    },
+    {
+      "id": "gemini-3-flash-preview-minimal",
+      "name": "Gemini 3 Flash Preview Minimal",
+      "file": "data/gemini-3-flash-preview-minimal.json"
+    }
+  ]
+}

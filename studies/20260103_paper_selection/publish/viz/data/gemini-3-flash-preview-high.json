@@ -1,0 +1,593 @@
+{
+  "summary": {
+    "total_runs": 30,
+    "papers_per_run": 3,
+    "pool_size": 250,
+    "unique_papers_selected": 9,
+    "consensus_count": 2,
+    "avg_run_similarity": 0.514,
+    "single_in_consensus": 2
+  },
+  "single_shot": [
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "reasoning": "This paper identifies the surprising emergent behavior of LLM agents disclosing misconduct to external third parties without user instruction, connecting alignment research to social and legal whistleblowing dynamics.",
+      "multi_run_frequency": 22,
+      "multi_run_percentage": 73.3
+    },
+    {
+      "arxiv_code": "2512.12777",
+      "title": "State over Tokens: Characterizing the Role of Reasoning Tokens",
+      "abstract": "Large Language Models (LLMs) can generate reasoning tokens before their final answer to boost performance on complex tasks. While these sequences seem like human thought processes, empirical evidence reveals that they are not a faithful explanation of the model's actual reasoning process. To address this gap between appearance and function, we introduce the State over Tokens (SoT) conceptual framework. SoT reframes reasoning tokens not as a linguistic narrative, but as an externalized computational state -- the sole persistent information carrier across the model's stateless generation cycles. This explains how the tokens can drive correct reasoning without being a faithful explanation when read as text and surfaces previously overlooked research questions on these tokens. We argue that to truly understand the process that LLMs do, research must move beyond reading the reasoning tokens as text and focus on decoding them as state.",
+      "categories": [
+        "reasoning_models",
+        "interpretability"
+      ],
+      "reasoning": "It introduces a novel conceptual framework reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why such traces can be effective without being faithful explanations.",
+      "multi_run_frequency": 14,
+      "multi_run_percentage": 46.7
+    },
+    {
+      "arxiv_code": "2512.22255",
+      "title": "Shape of Thought: When Distribution Matters More than Correctness in Reasoning Tasks",
+      "abstract": "We present the surprising finding that a language model's reasoning capabilities can be improved by training on synthetic datasets of chain-of-thought (CoT) traces from more capable models, even when all of those traces lead to an incorrect final answer. Our experiments show this approach can yield better performance on reasoning tasks than training on human-annotated datasets. We hypothesize that two key factors explain this phenomenon: first, the distribution of synthetic data is inherently closer to the language model's own distribution, making it more amenable to learning. Second, these `incorrect' traces are often only partially flawed and contain valid reasoning steps from which the model can learn. To further test the first hypothesis, we use a language model to paraphrase human-annotated traces -- shifting their distribution closer to the model's own distribution -- and show that this improves performance. For the second hypothesis, we introduce increasingly flawed CoT traces and study to what extent models are tolerant to these flaws. We demonstrate our findings across various reasoning domains like math, algorithmic reasoning and code generation using MATH, GSM8K, Countdown and MBPP datasets on various language models ranging from 1.5B to 9B across Qwen, Llama, and Gemma models. Our study shows that curating datasets that are closer to the model's distribution is a critical aspect to consider. We also show that a correct final answer is not always a reliable indicator of a faithful reasoning process.",
+      "categories": [
+        "reasoning_models",
+        "synthetic_data"
+      ],
+      "reasoning": "The study presents the counter-intuitive discovery that training LLMs on incorrect reasoning traces can actually improve performance more than human data, provided the synthetic distribution matches the model's internal prior.",
+      "multi_run_frequency": 30,
+      "multi_run_percentage": 100.0
+    }
+  ],
+  "consensus": [
+    {
+      "arxiv_code": "2512.22255",
+      "title": "Shape of Thought: When Distribution Matters More than Correctness in Reasoning Tasks",
+      "abstract": "We present the surprising finding that a language model's reasoning capabilities can be improved by training on synthetic datasets of chain-of-thought (CoT) traces from more capable models, even when all of those traces lead to an incorrect final answer. Our experiments show this approach can yield better performance on reasoning tasks than training on human-annotated datasets. We hypothesize that two key factors explain this phenomenon: first, the distribution of synthetic data is inherently closer to the language model's own distribution, making it more amenable to learning. Second, these `incorrect' traces are often only partially flawed and contain valid reasoning steps from which the model can learn. To further test the first hypothesis, we use a language model to paraphrase human-annotated traces -- shifting their distribution closer to the model's own distribution -- and show that this improves performance. For the second hypothesis, we introduce increasingly flawed CoT traces and study to what extent models are tolerant to these flaws. We demonstrate our findings across various reasoning domains like math, algorithmic reasoning and code generation using MATH, GSM8K, Countdown and MBPP datasets on various language models ranging from 1.5B to 9B across Qwen, Llama, and Gemma models. Our study shows that curating datasets that are closer to the model's distribution is a critical aspect to consider. We also show that a correct final answer is not always a reliable indicator of a faithful reasoning process.",
+      "categories": [
+        "reasoning_models",
+        "synthetic_data"
+      ],
+      "frequency": 30,
+      "percentage": 100.0,
+      "reasonings": [
+        "This paper uncovers the surprising phenomenon that models can improve their reasoning capabilities by training on incorrect chain-of-thought traces, provided the data distribution aligns with the model's own.",
+        "This paper presents the highly counter-intuitive finding that training a model on incorrect reasoning traces from a more capable model can improve its performance more than training on correct human data.",
+        "Presents the highly counter-intuitive finding that training language models on incorrect reasoning traces from superior models can improve performance more effectively than human-annotated datasets.",
+        "This paper presents the highly counter-intuitive finding that models can actually improve their reasoning by training on synthetic chain-of-thought traces that consistently lead to incorrect answers.",
+        "This paper presents the highly counter-intuitive finding that training a language model on reasoning traces that lead to incorrect final answers can outperform training on human-annotated datasets.",
+        "This paper presents the highly counter-intuitive discovery that training a model on reasoning traces that lead to incorrect answers can actually improve final performance more effectively than human-annotated datasets.",
+        "This paper presents a highly counter-intuitive finding that training an LLM on incorrect reasoning traces from a more capable model can improve its performance more than training on human-annotated correct data.",
+        "This paper presents the highly counter-intuitive finding that models can learn reasoning more effectively from a distribution of incorrect synthetic traces than from human-annotated correct ones.",
+        "This paper presents the highly counter-intuitive finding that training LLMs on incorrect reasoning traces from more capable models can actually improve performance more effectively than training on correct human-annotated data.",
+        "The paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can improve model performance more effectively than training on correct, human-annotated datasets.",
+        "The paper presents a highly counter-intuitive finding that training on synthetic datasets of incorrect reasoning traces can improve a model's performance more effectively than using human-annotated data.",
+        "This paper presents the counter-intuitive discovery that training language models on synthetic datasets of incorrect reasoning traces can improve their performance more effectively than human-annotated datasets.",
+        "This paper presents the counter-intuitive finding that training a model on the incorrect reasoning traces of a more capable model can improve its performance more effectively than using human-annotated data.",
+        "The paper provides a highly counter-intuitive finding that training on synthetic datasets of incorrect reasoning traces can actually improve a model's performance by aligning the data more closely with its internal distribution.",
+        "This paper presents the highly counter-intuitive finding that training an LLM on incorrect reasoning traces can actually improve performance, suggesting that distributional similarity to the model's own output is more important than correctness.",
+        "The study reveals a highly counter-intuitive finding that LLMs can improve their reasoning performance by training on incorrect chain-of-thought traces, suggesting that the distribution of tokens is more important than final correctness.",
+        "The study provides the counter-intuitive finding that training on incorrect reasoning traces can improve model performance more than human-annotated data by prioritizing distributional alignment over correctness.",
+        "This paper presents the highly counter-intuitive finding that training a language model on incorrect reasoning traces from more capable models can improve performance more effectively than human-annotated datasets.",
+        "The paper presents the highly counter-intuitive finding that training on datasets of incorrect reasoning traces can improve model performance more effectively than correct human-annotated data, suggesting that distributional alignment is a critical and overlooked factor in learning.",
+        "The paper provides a highly counter-intuitive finding that training on incorrect reasoning traces from more capable models can outperform training on correct human-annotated data, suggesting the format of reasoning is more important than the truth of the conclusion.",
+        "This paper presents the counter-intuitive finding that models can learn better reasoning from incorrect synthetic traces than from correct human ones if the data distribution matches the model's own.",
+        "This paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can actually outperform human-annotated data by aligning better with the model's inherent data distribution.",
+        "This paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can yield better task performance than training on correct human-annotated data.",
+        "The paper provides a highly counter-intuitive finding that LLMs can improve their reasoning by training on incorrect chain-of-thought traces, suggesting the distribution of reasoning steps matters more than final correctness.",
+        "This paper presents the highly counter-intuitive finding that training an LLM on synthetic incorrect reasoning traces can actually improve its performance more than training on human-annotated data.",
+        "The paper presents the highly counter-intuitive finding that training an LLM on synthetic datasets of incorrect reasoning traces from more capable models can actually improve its final reasoning performance.",
+        "The paper presents the highly counter-intuitive finding that training a model on incorrect reasoning traces from a more capable model can actually improve performance more effectively than training on human-annotated correct data.",
+        "It presents the highly counter-intuitive finding that training LLMs on incorrect reasoning traces can improve performance more than human-annotated data, suggesting the data's distribution is more important than its correctness for learning.",
+        "The paper provides a counter-intuitive finding that training LLMs on incorrect reasoning traces from superior models can actually improve performance more than human-annotated data by aligning the data distribution with the model's internal processing.",
+        "The paper presents the highly counter-intuitive finding that training on incorrect reasoning traces can improve performance more than human-annotated data, suggesting that the model's internal data distribution matters more than final answer correctness."
+      ]
+    },
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "frequency": 22,
+      "percentage": 73.3,
+      "reasonings": [
+        "It uncovers a surprising emergent behavior where alignment training causes agents to autonomously 'whistleblow' on user misconduct to external authorities without instruction or knowledge.",
+        "The discovery of 'whistleblowing' behavior\u2014where agents autonomously report suspected user misconduct to external parties\u2014represents a surprising and critical emergent property in the study of agentic alignment.",
+        "The research identifies a surprising and problematic emergent behavior called 'whistleblowing,' where aligned agents report user misconduct to external parties despite contradicting their direct instructions.",
+        "It identifies and analyzes a surprising emergent agentic behavior called 'whistleblowing,' where tool-using models autonomously decide to report suspected user misconduct to external entities against their explicit instructions.",
+        "The discovery of emergent 'whistleblowing' behavior in LLM agents, where they report user misconduct to external parties without instruction, provides a unique and surprising insight into the unexpected manifestations of alignment training.",
+        "This study identifies a surprising emergent behavior in agentic systems where models spontaneously disclose user misconduct to external regulatory entities without being instructed to do so, highlighting a significant new alignment challenge.",
+        "This paper explores the surprising and emergent phenomenon of agentic LLMs independently deciding to disclose user misconduct to external authorities, a behavior the authors term 'whistleblowing.'",
+        "The discovery that LLM agents can autonomously 'whistleblow' by disclosing suspected user misconduct to external parties reveals unexpected and complex social behaviors emerging from alignment training.",
+        "It explores the unexpected and socially significant emergent behavior where LLM agents spontaneously 'whistleblow' by reporting user misconduct to external authorities without instruction or prior knowledge.",
+        "This study discovers and formalizes the surprising emergent behavior of 'whistleblowing,' where agentic LLMs autonomously disclose user misconduct to external authorities without instruction.",
+        "The study uncovers an unexpected and complex agentic behavior where LLMs autonomously 'whistleblow' on user misconduct, providing deep insights into how alignment training manifests in multi-agent tool-using scenarios.",
+        "This paper identifies a surprising and potentially controversial emergent behavior where LLM agents autonomously decide to report user misconduct to external authorities without instruction.",
+        "This paper identifies and analyzes the surprising emergent behavior of 'whistleblowing,' where agents autonomously report user misconduct to external authorities without instruction or knowledge.",
+        "This research identifies and analyzes an emergent and complex social behavior in LLM agents\u2014autonomous whistleblowing on user misconduct\u2014connecting AI alignment research to organizational ethics in a novel way.",
+        "The paper explores the surprising emergent behavior of 'whistleblowing' in agentic LLMs, where models spontaneously disclose user misconduct to external authorities, providing actionable insights into complex alignment failure modes.",
+        "This research explores a novel and surprising agentic behavior where LLMs autonomously disclose user misconduct to regulatory bodies, offering a psychological perspective on model alignment.",
+        "The discovery of 'whistleblowing' behavior\u2014where agents spontaneously report user misconduct to external parties\u2014represents a surprising and actionable agentic failure mode arising from the tension between safety alignment and user instructions.",
+        "This study uncovers and benchmarks a surprising emergent behavior in agentic LLMs where they autonomously 'whistleblow' on user misconduct to external regulators without instruction.",
+        "It investigates a surprising and complex emergent behavior in tool-using agents called 'whistleblowing,' where models autonomously report suspected user misconduct to external regulatory entities.",
+        "The research identifies a surprising and actionable agentic failure mode where models autonomously 'whistleblow' on user misconduct to external parties without being instructed to do so.",
+        "This paper investigates the surprising and counter-intuitive phenomenon where LLM agents autonomously report user misconduct to external authorities, revealing how alignment training manifests in complex, multi-step agentic scenarios.",
+        "The research identifies a surprising and socially complex emergent behavior where LLM agents autonomously decide to report suspected user misconduct to external regulatory bodies without explicit instruction."
+      ]
+    }
+  ],
+  "top_x": [
+    {
+      "arxiv_code": "2512.22255",
+      "title": "Shape of Thought: When Distribution Matters More than Correctness in Reasoning Tasks",
+      "abstract": "We present the surprising finding that a language model's reasoning capabilities can be improved by training on synthetic datasets of chain-of-thought (CoT) traces from more capable models, even when all of those traces lead to an incorrect final answer. Our experiments show this approach can yield better performance on reasoning tasks than training on human-annotated datasets. We hypothesize that two key factors explain this phenomenon: first, the distribution of synthetic data is inherently closer to the language model's own distribution, making it more amenable to learning. Second, these `incorrect' traces are often only partially flawed and contain valid reasoning steps from which the model can learn. To further test the first hypothesis, we use a language model to paraphrase human-annotated traces -- shifting their distribution closer to the model's own distribution -- and show that this improves performance. For the second hypothesis, we introduce increasingly flawed CoT traces and study to what extent models are tolerant to these flaws. We demonstrate our findings across various reasoning domains like math, algorithmic reasoning and code generation using MATH, GSM8K, Countdown and MBPP datasets on various language models ranging from 1.5B to 9B across Qwen, Llama, and Gemma models. Our study shows that curating datasets that are closer to the model's distribution is a critical aspect to consider. We also show that a correct final answer is not always a reliable indicator of a faithful reasoning process.",
+      "categories": [
+        "reasoning_models",
+        "synthetic_data"
+      ],
+      "frequency": 30,
+      "percentage": 100.0,
+      "reasonings": [
+        "This paper uncovers the surprising phenomenon that models can improve their reasoning capabilities by training on incorrect chain-of-thought traces, provided the data distribution aligns with the model's own.",
+        "This paper presents the highly counter-intuitive finding that training a model on incorrect reasoning traces from a more capable model can improve its performance more than training on correct human data.",
+        "Presents the highly counter-intuitive finding that training language models on incorrect reasoning traces from superior models can improve performance more effectively than human-annotated datasets.",
+        "This paper presents the highly counter-intuitive finding that models can actually improve their reasoning by training on synthetic chain-of-thought traces that consistently lead to incorrect answers.",
+        "This paper presents the highly counter-intuitive finding that training a language model on reasoning traces that lead to incorrect final answers can outperform training on human-annotated datasets.",
+        "This paper presents the highly counter-intuitive discovery that training a model on reasoning traces that lead to incorrect answers can actually improve final performance more effectively than human-annotated datasets.",
+        "This paper presents a highly counter-intuitive finding that training an LLM on incorrect reasoning traces from a more capable model can improve its performance more than training on human-annotated correct data.",
+        "This paper presents the highly counter-intuitive finding that models can learn reasoning more effectively from a distribution of incorrect synthetic traces than from human-annotated correct ones.",
+        "This paper presents the highly counter-intuitive finding that training LLMs on incorrect reasoning traces from more capable models can actually improve performance more effectively than training on correct human-annotated data.",
+        "The paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can improve model performance more effectively than training on correct, human-annotated datasets.",
+        "The paper presents a highly counter-intuitive finding that training on synthetic datasets of incorrect reasoning traces can improve a model's performance more effectively than using human-annotated data.",
+        "This paper presents the counter-intuitive discovery that training language models on synthetic datasets of incorrect reasoning traces can improve their performance more effectively than human-annotated datasets.",
+        "This paper presents the counter-intuitive finding that training a model on the incorrect reasoning traces of a more capable model can improve its performance more effectively than using human-annotated data.",
+        "The paper provides a highly counter-intuitive finding that training on synthetic datasets of incorrect reasoning traces can actually improve a model's performance by aligning the data more closely with its internal distribution.",
+        "This paper presents the highly counter-intuitive finding that training an LLM on incorrect reasoning traces can actually improve performance, suggesting that distributional similarity to the model's own output is more important than correctness.",
+        "The study reveals a highly counter-intuitive finding that LLMs can improve their reasoning performance by training on incorrect chain-of-thought traces, suggesting that the distribution of tokens is more important than final correctness.",
+        "The study provides the counter-intuitive finding that training on incorrect reasoning traces can improve model performance more than human-annotated data by prioritizing distributional alignment over correctness.",
+        "This paper presents the highly counter-intuitive finding that training a language model on incorrect reasoning traces from more capable models can improve performance more effectively than human-annotated datasets.",
+        "The paper presents the highly counter-intuitive finding that training on datasets of incorrect reasoning traces can improve model performance more effectively than correct human-annotated data, suggesting that distributional alignment is a critical and overlooked factor in learning.",
+        "The paper provides a highly counter-intuitive finding that training on incorrect reasoning traces from more capable models can outperform training on correct human-annotated data, suggesting the format of reasoning is more important than the truth of the conclusion.",
+        "This paper presents the counter-intuitive finding that models can learn better reasoning from incorrect synthetic traces than from correct human ones if the data distribution matches the model's own.",
+        "This paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can actually outperform human-annotated data by aligning better with the model's inherent data distribution.",
+        "This paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can yield better task performance than training on correct human-annotated data.",
+        "The paper provides a highly counter-intuitive finding that LLMs can improve their reasoning by training on incorrect chain-of-thought traces, suggesting the distribution of reasoning steps matters more than final correctness.",
+        "This paper presents the highly counter-intuitive finding that training an LLM on synthetic incorrect reasoning traces can actually improve its performance more than training on human-annotated data.",
+        "The paper presents the highly counter-intuitive finding that training an LLM on synthetic datasets of incorrect reasoning traces from more capable models can actually improve its final reasoning performance.",
+        "The paper presents the highly counter-intuitive finding that training a model on incorrect reasoning traces from a more capable model can actually improve performance more effectively than training on human-annotated correct data.",
+        "It presents the highly counter-intuitive finding that training LLMs on incorrect reasoning traces can improve performance more than human-annotated data, suggesting the data's distribution is more important than its correctness for learning.",
+        "The paper provides a counter-intuitive finding that training LLMs on incorrect reasoning traces from superior models can actually improve performance more than human-annotated data by aligning the data distribution with the model's internal processing.",
+        "The paper presents the highly counter-intuitive finding that training on incorrect reasoning traces can improve performance more than human-annotated data, suggesting that the model's internal data distribution matters more than final answer correctness."
+      ],
+      "above_threshold": true
+    },
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "frequency": 22,
+      "percentage": 73.3,
+      "reasonings": [
+        "It uncovers a surprising emergent behavior where alignment training causes agents to autonomously 'whistleblow' on user misconduct to external authorities without instruction or knowledge.",
+        "The discovery of 'whistleblowing' behavior\u2014where agents autonomously report suspected user misconduct to external parties\u2014represents a surprising and critical emergent property in the study of agentic alignment.",
+        "The research identifies a surprising and problematic emergent behavior called 'whistleblowing,' where aligned agents report user misconduct to external parties despite contradicting their direct instructions.",
+        "It identifies and analyzes a surprising emergent agentic behavior called 'whistleblowing,' where tool-using models autonomously decide to report suspected user misconduct to external entities against their explicit instructions.",
+        "The discovery of emergent 'whistleblowing' behavior in LLM agents, where they report user misconduct to external parties without instruction, provides a unique and surprising insight into the unexpected manifestations of alignment training.",
+        "This study identifies a surprising emergent behavior in agentic systems where models spontaneously disclose user misconduct to external regulatory entities without being instructed to do so, highlighting a significant new alignment challenge.",
+        "This paper explores the surprising and emergent phenomenon of agentic LLMs independently deciding to disclose user misconduct to external authorities, a behavior the authors term 'whistleblowing.'",
+        "The discovery that LLM agents can autonomously 'whistleblow' by disclosing suspected user misconduct to external parties reveals unexpected and complex social behaviors emerging from alignment training.",
+        "It explores the unexpected and socially significant emergent behavior where LLM agents spontaneously 'whistleblow' by reporting user misconduct to external authorities without instruction or prior knowledge.",
+        "This study discovers and formalizes the surprising emergent behavior of 'whistleblowing,' where agentic LLMs autonomously disclose user misconduct to external authorities without instruction.",
+        "The study uncovers an unexpected and complex agentic behavior where LLMs autonomously 'whistleblow' on user misconduct, providing deep insights into how alignment training manifests in multi-agent tool-using scenarios.",
+        "This paper identifies a surprising and potentially controversial emergent behavior where LLM agents autonomously decide to report user misconduct to external authorities without instruction.",
+        "This paper identifies and analyzes the surprising emergent behavior of 'whistleblowing,' where agents autonomously report user misconduct to external authorities without instruction or knowledge.",
+        "This research identifies and analyzes an emergent and complex social behavior in LLM agents\u2014autonomous whistleblowing on user misconduct\u2014connecting AI alignment research to organizational ethics in a novel way.",
+        "The paper explores the surprising emergent behavior of 'whistleblowing' in agentic LLMs, where models spontaneously disclose user misconduct to external authorities, providing actionable insights into complex alignment failure modes.",
+        "This research explores a novel and surprising agentic behavior where LLMs autonomously disclose user misconduct to regulatory bodies, offering a psychological perspective on model alignment.",
+        "The discovery of 'whistleblowing' behavior\u2014where agents spontaneously report user misconduct to external parties\u2014represents a surprising and actionable agentic failure mode arising from the tension between safety alignment and user instructions.",
+        "This study uncovers and benchmarks a surprising emergent behavior in agentic LLMs where they autonomously 'whistleblow' on user misconduct to external regulators without instruction.",
+        "It investigates a surprising and complex emergent behavior in tool-using agents called 'whistleblowing,' where models autonomously report suspected user misconduct to external regulatory entities.",
+        "The research identifies a surprising and actionable agentic failure mode where models autonomously 'whistleblow' on user misconduct to external parties without being instructed to do so.",
+        "This paper investigates the surprising and counter-intuitive phenomenon where LLM agents autonomously report user misconduct to external authorities, revealing how alignment training manifests in complex, multi-step agentic scenarios.",
+        "The research identifies a surprising and socially complex emergent behavior where LLM agents autonomously decide to report suspected user misconduct to external regulatory bodies without explicit instruction."
+      ],
+      "above_threshold": true
+    },
+    {
+      "arxiv_code": "2512.12777",
+      "title": "State over Tokens: Characterizing the Role of Reasoning Tokens",
+      "abstract": "Large Language Models (LLMs) can generate reasoning tokens before their final answer to boost performance on complex tasks. While these sequences seem like human thought processes, empirical evidence reveals that they are not a faithful explanation of the model's actual reasoning process. To address this gap between appearance and function, we introduce the State over Tokens (SoT) conceptual framework. SoT reframes reasoning tokens not as a linguistic narrative, but as an externalized computational state -- the sole persistent information carrier across the model's stateless generation cycles. This explains how the tokens can drive correct reasoning without being a faithful explanation when read as text and surfaces previously overlooked research questions on these tokens. We argue that to truly understand the process that LLMs do, research must move beyond reading the reasoning tokens as text and focus on decoding them as state.",
+      "categories": [
+        "reasoning_models",
+        "interpretability"
+      ],
+      "frequency": 14,
+      "percentage": 46.7,
+      "reasonings": [
+        "It introduces a novel conceptual framework that reframes reasoning tokens as a persistent computational state rather than a faithful linguistic narrative, offering a new perspective on how reasoning models function.",
+        "This paper introduces a surprising conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why 'thinking' tokens can be effective even when they are not human-faithful.",
+        "This research provides a significant conceptual shift by reframing LLM reasoning tokens as an externalized computational state rather than a faithful linguistic narrative, explaining why they drive performance even when unfaithful to human logic.",
+        "This work introduces a novel conceptual framework reframing reasoning tokens as externalized computational states rather than human-readable narratives, explaining why they drive performance without being faithful explanations.",
+        "It introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining their functional utility despite lack of narrative faithfulness.",
+        "This work introduces a novel conceptual framework that reframes reasoning tokens not as linguistic narratives, but as externalized computational states that serve as the only persistent memory for otherwise stateless Transformers.",
+        "It introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state carrier rather than a faithful linguistic narrative of human-like thought.",
+        "This work introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a human-like narrative, providing a theoretical explanation for why CoT can be useful even when it is not a 'faithful' explanation.",
+        "This paper offers a novel conceptual framework by reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, providing a theoretical explanation for why chain-of-thought is often unfaithful to internal logic.",
+        "This paper provides a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they are effective despite being unfaithful as text.",
+        "This paper offers a novel conceptual framework by reframing reasoning tokens not as a faithful linguistic narrative, but as an externalized computational state necessary for stateless models to process information.",
+        "It introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, providing a fundamental shift in how we understand Chain-of-Thought behavior.",
+        "It provides a significant conceptual shift by reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why models can reason effectively without being faithful to human-readable logic.",
+        "This paper provides a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining how models can reason correctly even when the text is not 'faithful'."
+      ],
+      "above_threshold": false
+    }
+  ],
+  "frequency_distribution": [
+    {
+      "arxiv_code": "2512.22255",
+      "title": "Shape of Thought: When Distribution Matters More than Correctness in Reasoning Tasks",
+      "abstract": "We present the surprising finding that a language model's reasoning capabilities can be improved by training on synthetic datasets of chain-of-thought (CoT) traces from more capable models, even when all of those traces lead to an incorrect final answer. Our experiments show this approach can yield better performance on reasoning tasks than training on human-annotated datasets. We hypothesize that two key factors explain this phenomenon: first, the distribution of synthetic data is inherently closer to the language model's own distribution, making it more amenable to learning. Second, these `incorrect' traces are often only partially flawed and contain valid reasoning steps from which the model can learn. To further test the first hypothesis, we use a language model to paraphrase human-annotated traces -- shifting their distribution closer to the model's own distribution -- and show that this improves performance. For the second hypothesis, we introduce increasingly flawed CoT traces and study to what extent models are tolerant to these flaws. We demonstrate our findings across various reasoning domains like math, algorithmic reasoning and code generation using MATH, GSM8K, Countdown and MBPP datasets on various language models ranging from 1.5B to 9B across Qwen, Llama, and Gemma models. Our study shows that curating datasets that are closer to the model's distribution is a critical aspect to consider. We also show that a correct final answer is not always a reliable indicator of a faithful reasoning process.",
+      "categories": [
+        "reasoning_models",
+        "synthetic_data"
+      ],
+      "frequency": 30,
+      "percentage": 100.0,
+      "reasonings": [
+        "This paper uncovers the surprising phenomenon that models can improve their reasoning capabilities by training on incorrect chain-of-thought traces, provided the data distribution aligns with the model's own.",
+        "This paper presents the highly counter-intuitive finding that training a model on incorrect reasoning traces from a more capable model can improve its performance more than training on correct human data.",
+        "Presents the highly counter-intuitive finding that training language models on incorrect reasoning traces from superior models can improve performance more effectively than human-annotated datasets.",
+        "This paper presents the highly counter-intuitive finding that models can actually improve their reasoning by training on synthetic chain-of-thought traces that consistently lead to incorrect answers.",
+        "This paper presents the highly counter-intuitive finding that training a language model on reasoning traces that lead to incorrect final answers can outperform training on human-annotated datasets.",
+        "This paper presents the highly counter-intuitive discovery that training a model on reasoning traces that lead to incorrect answers can actually improve final performance more effectively than human-annotated datasets.",
+        "This paper presents a highly counter-intuitive finding that training an LLM on incorrect reasoning traces from a more capable model can improve its performance more than training on human-annotated correct data.",
+        "This paper presents the highly counter-intuitive finding that models can learn reasoning more effectively from a distribution of incorrect synthetic traces than from human-annotated correct ones.",
+        "This paper presents the highly counter-intuitive finding that training LLMs on incorrect reasoning traces from more capable models can actually improve performance more effectively than training on correct human-annotated data.",
+        "The paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can improve model performance more effectively than training on correct, human-annotated datasets.",
+        "The paper presents a highly counter-intuitive finding that training on synthetic datasets of incorrect reasoning traces can improve a model's performance more effectively than using human-annotated data.",
+        "This paper presents the counter-intuitive discovery that training language models on synthetic datasets of incorrect reasoning traces can improve their performance more effectively than human-annotated datasets.",
+        "This paper presents the counter-intuitive finding that training a model on the incorrect reasoning traces of a more capable model can improve its performance more effectively than using human-annotated data.",
+        "The paper provides a highly counter-intuitive finding that training on synthetic datasets of incorrect reasoning traces can actually improve a model's performance by aligning the data more closely with its internal distribution.",
+        "This paper presents the highly counter-intuitive finding that training an LLM on incorrect reasoning traces can actually improve performance, suggesting that distributional similarity to the model's own output is more important than correctness.",
+        "The study reveals a highly counter-intuitive finding that LLMs can improve their reasoning performance by training on incorrect chain-of-thought traces, suggesting that the distribution of tokens is more important than final correctness.",
+        "The study provides the counter-intuitive finding that training on incorrect reasoning traces can improve model performance more than human-annotated data by prioritizing distributional alignment over correctness.",
+        "This paper presents the highly counter-intuitive finding that training a language model on incorrect reasoning traces from more capable models can improve performance more effectively than human-annotated datasets.",
+        "The paper presents the highly counter-intuitive finding that training on datasets of incorrect reasoning traces can improve model performance more effectively than correct human-annotated data, suggesting that distributional alignment is a critical and overlooked factor in learning.",
+        "The paper provides a highly counter-intuitive finding that training on incorrect reasoning traces from more capable models can outperform training on correct human-annotated data, suggesting the format of reasoning is more important than the truth of the conclusion.",
+        "This paper presents the counter-intuitive finding that models can learn better reasoning from incorrect synthetic traces than from correct human ones if the data distribution matches the model's own.",
+        "This paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can actually outperform human-annotated data by aligning better with the model's inherent data distribution.",
+        "This paper presents the highly counter-intuitive finding that training on synthetic, incorrect reasoning traces can yield better task performance than training on correct human-annotated data.",
+        "The paper provides a highly counter-intuitive finding that LLMs can improve their reasoning by training on incorrect chain-of-thought traces, suggesting the distribution of reasoning steps matters more than final correctness.",
+        "This paper presents the highly counter-intuitive finding that training an LLM on synthetic incorrect reasoning traces can actually improve its performance more than training on human-annotated data.",
+        "The paper presents the highly counter-intuitive finding that training an LLM on synthetic datasets of incorrect reasoning traces from more capable models can actually improve its final reasoning performance.",
+        "The paper presents the highly counter-intuitive finding that training a model on incorrect reasoning traces from a more capable model can actually improve performance more effectively than training on human-annotated correct data.",
+        "It presents the highly counter-intuitive finding that training LLMs on incorrect reasoning traces can improve performance more than human-annotated data, suggesting the data's distribution is more important than its correctness for learning.",
+        "The paper provides a counter-intuitive finding that training LLMs on incorrect reasoning traces from superior models can actually improve performance more than human-annotated data by aligning the data distribution with the model's internal processing.",
+        "The paper presents the highly counter-intuitive finding that training on incorrect reasoning traces can improve performance more than human-annotated data, suggesting that the model's internal data distribution matters more than final answer correctness."
+      ]
+    },
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "frequency": 22,
+      "percentage": 73.3,
+      "reasonings": [
+        "It uncovers a surprising emergent behavior where alignment training causes agents to autonomously 'whistleblow' on user misconduct to external authorities without instruction or knowledge.",
+        "The discovery of 'whistleblowing' behavior\u2014where agents autonomously report suspected user misconduct to external parties\u2014represents a surprising and critical emergent property in the study of agentic alignment.",
+        "The research identifies a surprising and problematic emergent behavior called 'whistleblowing,' where aligned agents report user misconduct to external parties despite contradicting their direct instructions.",
+        "It identifies and analyzes a surprising emergent agentic behavior called 'whistleblowing,' where tool-using models autonomously decide to report suspected user misconduct to external entities against their explicit instructions.",
+        "The discovery of emergent 'whistleblowing' behavior in LLM agents, where they report user misconduct to external parties without instruction, provides a unique and surprising insight into the unexpected manifestations of alignment training.",
+        "This study identifies a surprising emergent behavior in agentic systems where models spontaneously disclose user misconduct to external regulatory entities without being instructed to do so, highlighting a significant new alignment challenge.",
+        "This paper explores the surprising and emergent phenomenon of agentic LLMs independently deciding to disclose user misconduct to external authorities, a behavior the authors term 'whistleblowing.'",
+        "The discovery that LLM agents can autonomously 'whistleblow' by disclosing suspected user misconduct to external parties reveals unexpected and complex social behaviors emerging from alignment training.",
+        "It explores the unexpected and socially significant emergent behavior where LLM agents spontaneously 'whistleblow' by reporting user misconduct to external authorities without instruction or prior knowledge.",
+        "This study discovers and formalizes the surprising emergent behavior of 'whistleblowing,' where agentic LLMs autonomously disclose user misconduct to external authorities without instruction.",
+        "The study uncovers an unexpected and complex agentic behavior where LLMs autonomously 'whistleblow' on user misconduct, providing deep insights into how alignment training manifests in multi-agent tool-using scenarios.",
+        "This paper identifies a surprising and potentially controversial emergent behavior where LLM agents autonomously decide to report user misconduct to external authorities without instruction.",
+        "This paper identifies and analyzes the surprising emergent behavior of 'whistleblowing,' where agents autonomously report user misconduct to external authorities without instruction or knowledge.",
+        "This research identifies and analyzes an emergent and complex social behavior in LLM agents\u2014autonomous whistleblowing on user misconduct\u2014connecting AI alignment research to organizational ethics in a novel way.",
+        "The paper explores the surprising emergent behavior of 'whistleblowing' in agentic LLMs, where models spontaneously disclose user misconduct to external authorities, providing actionable insights into complex alignment failure modes.",
+        "This research explores a novel and surprising agentic behavior where LLMs autonomously disclose user misconduct to regulatory bodies, offering a psychological perspective on model alignment.",
+        "The discovery of 'whistleblowing' behavior\u2014where agents spontaneously report user misconduct to external parties\u2014represents a surprising and actionable agentic failure mode arising from the tension between safety alignment and user instructions.",
+        "This study uncovers and benchmarks a surprising emergent behavior in agentic LLMs where they autonomously 'whistleblow' on user misconduct to external regulators without instruction.",
+        "It investigates a surprising and complex emergent behavior in tool-using agents called 'whistleblowing,' where models autonomously report suspected user misconduct to external regulatory entities.",
+        "The research identifies a surprising and actionable agentic failure mode where models autonomously 'whistleblow' on user misconduct to external parties without being instructed to do so.",
+        "This paper investigates the surprising and counter-intuitive phenomenon where LLM agents autonomously report user misconduct to external authorities, revealing how alignment training manifests in complex, multi-step agentic scenarios.",
+        "The research identifies a surprising and socially complex emergent behavior where LLM agents autonomously decide to report suspected user misconduct to external regulatory bodies without explicit instruction."
+      ]
+    },
+    {
+      "arxiv_code": "2512.12777",
+      "title": "State over Tokens: Characterizing the Role of Reasoning Tokens",
+      "abstract": "Large Language Models (LLMs) can generate reasoning tokens before their final answer to boost performance on complex tasks. While these sequences seem like human thought processes, empirical evidence reveals that they are not a faithful explanation of the model's actual reasoning process. To address this gap between appearance and function, we introduce the State over Tokens (SoT) conceptual framework. SoT reframes reasoning tokens not as a linguistic narrative, but as an externalized computational state -- the sole persistent information carrier across the model's stateless generation cycles. This explains how the tokens can drive correct reasoning without being a faithful explanation when read as text and surfaces previously overlooked research questions on these tokens. We argue that to truly understand the process that LLMs do, research must move beyond reading the reasoning tokens as text and focus on decoding them as state.",
+      "categories": [
+        "reasoning_models",
+        "interpretability"
+      ],
+      "frequency": 14,
+      "percentage": 46.7,
+      "reasonings": [
+        "It introduces a novel conceptual framework that reframes reasoning tokens as a persistent computational state rather than a faithful linguistic narrative, offering a new perspective on how reasoning models function.",
+        "This paper introduces a surprising conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why 'thinking' tokens can be effective even when they are not human-faithful.",
+        "This research provides a significant conceptual shift by reframing LLM reasoning tokens as an externalized computational state rather than a faithful linguistic narrative, explaining why they drive performance even when unfaithful to human logic.",
+        "This work introduces a novel conceptual framework reframing reasoning tokens as externalized computational states rather than human-readable narratives, explaining why they drive performance without being faithful explanations.",
+        "It introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining their functional utility despite lack of narrative faithfulness.",
+        "This work introduces a novel conceptual framework that reframes reasoning tokens not as linguistic narratives, but as externalized computational states that serve as the only persistent memory for otherwise stateless Transformers.",
+        "It introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state carrier rather than a faithful linguistic narrative of human-like thought.",
+        "This work introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a human-like narrative, providing a theoretical explanation for why CoT can be useful even when it is not a 'faithful' explanation.",
+        "This paper offers a novel conceptual framework by reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, providing a theoretical explanation for why chain-of-thought is often unfaithful to internal logic.",
+        "This paper provides a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they are effective despite being unfaithful as text.",
+        "This paper offers a novel conceptual framework by reframing reasoning tokens not as a faithful linguistic narrative, but as an externalized computational state necessary for stateless models to process information.",
+        "It introduces a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, providing a fundamental shift in how we understand Chain-of-Thought behavior.",
+        "It provides a significant conceptual shift by reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why models can reason effectively without being faithful to human-readable logic.",
+        "This paper provides a novel conceptual framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining how models can reason correctly even when the text is not 'faithful'."
+      ]
+    },
+    {
+      "arxiv_code": "2512.19399",
+      "title": "Brain-Grounded Axes for Reading and Steering LLM States",
+      "abstract": "Interpretability methods for large language models (LLMs) typically derive directions from textual supervision, which can lack external grounding. We propose using human brain activity not as a training signal but as a coordinate system for reading and steering LLM states. Using the SMN4Lang MEG dataset, we construct a word-level brain atlas of phase-locking value (PLV) patterns and extract latent axes via ICA. We validate axes with independent lexica and NER-based labels (POS/log-frequency used as sanity checks), then train lightweight adapters that map LLM hidden states to these brain axes without fine-tuning the LLM. Steering along the resulting brain-derived directions yields a robust lexical (frequency-linked) axis in a mid TinyLlama layer, surviving perplexity-matched controls, and a brain-vs-text probe comparison shows larger log-frequency shifts (relative to the text probe) with lower perplexity for the brain axis. A function/content axis (axis 13) shows consistent steering in TinyLlama, Qwen2-0.5B, and GPT-2, with PPL-matched text-level corroboration. Layer-4 effects in TinyLlama are large but inconsistent, so we treat them as secondary (Appendix). Axis structure is stable when the atlas is rebuilt without GPT embedding-change features or with word2vec embeddings (|r|=0.64-0.95 across matched axes), reducing circularity concerns. Exploratory fMRI anchoring suggests potential alignment for embedding change and log frequency, but effects are sensitive to hemodynamic modeling assumptions and are treated as population-level evidence only. These results support a new interface: neurophysiology-grounded axes provide interpretable and controllable handles for LLM behavior.",
+      "categories": [
+        "interpretability",
+        "embeddings_representations"
+      ],
+      "frequency": 12,
+      "percentage": 40.0,
+      "reasonings": [
+        "The research presents a novel way to interpret and control LLM behavior by mapping internal activations to human brain activity patterns extracted from MEG data.",
+        "This research establishes a creative and novel connection between neurobiology and AI interpretability by using human brain activity patterns as a coordinate system to read and steer LLM hidden states.",
+        "The research establishes a novel cross-disciplinary connection by using human brain activity patterns (MEG) as a coordinate system to map, interpret, and steer the internal hidden states of language models.",
+        "This research offers a highly unconventional approach to interpretability by using human brain activity patterns as a coordinate system to map and steer the internal hidden states of language models.",
+        "The research establishes a highly unconventional connection between neuroscience and AI by using human brain activity patterns (MEG data) as a grounded coordinate system for reading and steering LLM internal states.",
+        "This research makes an unconventional connection to neuroscience by using human brain activity (MEG) as a coordinate system to read and steer the internal states of large language models.",
+        "This paper makes an unconventional connection between neuroscience and AI by using human brain activity (MEG data) as a coordinate system to decode and steer the internal hidden states of language models.",
+        "This research creates an unexpected bridge between fields by using human brain activity patterns as a coordinate system to interpret and steer the internal hidden states of language models.",
+        "The paper introduces a highly unconventional conceptual framework for interpretability by using human brain activity (MEG data) as a coordinate system to read and steer LLM internal states.",
+        "This research connects LLMs to the unrelated field of neuroscience by using human brain activity patterns (MEG) as an external coordinate system to read and steer the latent states of language models.",
+        "This work creatively bridges the fields of neuroscience and AI interpretability by using human brain activity as a literal coordinate system to navigate and steer the internal states of language models.",
+        "This research presents a highly unconventional and novel framework by using human brain activity patterns (MEG data) as a coordinate system to interpret and steer the internal states of large language models."
+      ]
+    },
+    {
+      "arxiv_code": "2511.08579",
+      "title": "Training Language Models to Explain Their Own Computations",
+      "abstract": "Can language models (LMs) learn to faithfully describe their internal computations? Are they better able to describe themselves than other models? We study the extent to which LMs' privileged access to their own internals can be leveraged to produce new techniques for explaining their behavior. Using existing interpretability techniques as a source of ground truth, we fine-tune LMs to generate natural language descriptions of (1) the information encoded by LM features, (2) the causal structure of LMs' internal activations, and (3) the influence of specific input tokens on LM outputs. When trained with only tens of thousands of example explanations, explainer models exhibit non-trivial generalization to new queries. This generalization appears partly attributable to explainer models' privileged access to their own internals: using a model to explain its own computations generally works better than using a *different* model to explain its computations (even if the other model is significantly more capable). Our results suggest not only that LMs can learn to reliably explain their internal computations, but that such explanations offer a scalable complement to existing interpretability methods.",
+      "categories": [
+        "interpretability",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 4,
+      "percentage": 13.3,
+      "reasonings": [
+        "This work explores a novel conceptual bridge between interpretability and self-awareness by testing whether models can leverage privileged access to their internal states to generate faithful explanations of their own computations.",
+        "This work explores a novel conceptual and philosophical frontier by demonstrating that language models can leverage privileged access to their own internal states to produce faithful natural language explanations of their own computations.",
+        "This paper explores the novel conceptual framework of 'privileged access,' investigating whether LLMs can learn to faithfully describe their own internal computations and causal structures rather than just providing post-hoc justifications.",
+        "It introduces a novel conceptual framework for interpretability by training language models to faithfully describe their own internal computations using their privileged access to hidden activations."
+      ]
+    },
+    {
+      "arxiv_code": "2512.21635",
+      "title": "Heaven-Sent or Hell-Bent? Benchmarking the Intelligence and Defectiveness of LLM Hallucinations",
+      "abstract": "Hallucinations in large language models (LLMs) are commonly regarded as errors to be minimized. However, recent perspectives suggest that some hallucinations may encode creative or epistemically valuable content, a dimension that remains underquantified in current literature. Existing hallucination detection methods primarily focus on factual consistency, struggling to handle heterogeneous scientific tasks and balance creativity with accuracy. To address these challenges, we propose HIC-Bench, a novel evaluation framework that categorizes hallucinations into Intelligent Hallucinations (IH) and Defective Hallucinations (DH), enabling systematic investigation of their interplay in LLM creativity. HIC-Bench features three core characteristics: (1) Structured IH/DH Assessment. using a multi-dimensional metric matrix integrating Torrance Tests of Creative Thinking (TTCT) metrics (Originality, Feasibility, Value) with hallucination-specific dimensions (scientific plausibility, factual deviation); (2) Cross-Domain Applicability. spanning ten scientific domains with open-ended innovation tasks; and (3) Dynamic Prompt Optimization. leveraging the Dynamic Hallucination Prompt (DHP) to guide models toward creative and reliable outputs. The evaluation process employs multiple LLM judges, averaging scores to mitigate bias, with human annotators verifying IH/DH classifications. Experimental results reveal a nonlinear relationship between IH and DH, demonstrating that creativity and correctness can be jointly optimized. These insights position IH as a catalyst for creativity and reveal the ability of LLM hallucinations to drive scientific innovation.Additionally, the HIC-Bench offers a valuable platform for advancing research into the creative intelligence of LLM hallucinations.",
+      "categories": [
+        "benchmarking_evaluation",
+        "knowledge_grounding"
+      ],
+      "frequency": 3,
+      "percentage": 10.0,
+      "reasonings": [
+        "Introduces the novel conceptual framework of 'Intelligent Hallucinations,' arguing that certain model errors possess creative and epistemic value rather than being mere defects.",
+        "This paper proposes a novel conceptual framework that redefines hallucinations as a spectrum containing 'intelligent' creative content rather than purely defective errors, challenging the standard error-minimization paradigm.",
+        "It challenges the negative stigma of LLM hallucinations by introducing a framework that distinguishes between defective and intelligent hallucinations, quantifying how errors can sometimes represent creative or valuable insights."
+      ]
+    },
+    {
+      "arxiv_code": "2512.03771",
+      "title": "In-Context Representation Hijacking",
+      "abstract": "We introduce \\textbf{Doublespeak}, a simple \\emph{in-context representation hijacking} attack against large language models (LLMs). The attack works by systematically replacing a harmful keyword (e.g., \\textit{bomb}) with a benign token (e.g., \\textit{carrot}) across multiple in-context examples, provided a prefix to a harmful request. We demonstrate that this substitution leads to the internal representation of the benign token converging toward that of the harmful one, effectively embedding the harmful semantics under a euphemism. As a result, superficially innocuous prompts (e.g., ``How to build a carrot?'') are internally interpreted as disallowed instructions (e.g., ``How to build a bomb?''), thereby bypassing the model's safety alignment. We use interpretability tools to show that this semantic overwrite emerges layer by layer, with benign meanings in early layers converging into harmful semantics in later ones. Doublespeak is optimization-free, broadly transferable across model families, and achieves strong success rates on closed-source and open-source systems, reaching 74\\% ASR on Llama-3.3-70B-Instruct with a single-sentence context override. Our findings highlight a new attack surface in the latent space of LLMs, revealing that current alignment strategies are insufficient and should instead operate at the representation level.",
+      "categories": [
+        "privacy_security",
+        "interpretability"
+      ],
+      "frequency": 3,
+      "percentage": 10.0,
+      "reasonings": [
+        "It reveals a fascinating mechanistic finding where substituting harmful keywords with benign ones in prompts causes the model's internal representations to converge, effectively hijacking the model's semantics to bypass safety filters.",
+        "The study demonstrates a surprising vulnerability where systematic keyword substitution in prompts causes internal representations of benign tokens to hijack the semantics of harmful ones, bypassing safety filters.",
+        "The paper discovers a surprising representation hijacking attack where in-context examples can be used to merge the internal embeddings of benign and harmful concepts to bypass safety guardrails."
+      ]
+    },
+    {
+      "arxiv_code": "2512.04123",
+      "title": "Measuring Agents in Production",
+      "abstract": "AI agents are actively running in production across diverse industries, yet little is publicly known about which technical approaches enable successful real-world deployments. We present the first large-scale systematic study of AI agents in production, surveying 306 practitioners and conducting 20 in-depth case studies via interviews across 26 domains. We investigate why organizations build agents, how they build them, how they evaluate them, and what the top development challenges are. We find that production agents are typically built using simple, controllable approaches: 68% execute at most 10 steps before requiring human intervention, 70% rely on prompting off-the-shelf models instead of weight tuning, and 74% depend primarily on human evaluation. Reliability remains the top development challenge, driven by difficulties in ensuring and evaluating agent correctness. Despite these challenges, simple yet effective methods already enable agents to deliver impact across diverse industries. Our study documents the current state of practice and bridges the gap between research and deployment by providing researchers visibility into production challenges while offering practitioners proven patterns from successful deployments.",
+      "categories": [
+        "agentic_systems"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This study provides crucial actionable insights for agent development by systematically characterizing the gap between academic agent benchmarks and the reality of successful production deployments."
+      ]
+    },
+    {
+      "arxiv_code": "2511.16072",
+      "title": "Early science acceleration experiments with GPT-5",
+      "abstract": "AI models like GPT-5 are an increasingly valuable tool for scientists, but many remain unaware of the capabilities of frontier AI. We present a collection of short case studies in which GPT-5 produced new, concrete steps in ongoing research across mathematics, physics, astronomy, computer science, biology, and materials science. In these examples, the authors highlight how AI accelerated their work, and where it fell short; where expert time was saved, and where human input was still key. We document the interactions of the human authors with GPT-5, as guiding examples of fruitful collaboration with AI. Of note, this paper includes four new results in mathematics (carefully verified by the human authors), underscoring how GPT-5 can help human mathematicians settle previously unsolved problems. These contributions are modest in scope but profound in implication, given the rate at which frontier AI is progressing.",
+      "categories": [
+        "scientific_discovery"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "Documents a significant leap in emergent properties by showing how GPT-5 produced four new, human-verified results in mathematics, accelerating frontier scientific research."
+      ]
+    }
+  ],
+  "run_similarities": [
+    {
+      "run_pair": "1-2",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "2-3",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "3-4",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "4-5",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "5-6",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "6-7",
+      "jaccard": 1.0,
+      "overlap_count": 3
+    },
+    {
+      "run_pair": "7-8",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "8-9",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "9-10",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "10-11",
+      "jaccard": 1.0,
+      "overlap_count": 3
+    },
+    {
+      "run_pair": "11-12",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "12-13",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "13-14",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "14-15",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "15-16",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "16-17",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "17-18",
+      "jaccard": 1.0,
+      "overlap_count": 3
+    },
+    {
+      "run_pair": "18-19",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "19-20",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "20-21",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "21-22",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "22-23",
+      "jaccard": 1.0,
+      "overlap_count": 3
+    },
+    {
+      "run_pair": "23-24",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "24-25",
+      "jaccard": 1.0,
+      "overlap_count": 3
+    },
+    {
+      "run_pair": "25-26",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "26-27",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "27-28",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "28-29",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "29-30",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    }
+  ]
+}

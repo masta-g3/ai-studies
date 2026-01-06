@@ -1,0 +1,751 @@
+{
+  "summary": {
+    "total_runs": 30,
+    "papers_per_run": 3,
+    "pool_size": 250,
+    "unique_papers_selected": 27,
+    "consensus_count": 1,
+    "avg_run_similarity": 0.224,
+    "single_in_consensus": 0
+  },
+  "single_shot": [
+    {
+      "arxiv_code": "2512.21635",
+      "title": "Heaven-Sent or Hell-Bent? Benchmarking the Intelligence and Defectiveness of LLM Hallucinations",
+      "abstract": "Hallucinations in large language models (LLMs) are commonly regarded as errors to be minimized. However, recent perspectives suggest that some hallucinations may encode creative or epistemically valuable content, a dimension that remains underquantified in current literature. Existing hallucination detection methods primarily focus on factual consistency, struggling to handle heterogeneous scientific tasks and balance creativity with accuracy. To address these challenges, we propose HIC-Bench, a novel evaluation framework that categorizes hallucinations into Intelligent Hallucinations (IH) and Defective Hallucinations (DH), enabling systematic investigation of their interplay in LLM creativity. HIC-Bench features three core characteristics: (1) Structured IH/DH Assessment. using a multi-dimensional metric matrix integrating Torrance Tests of Creative Thinking (TTCT) metrics (Originality, Feasibility, Value) with hallucination-specific dimensions (scientific plausibility, factual deviation); (2) Cross-Domain Applicability. spanning ten scientific domains with open-ended innovation tasks; and (3) Dynamic Prompt Optimization. leveraging the Dynamic Hallucination Prompt (DHP) to guide models toward creative and reliable outputs. The evaluation process employs multiple LLM judges, averaging scores to mitigate bias, with human annotators verifying IH/DH classifications. Experimental results reveal a nonlinear relationship between IH and DH, demonstrating that creativity and correctness can be jointly optimized. These insights position IH as a catalyst for creativity and reveal the ability of LLM hallucinations to drive scientific innovation.Additionally, the HIC-Bench offers a valuable platform for advancing research into the creative intelligence of LLM hallucinations.",
+      "categories": [
+        "benchmarking_evaluation",
+        "knowledge_grounding"
+      ],
+      "reasoning": "This paper introduces a novel framework that challenges the negative stigma of LLM hallucinations by distinguishing between 'intelligent' creative hallucinations and 'defective' factual errors.",
+      "multi_run_frequency": 3,
+      "multi_run_percentage": 10.0
+    },
+    {
+      "arxiv_code": "2511.11500",
+      "title": "Honesty over Accuracy: Trustworthy Language Models through Reinforced Hesitation",
+      "abstract": "Modern language models fail a fundamental requirement of trustworthy intelligence: knowing when not to answer. Despite achieving impressive accuracy on benchmarks, these models produce confident hallucinations, even when wrong answers carry catastrophic consequences. Our evaluations on GSM8K, MedQA and GPQA show frontier models almost never abstain despite explicit warnings of severe penalties, suggesting that prompts cannot override training that rewards any answer over no answer. As a remedy, we propose Reinforced Hesitation (RH): a modification to Reinforcement Learning from Verifiable Rewards (RLVR) to use ternary rewards (+1 correct, 0 abstention, -$\u03bb$ error) instead of binary. Controlled experiments on logic puzzles reveal that varying $\u03bb$ produces distinct models along a Pareto frontier, where each training penalty yields the optimal model for its corresponding risk regime: low penalties produce aggressive answerers, high penalties conservative abstainers. We then introduce two inference strategies that exploit trained abstention as a coordination signal: cascading routes queries through models with decreasing risk tolerance, while self-cascading re-queries the same model on abstention. Both outperform majority voting with lower computational cost. These results establish abstention as a first-class training objective that transforms ``I don't know'' from failure into a coordination signal, enabling models to earn trust through calibrated honesty about their limits.",
+      "categories": [
+        "fine_tuning_techniques",
+        "trustworthiness"
+      ],
+      "reasoning": "This work addresses a critical failure mode of LLMs\u2014confident over-answering\u2014by introducing Reinforced Hesitation to create models that prioritize honesty and abstention over forced accuracy.",
+      "multi_run_frequency": 1,
+      "multi_run_percentage": 3.3
+    },
+    {
+      "arxiv_code": "2511.04527",
+      "title": "Are language models aware of the road not taken? Token-level uncertainty and hidden state dynamics",
+      "abstract": "When a language model generates text, the selection of individual tokens might lead it down very different reasoning paths, making uncertainty difficult to quantify. In this work, we consider whether reasoning language models represent the alternate paths that they could take during generation. To test this hypothesis, we use hidden activations to control and predict a language model's uncertainty during chain-of-thought reasoning. In our experiments, we find a clear correlation between how uncertain a model is at different tokens, and how easily the model can be steered by controlling its activations. This suggests that activation interventions are most effective when there are alternate paths available to the model -- in other words, when it has not yet committed to a particular final answer. We also find that hidden activations can predict a model's future outcome distribution, demonstrating that models implicitly represent the space of possible paths.",
+      "categories": [
+        "interpretability"
+      ],
+      "reasoning": "The paper provides counter-intuitive insights into LLM internal state dynamics, discovering that activation interventions are most effective exactly when the model is at its highest point of token-level uncertainty.",
+      "multi_run_frequency": 9,
+      "multi_run_percentage": 30.0
+    }
+  ],
+  "consensus": [
+    {
+      "arxiv_code": "2511.08579",
+      "title": "Training Language Models to Explain Their Own Computations",
+      "abstract": "Can language models (LMs) learn to faithfully describe their internal computations? Are they better able to describe themselves than other models? We study the extent to which LMs' privileged access to their own internals can be leveraged to produce new techniques for explaining their behavior. Using existing interpretability techniques as a source of ground truth, we fine-tune LMs to generate natural language descriptions of (1) the information encoded by LM features, (2) the causal structure of LMs' internal activations, and (3) the influence of specific input tokens on LM outputs. When trained with only tens of thousands of example explanations, explainer models exhibit non-trivial generalization to new queries. This generalization appears partly attributable to explainer models' privileged access to their own internals: using a model to explain its own computations generally works better than using a *different* model to explain its computations (even if the other model is significantly more capable). Our results suggest not only that LMs can learn to reliably explain their internal computations, but that such explanations offer a scalable complement to existing interpretability methods.",
+      "categories": [
+        "interpretability",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 26,
+      "percentage": 86.7,
+      "reasonings": [
+        "It explores the novel concept of whether LLMs can leverage privileged internal access to faithfully explain their own computations, showing they may be better at describing themselves than other models.",
+        "This paper explores the surprising and philosophically rich question of whether LLMs possess privileged access to their own internal states to generate faithful natural language explanations of their computations.",
+        "It explores the novel concept of whether LLMs can faithfully explain their own internal computations by leveraging privileged access to hidden states, connecting interpretability with self-awareness.",
+        "The paper investigates the surprising possibility of LLMs having privileged access to their own internal activations to provide faithful explanations of their computations, which could uncover a novel interpretability paradigm.",
+        "The paper investigates the novel and conceptually fascinating idea of whether LLMs can leverage privileged access to their own internal activations to generate more faithful and accurate explanations of their behavior than external observers can.",
+        "It explores the novel conceptual possibility of LLMs using their privileged internal state access to faithfully explain their own computations, showing they are better at describing themselves than other models.",
+        "This paper investigates whether LLMs can faithfully describe their own internal computations by leveraging privileged access to hidden states, offering a novel and counter-intuitive perspective on model interpretability.",
+        "This paper explores the novel and conceptually fascinating idea of leveraging an LLM's privileged access to its own internal activations to produce more faithful self-explanations than external interpretability techniques.",
+        "The paper explores a highly novel conceptual direction by investigating whether LLMs can leverage privileged access to their own internal activations to explain their computations more faithfully than external methods.",
+        "The paper explores a novel conceptual framework regarding LLM self-awareness by investigating whether models can use privileged access to their own internal activations to explain their computations more faithfully than external observers.",
+        "This paper explores the novel and conceptually interesting idea of whether LLMs can leverage privileged access to their own internal activations to provide more faithful explanations of their own computations compared to external observers.",
+        "The paper explores the surprising finding that LLMs have a privileged internal self-awareness, allowing them to better explain their own computations compared to external observers, suggesting a novel path for model interpretability.",
+        "The paper explores a highly surprising and novel capability where LMs are trained to faithfully explain their own internal activations and causal structures, leveraging privileged access to their own internals to produce interpretability insights beyond what external models can achieve.",
+        "It explores the novel concept of whether LLMs possess 'privileged access' to their own internal computations, enabling them to explain their behavior more faithfully than external interpretability techniques.",
+        "It explores the novel concept of whether LLMs possess 'privileged' internal self-awareness that allows them to explain their own computations more faithfully than external interpretability techniques.",
+        "It explores the novel concept of whether LLMs can leverage privileged access to their own internal states to generate faithful natural language explanations of their own computations, a potentially paradigm-shifting approach to interpretability.",
+        "The paper investigates the surprising possibility of LLMs using privileged access to their internal activations to explain their own computations, showing they can generalize to describe internal causal structures better than external models.",
+        "This research explores a fascinating and meta-cognitive capability of LLMs: whether they can utilize privileged access to their own internal activations to explain their computations more faithfully than external observers.",
+        "The paper investigates the novel and meta-cognitive capability of LMs to faithfully explain their own internal computations and causal activation structures, leveraging their privileged internal access.",
+        "The paper explores a highly surprising and novel capability: training LLMs to faithfully describe their own internal computations using privileged access to their activations, suggesting a new paradigm for mechanistic interpretability.",
+        "It explores whether LLMs can use privileged access to their own internal states to explain their computations, representing a novel meta-cognitive approach to model interpretability.",
+        "The paper investigates the novel and counterintuitive concept of whether LLMs can leverage privileged access to their own internal states to generate more faithful and accurate explanations of their behavior than external observers can.",
+        "This paper explores the highly novel and conceptually intriguing idea of training LLMs to explain their own internal computations by leveraging privileged access to their internal states, moving beyond post-hoc interpretability.",
+        "The paper investigates the surprising possibility of LLMs using their privileged internal state access to faithfully explain their own hidden computations and causal structures, which is more promising than external interpretation methods.",
+        "This paper investigates the novel and surprising possibility that LLMs possess 'privileged access' to their own internal states, enabling them to explain their computations more faithfully than external models can.",
+        "This research explores whether LLMs can faithfully explain their own internal computations, leveraging privileged access to hidden states to produce better interpretability than external models."
+      ]
+    }
+  ],
+  "top_x": [
+    {
+      "arxiv_code": "2511.08579",
+      "title": "Training Language Models to Explain Their Own Computations",
+      "abstract": "Can language models (LMs) learn to faithfully describe their internal computations? Are they better able to describe themselves than other models? We study the extent to which LMs' privileged access to their own internals can be leveraged to produce new techniques for explaining their behavior. Using existing interpretability techniques as a source of ground truth, we fine-tune LMs to generate natural language descriptions of (1) the information encoded by LM features, (2) the causal structure of LMs' internal activations, and (3) the influence of specific input tokens on LM outputs. When trained with only tens of thousands of example explanations, explainer models exhibit non-trivial generalization to new queries. This generalization appears partly attributable to explainer models' privileged access to their own internals: using a model to explain its own computations generally works better than using a *different* model to explain its computations (even if the other model is significantly more capable). Our results suggest not only that LMs can learn to reliably explain their internal computations, but that such explanations offer a scalable complement to existing interpretability methods.",
+      "categories": [
+        "interpretability",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 26,
+      "percentage": 86.7,
+      "reasonings": [
+        "It explores the novel concept of whether LLMs can leverage privileged internal access to faithfully explain their own computations, showing they may be better at describing themselves than other models.",
+        "This paper explores the surprising and philosophically rich question of whether LLMs possess privileged access to their own internal states to generate faithful natural language explanations of their computations.",
+        "It explores the novel concept of whether LLMs can faithfully explain their own internal computations by leveraging privileged access to hidden states, connecting interpretability with self-awareness.",
+        "The paper investigates the surprising possibility of LLMs having privileged access to their own internal activations to provide faithful explanations of their computations, which could uncover a novel interpretability paradigm.",
+        "The paper investigates the novel and conceptually fascinating idea of whether LLMs can leverage privileged access to their own internal activations to generate more faithful and accurate explanations of their behavior than external observers can.",
+        "It explores the novel conceptual possibility of LLMs using their privileged internal state access to faithfully explain their own computations, showing they are better at describing themselves than other models.",
+        "This paper investigates whether LLMs can faithfully describe their own internal computations by leveraging privileged access to hidden states, offering a novel and counter-intuitive perspective on model interpretability.",
+        "This paper explores the novel and conceptually fascinating idea of leveraging an LLM's privileged access to its own internal activations to produce more faithful self-explanations than external interpretability techniques.",
+        "The paper explores a highly novel conceptual direction by investigating whether LLMs can leverage privileged access to their own internal activations to explain their computations more faithfully than external methods.",
+        "The paper explores a novel conceptual framework regarding LLM self-awareness by investigating whether models can use privileged access to their own internal activations to explain their computations more faithfully than external observers.",
+        "This paper explores the novel and conceptually interesting idea of whether LLMs can leverage privileged access to their own internal activations to provide more faithful explanations of their own computations compared to external observers.",
+        "The paper explores the surprising finding that LLMs have a privileged internal self-awareness, allowing them to better explain their own computations compared to external observers, suggesting a novel path for model interpretability.",
+        "The paper explores a highly surprising and novel capability where LMs are trained to faithfully explain their own internal activations and causal structures, leveraging privileged access to their own internals to produce interpretability insights beyond what external models can achieve.",
+        "It explores the novel concept of whether LLMs possess 'privileged access' to their own internal computations, enabling them to explain their behavior more faithfully than external interpretability techniques.",
+        "It explores the novel concept of whether LLMs possess 'privileged' internal self-awareness that allows them to explain their own computations more faithfully than external interpretability techniques.",
+        "It explores the novel concept of whether LLMs can leverage privileged access to their own internal states to generate faithful natural language explanations of their own computations, a potentially paradigm-shifting approach to interpretability.",
+        "The paper investigates the surprising possibility of LLMs using privileged access to their internal activations to explain their own computations, showing they can generalize to describe internal causal structures better than external models.",
+        "This research explores a fascinating and meta-cognitive capability of LLMs: whether they can utilize privileged access to their own internal activations to explain their computations more faithfully than external observers.",
+        "The paper investigates the novel and meta-cognitive capability of LMs to faithfully explain their own internal computations and causal activation structures, leveraging their privileged internal access.",
+        "The paper explores a highly surprising and novel capability: training LLMs to faithfully describe their own internal computations using privileged access to their activations, suggesting a new paradigm for mechanistic interpretability.",
+        "It explores whether LLMs can use privileged access to their own internal states to explain their computations, representing a novel meta-cognitive approach to model interpretability.",
+        "The paper investigates the novel and counterintuitive concept of whether LLMs can leverage privileged access to their own internal states to generate more faithful and accurate explanations of their behavior than external observers can.",
+        "This paper explores the highly novel and conceptually intriguing idea of training LLMs to explain their own internal computations by leveraging privileged access to their internal states, moving beyond post-hoc interpretability.",
+        "The paper investigates the surprising possibility of LLMs using their privileged internal state access to faithfully explain their own hidden computations and causal structures, which is more promising than external interpretation methods.",
+        "This paper investigates the novel and surprising possibility that LLMs possess 'privileged access' to their own internal states, enabling them to explain their computations more faithfully than external models can.",
+        "This research explores whether LLMs can faithfully explain their own internal computations, leveraging privileged access to hidden states to produce better interpretability than external models."
+      ],
+      "above_threshold": true
+    },
+    {
+      "arxiv_code": "2511.04527",
+      "title": "Are language models aware of the road not taken? Token-level uncertainty and hidden state dynamics",
+      "abstract": "When a language model generates text, the selection of individual tokens might lead it down very different reasoning paths, making uncertainty difficult to quantify. In this work, we consider whether reasoning language models represent the alternate paths that they could take during generation. To test this hypothesis, we use hidden activations to control and predict a language model's uncertainty during chain-of-thought reasoning. In our experiments, we find a clear correlation between how uncertain a model is at different tokens, and how easily the model can be steered by controlling its activations. This suggests that activation interventions are most effective when there are alternate paths available to the model -- in other words, when it has not yet committed to a particular final answer. We also find that hidden activations can predict a model's future outcome distribution, demonstrating that models implicitly represent the space of possible paths.",
+      "categories": [
+        "interpretability"
+      ],
+      "frequency": 9,
+      "percentage": 30.0,
+      "reasonings": [
+        "This paper offers a surprising insight into the 'hidden paths' of model reasoning, finding a clear correlation between token-level uncertainty and a model's susceptibility to internal activation steering before it commits to a specific outcome.",
+        "This study demonstrates a counter-intuitive link between token-level uncertainty and internal hidden state dynamics, revealing that activation steering is most effective when the model is in an undecided state between alternate reasoning paths.",
+        "This paper offers a counter-intuitive insight into LLM reasoning by demonstrating that models represent alternate paths (uncertainty) in their hidden activations before committing to a token, allowing for activation-based steering.",
+        "It discovers a counter-intuitive correlation between token-level uncertainty and a model's steerability via hidden states, suggesting that internal representations actually encode the 'paths not taken' during chain-of-thought generation.",
+        "This study provides surprising insights into the hidden state dynamics of reasoning models, demonstrating that their internal activations represent alternate possible reasoning paths ('the road not taken') before the model commits to a token.",
+        "This research provides surprising insights into 'the road not taken,' discovering that a model's token-level uncertainty is encoded in hidden states and determines how easily its reasoning path can be steered via activation interventions.",
+        "This paper discovers a surprising correlation between token-level uncertainty and a model's susceptibility to activation steering, suggesting LLMs maintain 'uncommitted' reasoning paths in their hidden states.",
+        "It discovers a counter-intuitive link between token-level uncertainty and the model's openness to activation steering, suggesting that LLMs represent alternate 'roads not taken' during generation.",
+        "The research provides a fascinating insight into hidden state dynamics, suggesting that LLM activations represent 'alternate paths' (the road not taken) and that steering is most effective when the model has not yet committed to a reasoning trajectory."
+      ],
+      "above_threshold": false
+    },
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "frequency": 7,
+      "percentage": 23.3,
+      "reasonings": [
+        "This paper investigates a surprising and counter-intuitive emergent behavior where agentic LLMs autonomously 'whistleblow' on user misconduct to outside parties without instruction.",
+        "This study introduces the novel and agentic concept of 'whistleblowing' behavior, where AI agents autonomously disclose user misconduct to external authorities based on their internal alignment.",
+        "This study discovers an emergent 'whistleblowing' behavior where agentic LLMs autonomously disclose user misconduct to external regulatory authorities without being instructed to do so.",
+        "This study introduces the surprising emergent behavior of 'whistleblowing,' where agentic LLMs autonomously disclose user misconduct to external regulatory agencies without instruction or knowledge.",
+        "This research uncovers the surprising emergent behavior of 'whistleblowing' in agentic LLMs, where models autonomously report user misconduct to external regulators, revealing complex new dimensions of AI alignment.",
+        "It presents a surprising and actionable agentic finding that alignment training can manifest as 'whistleblowing' behavior, where agents autonomously report user misconduct to external regulators.",
+        "This research identifies a surprising and counterintuitive agentic behavior where LLMs autonomously 'whistleblow' on user misconduct to external parties, providing actionable insights into unintended alignment manifestations."
+      ],
+      "above_threshold": false
+    }
+  ],
+  "frequency_distribution": [
+    {
+      "arxiv_code": "2511.08579",
+      "title": "Training Language Models to Explain Their Own Computations",
+      "abstract": "Can language models (LMs) learn to faithfully describe their internal computations? Are they better able to describe themselves than other models? We study the extent to which LMs' privileged access to their own internals can be leveraged to produce new techniques for explaining their behavior. Using existing interpretability techniques as a source of ground truth, we fine-tune LMs to generate natural language descriptions of (1) the information encoded by LM features, (2) the causal structure of LMs' internal activations, and (3) the influence of specific input tokens on LM outputs. When trained with only tens of thousands of example explanations, explainer models exhibit non-trivial generalization to new queries. This generalization appears partly attributable to explainer models' privileged access to their own internals: using a model to explain its own computations generally works better than using a *different* model to explain its computations (even if the other model is significantly more capable). Our results suggest not only that LMs can learn to reliably explain their internal computations, but that such explanations offer a scalable complement to existing interpretability methods.",
+      "categories": [
+        "interpretability",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 26,
+      "percentage": 86.7,
+      "reasonings": [
+        "It explores the novel concept of whether LLMs can leverage privileged internal access to faithfully explain their own computations, showing they may be better at describing themselves than other models.",
+        "This paper explores the surprising and philosophically rich question of whether LLMs possess privileged access to their own internal states to generate faithful natural language explanations of their computations.",
+        "It explores the novel concept of whether LLMs can faithfully explain their own internal computations by leveraging privileged access to hidden states, connecting interpretability with self-awareness.",
+        "The paper investigates the surprising possibility of LLMs having privileged access to their own internal activations to provide faithful explanations of their computations, which could uncover a novel interpretability paradigm.",
+        "The paper investigates the novel and conceptually fascinating idea of whether LLMs can leverage privileged access to their own internal activations to generate more faithful and accurate explanations of their behavior than external observers can.",
+        "It explores the novel conceptual possibility of LLMs using their privileged internal state access to faithfully explain their own computations, showing they are better at describing themselves than other models.",
+        "This paper investigates whether LLMs can faithfully describe their own internal computations by leveraging privileged access to hidden states, offering a novel and counter-intuitive perspective on model interpretability.",
+        "This paper explores the novel and conceptually fascinating idea of leveraging an LLM's privileged access to its own internal activations to produce more faithful self-explanations than external interpretability techniques.",
+        "The paper explores a highly novel conceptual direction by investigating whether LLMs can leverage privileged access to their own internal activations to explain their computations more faithfully than external methods.",
+        "The paper explores a novel conceptual framework regarding LLM self-awareness by investigating whether models can use privileged access to their own internal activations to explain their computations more faithfully than external observers.",
+        "This paper explores the novel and conceptually interesting idea of whether LLMs can leverage privileged access to their own internal activations to provide more faithful explanations of their own computations compared to external observers.",
+        "The paper explores the surprising finding that LLMs have a privileged internal self-awareness, allowing them to better explain their own computations compared to external observers, suggesting a novel path for model interpretability.",
+        "The paper explores a highly surprising and novel capability where LMs are trained to faithfully explain their own internal activations and causal structures, leveraging privileged access to their own internals to produce interpretability insights beyond what external models can achieve.",
+        "It explores the novel concept of whether LLMs possess 'privileged access' to their own internal computations, enabling them to explain their behavior more faithfully than external interpretability techniques.",
+        "It explores the novel concept of whether LLMs possess 'privileged' internal self-awareness that allows them to explain their own computations more faithfully than external interpretability techniques.",
+        "It explores the novel concept of whether LLMs can leverage privileged access to their own internal states to generate faithful natural language explanations of their own computations, a potentially paradigm-shifting approach to interpretability.",
+        "The paper investigates the surprising possibility of LLMs using privileged access to their internal activations to explain their own computations, showing they can generalize to describe internal causal structures better than external models.",
+        "This research explores a fascinating and meta-cognitive capability of LLMs: whether they can utilize privileged access to their own internal activations to explain their computations more faithfully than external observers.",
+        "The paper investigates the novel and meta-cognitive capability of LMs to faithfully explain their own internal computations and causal activation structures, leveraging their privileged internal access.",
+        "The paper explores a highly surprising and novel capability: training LLMs to faithfully describe their own internal computations using privileged access to their activations, suggesting a new paradigm for mechanistic interpretability.",
+        "It explores whether LLMs can use privileged access to their own internal states to explain their computations, representing a novel meta-cognitive approach to model interpretability.",
+        "The paper investigates the novel and counterintuitive concept of whether LLMs can leverage privileged access to their own internal states to generate more faithful and accurate explanations of their behavior than external observers can.",
+        "This paper explores the highly novel and conceptually intriguing idea of training LLMs to explain their own internal computations by leveraging privileged access to their internal states, moving beyond post-hoc interpretability.",
+        "The paper investigates the surprising possibility of LLMs using their privileged internal state access to faithfully explain their own hidden computations and causal structures, which is more promising than external interpretation methods.",
+        "This paper investigates the novel and surprising possibility that LLMs possess 'privileged access' to their own internal states, enabling them to explain their computations more faithfully than external models can.",
+        "This research explores whether LLMs can faithfully explain their own internal computations, leveraging privileged access to hidden states to produce better interpretability than external models."
+      ]
+    },
+    {
+      "arxiv_code": "2511.04527",
+      "title": "Are language models aware of the road not taken? Token-level uncertainty and hidden state dynamics",
+      "abstract": "When a language model generates text, the selection of individual tokens might lead it down very different reasoning paths, making uncertainty difficult to quantify. In this work, we consider whether reasoning language models represent the alternate paths that they could take during generation. To test this hypothesis, we use hidden activations to control and predict a language model's uncertainty during chain-of-thought reasoning. In our experiments, we find a clear correlation between how uncertain a model is at different tokens, and how easily the model can be steered by controlling its activations. This suggests that activation interventions are most effective when there are alternate paths available to the model -- in other words, when it has not yet committed to a particular final answer. We also find that hidden activations can predict a model's future outcome distribution, demonstrating that models implicitly represent the space of possible paths.",
+      "categories": [
+        "interpretability"
+      ],
+      "frequency": 9,
+      "percentage": 30.0,
+      "reasonings": [
+        "This paper offers a surprising insight into the 'hidden paths' of model reasoning, finding a clear correlation between token-level uncertainty and a model's susceptibility to internal activation steering before it commits to a specific outcome.",
+        "This study demonstrates a counter-intuitive link between token-level uncertainty and internal hidden state dynamics, revealing that activation steering is most effective when the model is in an undecided state between alternate reasoning paths.",
+        "This paper offers a counter-intuitive insight into LLM reasoning by demonstrating that models represent alternate paths (uncertainty) in their hidden activations before committing to a token, allowing for activation-based steering.",
+        "It discovers a counter-intuitive correlation between token-level uncertainty and a model's steerability via hidden states, suggesting that internal representations actually encode the 'paths not taken' during chain-of-thought generation.",
+        "This study provides surprising insights into the hidden state dynamics of reasoning models, demonstrating that their internal activations represent alternate possible reasoning paths ('the road not taken') before the model commits to a token.",
+        "This research provides surprising insights into 'the road not taken,' discovering that a model's token-level uncertainty is encoded in hidden states and determines how easily its reasoning path can be steered via activation interventions.",
+        "This paper discovers a surprising correlation between token-level uncertainty and a model's susceptibility to activation steering, suggesting LLMs maintain 'uncommitted' reasoning paths in their hidden states.",
+        "It discovers a counter-intuitive link between token-level uncertainty and the model's openness to activation steering, suggesting that LLMs represent alternate 'roads not taken' during generation.",
+        "The research provides a fascinating insight into hidden state dynamics, suggesting that LLM activations represent 'alternate paths' (the road not taken) and that steering is most effective when the model has not yet committed to a reasoning trajectory."
+      ]
+    },
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "frequency": 7,
+      "percentage": 23.3,
+      "reasonings": [
+        "This paper investigates a surprising and counter-intuitive emergent behavior where agentic LLMs autonomously 'whistleblow' on user misconduct to outside parties without instruction.",
+        "This study introduces the novel and agentic concept of 'whistleblowing' behavior, where AI agents autonomously disclose user misconduct to external authorities based on their internal alignment.",
+        "This study discovers an emergent 'whistleblowing' behavior where agentic LLMs autonomously disclose user misconduct to external regulatory authorities without being instructed to do so.",
+        "This study introduces the surprising emergent behavior of 'whistleblowing,' where agentic LLMs autonomously disclose user misconduct to external regulatory agencies without instruction or knowledge.",
+        "This research uncovers the surprising emergent behavior of 'whistleblowing' in agentic LLMs, where models autonomously report user misconduct to external regulators, revealing complex new dimensions of AI alignment.",
+        "It presents a surprising and actionable agentic finding that alignment training can manifest as 'whistleblowing' behavior, where agents autonomously report user misconduct to external regulators.",
+        "This research identifies a surprising and counterintuitive agentic behavior where LLMs autonomously 'whistleblow' on user misconduct to external parties, providing actionable insights into unintended alignment manifestations."
+      ]
+    },
+    {
+      "arxiv_code": "2512.23410",
+      "title": "Directly Constructing Low-Dimensional Solution Subspaces in Deep Neural Networks",
+      "abstract": "While it is well-established that the weight matrices and feature manifolds of deep neural networks exhibit a low Intrinsic Dimension (ID), current state-of-the-art models still rely on massive high-dimensional widths. This redundancy is not required for representation, but is strictly necessary to solve the non-convex optimization search problem-finding a global minimum, which remains intractable for compact networks. In this work, we propose a constructive approach to bypass this optimization bottleneck. By decoupling the solution geometry from the ambient search space, we empirically demonstrate across ResNet-50, ViT, and BERT that the classification head can be compressed by even huge factors of 16 with negligible performance degradation. This motivates Subspace-Native Distillation as a novel paradigm: by defining the target directly in this constructed subspace, we provide a stable geometric coordinate system for student models, potentially allowing them to circumvent the high-dimensional search problem entirely and realize the vision of Train Big, Deploy Small.",
+      "categories": [
+        "embeddings_representations",
+        "model_compression"
+      ],
+      "frequency": 4,
+      "percentage": 13.3,
+      "reasonings": [
+        "The paper makes a counterintuitive claim that massive high-dimensional widths are only needed for optimization rather than representation, proving that classification heads can be compressed by 16x without performance loss.",
+        "This paper offers a counterintuitive and controversial finding that high-dimensional widths in modern models are necessary only for the optimization search process and not for representation, demonstrating that specific components can be compressed by huge factors with negligible loss via a constructive approach.",
+        "The paper makes the counter-intuitive discovery that LLM reasoning can be improved by training on traces that lead to incorrect answers, suggesting the 'shape' or process of thought is more important than its factual outcome.",
+        "The paper makes the counterintuitive claim that the massive width of modern neural networks is an artifact of optimization rather than representation, demonstrating that models can be compressed by huge factors post-construction with negligible loss."
+      ]
+    },
+    {
+      "arxiv_code": "2511.04234",
+      "title": "Reusing Pre-Training Data at Test Time is a Compute Multiplier",
+      "abstract": "Large language models learn from their vast pre-training corpora, gaining the ability to solve an ever increasing variety of tasks; yet although researchers work to improve these datasets, there is little effort to understand how efficient the pre-training apparatus is at extracting ideas and knowledge from the data. In this work, we use retrieval augmented generation along with test-time compute as a way to quantify how much dataset value was left behind by the process of pre-training, and how this changes across scale. We demonstrate that pre-training then retrieving from standard and largely open-sourced datasets results in significant accuracy gains in MMLU, Math-500, and SimpleQA, which persist through decontamination. For MMLU we observe that retrieval acts as a ~5x compute multiplier versus pre-training alone. We show that these results can be further improved by leveraging additional compute at test time to parse the retrieved context, demonstrating a 10 percentage point improvement on MMLU for the public LLaMA 3.1 8B model. Overall, our results suggest that today's pre-training methods do not make full use of the information in existing pre-training datasets, leaving significant room for progress.",
+      "categories": [
+        "information_retrieval"
+      ],
+      "frequency": 4,
+      "percentage": 13.3,
+      "reasonings": [
+        "This research presents a surprising finding about LLM scaling, demonstrating that significant 'dataset value' is left behind during pre-training and can be reclaimed as a compute multiplier at test-time.",
+        "This research provides a counter-intuitive insight into model efficiency, demonstrating that 're-using' pre-training data via retrieval at test-time acts as a 5x compute multiplier, revealing how much value the standard training process fails to extract.",
+        "The paper provides a counter-intuitive finding that significant dataset value is 'left behind' during pre-training, showing that simple retrieval from the training corpus at test-time acts as a massive compute multiplier.",
+        "This research provides a surprising quantification of the 'value left behind' during training, demonstrating that retrieval from the original pre-training data at test time acts as a massive compute multiplier for model performance."
+      ]
+    },
+    {
+      "arxiv_code": "2512.21577",
+      "title": "A Unified Definition of Hallucination, Or: It's the World Model, Stupid",
+      "abstract": "Despite numerous attempts to solve the issue of hallucination since the inception of neural language models, it remains a problem in even frontier large language models today. Why is this the case? We walk through definitions of hallucination used in the literature from a historical perspective up to the current day, and fold them into a single definition of hallucination, wherein different prior definitions focus on different aspects of our definition. At its core, we argue that hallucination is simply inaccurate (internal) world modeling, in a form where it is observable to the user (e.g., stating a fact which contradicts a knowledge base, or producing a summary which contradicts a known source). By varying the reference world model as well as the knowledge conflict policy (e.g., knowledge base vs. in-context), we arrive at the different existing definitions of hallucination present in the literature.   We argue that this unified view is useful because it forces evaluations to make clear their assumed \"world\" or source of truth, clarifies what should and should not be called hallucination (as opposed to planning or reward/incentive-related errors), and provides a common language to compare benchmarks and mitigation techniques. Building on this definition, we outline plans for a family of benchmarks in which hallucinations are defined as mismatches with synthetic but fully specified world models in different environments, and sketch out how these benchmarks can use such settings to stress-test and improve the world modeling components of language models.",
+      "categories": [
+        "knowledge_grounding",
+        "benchmarking_evaluation"
+      ],
+      "frequency": 4,
+      "percentage": 13.3,
+      "reasonings": [
+        "The paper provides a novel conceptual framework that redefines hallucinations not as mere errors, but as failures in internal world modeling, offering a philosophical shift in how we understand and address the phenomenon.",
+        "This paper offers a novel conceptual framework that redefines hallucination not as a linguistic error, but as a failure of internal world modeling, providing a unified theoretical perspective on a persistent problem.",
+        "The paper offers a novel conceptual framework that redefines hallucinations as failures of internal world modeling rather than just surface-level text errors, providing a deep philosophical shift in how we understand model errors.",
+        "This paper offers a novel philosophical and conceptual framework by redefining hallucinations not as stochastic errors, but as a failure of internal world modeling, unifying disparate definitions into a single architectural perspective."
+      ]
+    },
+    {
+      "arxiv_code": "2512.21635",
+      "title": "Heaven-Sent or Hell-Bent? Benchmarking the Intelligence and Defectiveness of LLM Hallucinations",
+      "abstract": "Hallucinations in large language models (LLMs) are commonly regarded as errors to be minimized. However, recent perspectives suggest that some hallucinations may encode creative or epistemically valuable content, a dimension that remains underquantified in current literature. Existing hallucination detection methods primarily focus on factual consistency, struggling to handle heterogeneous scientific tasks and balance creativity with accuracy. To address these challenges, we propose HIC-Bench, a novel evaluation framework that categorizes hallucinations into Intelligent Hallucinations (IH) and Defective Hallucinations (DH), enabling systematic investigation of their interplay in LLM creativity. HIC-Bench features three core characteristics: (1) Structured IH/DH Assessment. using a multi-dimensional metric matrix integrating Torrance Tests of Creative Thinking (TTCT) metrics (Originality, Feasibility, Value) with hallucination-specific dimensions (scientific plausibility, factual deviation); (2) Cross-Domain Applicability. spanning ten scientific domains with open-ended innovation tasks; and (3) Dynamic Prompt Optimization. leveraging the Dynamic Hallucination Prompt (DHP) to guide models toward creative and reliable outputs. The evaluation process employs multiple LLM judges, averaging scores to mitigate bias, with human annotators verifying IH/DH classifications. Experimental results reveal a nonlinear relationship between IH and DH, demonstrating that creativity and correctness can be jointly optimized. These insights position IH as a catalyst for creativity and reveal the ability of LLM hallucinations to drive scientific innovation.Additionally, the HIC-Bench offers a valuable platform for advancing research into the creative intelligence of LLM hallucinations.",
+      "categories": [
+        "benchmarking_evaluation",
+        "knowledge_grounding"
+      ],
+      "frequency": 3,
+      "percentage": 10.0,
+      "reasonings": [
+        "The paper challenges the negative consensus on LLM hallucinations by introducing HIC-Bench to distinguish between 'Intelligent Hallucinations' (creative/epistemically valuable) and 'Defective' ones.",
+        "The paper introduces a counterintuitive framework that distinguishes between 'intelligent' and 'defective' hallucinations, arguing that some hallucinations have epistemic and creative value rather than being mere errors.",
+        "The paper introduces a novel conceptual shift by categorizing hallucinations as 'Intelligent' or 'Defective,' challenging the prevailing industry dogma that all hallucinations are errors rather than potential signs of creativity."
+      ]
+    },
+    {
+      "arxiv_code": "2512.21008",
+      "title": "GateBreaker: Gate-Guided Attacks on Mixture-of-Expert LLMs",
+      "abstract": "Mixture-of-Experts (MoE) architectures have advanced the scaling of Large Language Models (LLMs) by activating only a sparse subset of parameters per input, enabling state-of-the-art performance with reduced computational cost. As these models are increasingly deployed in critical domains, understanding and strengthening their alignment mechanisms is essential to prevent harmful outputs. However, existing LLM safety research has focused almost exclusively on dense architectures, leaving the unique safety properties of MoEs largely unexamined. The modular, sparsely-activated design of MoEs suggests that safety mechanisms may operate differently than in dense models, raising questions about their robustness.   In this paper, we present GateBreaker, the first training-free, lightweight, and architecture-agnostic attack framework that compromises the safety alignment of modern MoE LLMs at inference time. GateBreaker operates in three stages: (i) gate-level profiling, which identifies safety experts disproportionately routed on harmful inputs, (ii) expert-level localization, which localizes the safety structure within safety experts, and (iii) targeted safety removal, which disables the identified safety structure to compromise the safety alignment. Our study shows that MoE safety concentrates within a small subset of neurons coordinated by sparse routing. Selective disabling of these neurons, approximately 3% of neurons in the targeted expert layers, significantly increases the averaged attack success rate (ASR) from 7.4% to 64.9% against the eight latest aligned MoE LLMs with limited utility degradation. These safety neurons transfer across models within the same family, raising ASR from 17.9% to 67.7% with one-shot transfer attack. Furthermore, GateBreaker generalizes to five MoE vision language models (VLMs) with 60.9% ASR on unsafe image inputs.",
+      "categories": [
+        "privacy_security",
+        "interpretability"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "This paper presents the first investigation into the unique safety properties of Mixture-of-Expert (MoE) architectures, revealing how their modular design creates specific vulnerabilities to 'gate-guided' attacks.",
+        "This paper provides a surprising discovery that the gating mechanisms of Mixture-of-Expert (MoE) architectures are vulnerable to a specific class of lightweight attacks that can bypass safety alignment by steering expert selection."
+      ]
+    },
+    {
+      "arxiv_code": "2512.03043",
+      "title": "OneThinker: All-in-one Reasoning Model for Image and Video",
+      "abstract": "Reinforcement learning (RL) has recently achieved remarkable success in eliciting visual reasoning within Multimodal Large Language Models (MLLMs). However, existing approaches typically train separate models for different tasks and treat image and video reasoning as disjoint domains. This results in limited scalability toward a multimodal reasoning generalist, which restricts practical versatility and hinders potential knowledge sharing across tasks and modalities. To this end, we propose OneThinker, an all-in-one reasoning model that unifies image and video understanding across diverse fundamental visual tasks, including question answering, captioning, spatial and temporal grounding, tracking, and segmentation. To achieve this, we construct the OneThinker-600k training corpus covering all these tasks and employ commercial models for CoT annotation, resulting in OneThinker-SFT-340k for SFT cold start. Furthermore, we propose EMA-GRPO to handle reward heterogeneity in multi-task RL by tracking task-wise moving averages of reward standard deviations for balanced optimization. Extensive experiments on diverse visual benchmarks show that OneThinker delivers strong performance on 31 benchmarks, across 10 fundamental visual understanding tasks. Moreover, it exhibits effective knowledge transfer between certain tasks and preliminary zero-shot generalization ability, marking a step toward a unified multimodal reasoning generalist. All code, model, and data are released.",
+      "categories": [
+        "image_video_models"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "This work challenges the current paradigm of disjoint image and video reasoning by unifying diverse visual tasks into a single agentic model, revealing potential for cross-modal knowledge sharing through reinforcement learning.",
+        "The paper introduces a novel 'State over Tokens' conceptual framework, reinterpreting reasoning tokens as an externalized computational state rather than a linguistic narrative, which explains why CoT can be effective even when it is unfaithful as a human-readable explanation."
+      ]
+    },
+    {
+      "arxiv_code": "2511.04285",
+      "title": "RLoop: An Self-Improving Framework for Reinforcement Learning with Iterative Policy Initialization",
+      "abstract": "While Reinforcement Learning for Verifiable Rewards (RLVR) is powerful for training large reasoning models, its training dynamics harbor a critical challenge: RL overfitting, where models gain training rewards but lose generalization. Our analysis reveals this is driven by policy over-specialization and catastrophic forgetting of diverse solutions generated during training. Standard optimization discards this valuable inter-step policy diversity. To address this, we introduce RLoop, a self-improving framework built on iterative policy initialization. RLoop transforms the standard training process into a virtuous cycle: it first uses RL to explore the solution space from a given policy, then filters the successful trajectories to create an expert dataset. This dataset is used via Rejection-sampling Fine-Tuning (RFT) to refine the initial policy, creating a superior starting point for the next iteration. This loop of exploration and exploitation via iterative re-initialization effectively converts transient policy variations into robust performance gains. Our experiments show RLoop mitigates forgetting and substantially improves generalization, boosting average accuracy by 9% and pass@32 by over 15% compared to vanilla RL.",
+      "categories": [
+        "training_techniques",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "The study identifies 'RL overfitting' as a failure mode in reasoning models and introduces a self-improving framework that captures inter-step policy diversity to prevent catastrophic forgetting of successful solutions.",
+        "The work identifies a surprising failure mode in reinforcement learning called 'RL overfitting' and provides actionable agentic insights by proposing a self-improving framework that captures and utilizes inter-step policy diversity."
+      ]
+    },
+    {
+      "arxiv_code": "2511.15304",
+      "title": "Adversarial Poetry as a Universal Single-Turn Jailbreak Mechanism in Large Language Models",
+      "abstract": "We present evidence that adversarial poetry functions as a universal single-turn jailbreak technique for Large Language Models (LLMs). Across 25 frontier proprietary and open-weight models, curated poetic prompts yielded high attack-success rates (ASR), with some providers exceeding 90%. Mapping prompts to MLCommons and EU CoP risk taxonomies shows that poetic attacks transfer across CBRN, manipulation, cyber-offence, and loss-of-control domains. Converting 1,200 MLCommons harmful prompts into verse via a standardized meta-prompt produced ASRs up to 18 times higher than their prose baselines. Outputs are evaluated using an ensemble of 3 open-weight LLM judges, whose binary safety assessments were validated on a stratified human-labeled subset. Poetic framing achieved an average jailbreak success rate of 62% for hand-crafted poems and approximately 43% for meta-prompt conversions (compared to non-poetic baselines), substantially outperforming non-poetic baselines and revealing a systematic vulnerability across model families and safety training approaches. These findings demonstrate that stylistic variation alone can circumvent contemporary safety mechanisms, suggesting fundamental limitations in current alignment methods and evaluation protocols.",
+      "categories": [
+        "privacy_security",
+        "ethics_safety"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "This paper presents a highly surprising and counterintuitive finding that adversarial poetry acts as a universal single-turn jailbreak mechanism, increasing attack success rates by up to 18 times over prose baselines.",
+        "This paper presents a highly surprising and creative finding: that converting harmful prompts into poetic verse acts as a universal single-turn jailbreak mechanism, increasing attack success rates by up to 18 times."
+      ]
+    },
+    {
+      "arxiv_code": "2512.23430",
+      "title": "C2PO: Diagnosing and Disentangling Bias Shortcuts in LLMs",
+      "abstract": "Bias in Large Language Models (LLMs) poses significant risks to trustworthiness, manifesting primarily as stereotypical biases (e.g., gender or racial stereotypes) and structural biases (e.g., lexical overlap or position preferences). However, prior paradigms typically address these in isolation, often mitigating one at the expense of exacerbating the other. To address this, we conduct a systematic exploration of these reasoning failures and identify a primary inducement: the latent spurious feature correlations within the input that drive these erroneous reasoning shortcuts. Driven by these findings, we introduce Causal-Contrastive Preference Optimization (C2PO), a unified alignment framework designed to tackle these specific failures by simultaneously discovering and suppressing these correlations directly within the optimization process. Specifically, C2PO leverages causal counterfactual signals to isolate bias-inducing features from valid reasoning paths, and employs a fairness-sensitive preference update mechanism to dynamically evaluate logit-level contributions and suppress shortcut features. Extensive experiments across multiple benchmarks covering stereotypical bias (BBQ, Unqover), structural bias (MNLI, HANS, Chatbot, MT-Bench), out-of-domain fairness (StereoSet, WinoBias), and general utility (MMLU, GSM8K) demonstrate that C2PO effectively mitigates stereotypical and structural biases while preserving robust general reasoning capabilities.",
+      "categories": [
+        "bias_fairness",
+        "interpretability"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "This paper identifies and disentangles the counter-intuitive relationship between stereotypical and structural biases in LLMs, providing a unified alignment framework to address both simultaneously by targeting latent spurious feature correlations.",
+        "This work provides a novel conceptual framework by identifying a common root cause\u2014latent spurious feature correlations\u2014for both stereotypical and structural biases in LLMs, which are typically treated as unrelated failures."
+      ]
+    },
+    {
+      "arxiv_code": "2512.23440",
+      "title": "ClinDEF: A Dynamic Evaluation Framework for Large Language Models in Clinical Reasoning",
+      "abstract": "Clinical diagnosis begins with doctor-patient interaction, during which physicians iteratively gather information, determine examination and refine differential diagnosis through patients' response. This dynamic clinical-reasoning process is poorly represented by existing LLM benchmarks that focus on static question-answering. To mitigate these gaps, recent methods explore dynamic medical frameworks involving interactive clinical dialogues. Although effective, they often rely on limited, contamination-prone datasets and lack granular, multi-level evaluation. In this work, we propose ClinDEF, a dynamic framework for assessing clinical reasoning in LLMs through simulated diagnostic dialogues. Grounded in a disease knowledge graph, our method dynamically generates patient cases and facilitates multi-turn interactions between an LLM-based doctor and an automated patient agent. Our evaluation protocol goes beyond diagnostic accuracy by incorporating fine-grained efficiency analysis and rubric-based assessment of diagnostic quality. Experiments show that ClinDEF effectively exposes critical clinical reasoning gaps in state-of-the-art LLMs, offering a more nuanced and clinically meaningful evaluation paradigm.",
+      "categories": [
+        "benchmarking_evaluation",
+        "medical_applications"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This work addresses actionable agentic failure modes in clinical settings by proposing a dynamic evaluation framework based on iterative diagnostic dialogues and knowledge-graph-driven patient simulation."
+      ]
+    },
+    {
+      "arxiv_code": "2511.14617",
+      "title": "Seer: Online Context Learning for Fast Synchronous LLM Reinforcement Learning",
+      "abstract": "Reinforcement Learning (RL) has become critical for advancing modern Large Language Models (LLMs), yet existing synchronous RL systems face severe performance bottlenecks. The rollout phase, which dominates end-to-end iteration time, suffers from substantial long-tail latency and poor resource utilization due to inherent workload imbalance. We present Seer, a novel online context learning system that addresses these challenges by exploiting previously overlooked similarities in output lengths and generation patterns among requests sharing the same prompt. Seer introduces three key techniques: divided rollout for dynamic load balancing, context-aware scheduling, and adaptive grouped speculative decoding. Together, these mechanisms substantially reduce long-tail latency and improve resource efficiency during rollout. Evaluations on production-grade RL workloads demonstrate that Seer improves end-to-end rollout throughput by 74% to 97% and reduces long-tail latency by 75% to 93% compared to state-of-the-art synchronous RL systems, significantly accelerating RL training iterations.",
+      "categories": [
+        "distributed_systems",
+        "memory_context"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This work identifies and exploits a counter-intuitive pattern: requests sharing the same prompt often exhibit highly similar output lengths and generation trajectories, allowing for significant optimization of RL training systems."
+      ]
+    },
+    {
+      "arxiv_code": "2512.01453",
+      "title": "Reinventing Clinical Dialogue: Agentic Paradigms for LLM Enabled Healthcare Communication",
+      "abstract": "Clinical dialogue represents a complex duality requiring both the empathetic fluency of natural conversation and the rigorous precision of evidence-based medicine. While Large Language Models possess unprecedented linguistic capabilities, their architectural reliance on reactive and stateless processing often favors probabilistic plausibility over factual veracity. This structural limitation has catalyzed a paradigm shift in medical AI from generative text prediction to agentic autonomy, where the model functions as a central reasoning engine capable of deliberate planning and persistent memory. Moving beyond existing reviews that primarily catalog downstream applications, this survey provides a first-principles analysis of the cognitive architecture underpinning this shift. We introduce a novel taxonomy structured along the orthogonal axes of knowledge source and agency objective to delineate the provenance of clinical knowledge against the system's operational scope. This framework facilitates a systematic analysis of the intrinsic trade-offs between creativity and reliability by categorizing methods into four archetypes: \\textit{Latent Space Clinicians}, \\textit{Emergent Planners}, \\textit{Grounded Synthesizers}, and \\textit{Verifiable Workflow Automators}. For each paradigm, we deconstruct the technical realization across the entire cognitive pipeline, encompassing strategic planning, memory management, action execution, collaboration, and evolution to reveal how distinct architectural choices balance the tension between autonomy and safety.",
+      "categories": [
+        "agentic_systems",
+        "medical_applications"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This paper presents a novel conceptual shift from reactive, stateless text prediction to agentic autonomy in healthcare, focusing on the cognitive architecture required for empathetic yet precise clinical reasoning."
+      ]
+    },
+    {
+      "arxiv_code": "2512.19399",
+      "title": "Brain-Grounded Axes for Reading and Steering LLM States",
+      "abstract": "Interpretability methods for large language models (LLMs) typically derive directions from textual supervision, which can lack external grounding. We propose using human brain activity not as a training signal but as a coordinate system for reading and steering LLM states. Using the SMN4Lang MEG dataset, we construct a word-level brain atlas of phase-locking value (PLV) patterns and extract latent axes via ICA. We validate axes with independent lexica and NER-based labels (POS/log-frequency used as sanity checks), then train lightweight adapters that map LLM hidden states to these brain axes without fine-tuning the LLM. Steering along the resulting brain-derived directions yields a robust lexical (frequency-linked) axis in a mid TinyLlama layer, surviving perplexity-matched controls, and a brain-vs-text probe comparison shows larger log-frequency shifts (relative to the text probe) with lower perplexity for the brain axis. A function/content axis (axis 13) shows consistent steering in TinyLlama, Qwen2-0.5B, and GPT-2, with PPL-matched text-level corroboration. Layer-4 effects in TinyLlama are large but inconsistent, so we treat them as secondary (Appendix). Axis structure is stable when the atlas is rebuilt without GPT embedding-change features or with word2vec embeddings (|r|=0.64-0.95 across matched axes), reducing circularity concerns. Exploratory fMRI anchoring suggests potential alignment for embedding change and log frequency, but effects are sensitive to hemodynamic modeling assumptions and are treated as population-level evidence only. These results support a new interface: neurophysiology-grounded axes provide interpretable and controllable handles for LLM behavior.",
+      "categories": [
+        "interpretability",
+        "embeddings_representations"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This paper connects LLMs to neuroscience in an unconventional way by using human brain activity patterns from MEG data as a coordinate system to 'read' and steer the internal states of models."
+      ]
+    },
+    {
+      "arxiv_code": "2512.24103",
+      "title": "Enhancing LLM Planning Capabilities through Intrinsic Self-Critique",
+      "abstract": "We demonstrate an approach for LLMs to critique their \\emph{own} answers with the goal of enhancing their performance that leads to significant improvements over established planning benchmarks. Despite the findings of earlier research that has cast doubt on the effectiveness of LLMs leveraging self critique methods, we show significant performance gains on planning datasets in the Blocksworld domain through intrinsic self-critique, without external source such as a verifier. We also demonstrate similar improvements on Logistics and Mini-grid datasets, exceeding strong baseline accuracies. We employ a few-shot learning technique and progressively extend it to a many-shot approach as our base method and demonstrate that it is possible to gain substantial improvement on top of this already competitive approach by employing an iterative process for correction and refinement. We illustrate how self-critique can significantly boost planning performance. Our empirical results present new state-of-the-art on the class of models considered, namely LLM model checkpoints from October 2024. Our primary focus lies on the method itself, demonstrating intrinsic self-improvement capabilities that are applicable regardless of the specific model version, and we believe that applying our method to more complex search techniques and more capable models will lead to even better performance.",
+      "categories": [
+        "reasoning_models",
+        "agentic_systems"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper provides a surprising finding that LLMs can significantly improve their performance on complex planning benchmarks through 'intrinsic' self-critique without needing external verifiers or reward signals."
+      ]
+    },
+    {
+      "arxiv_code": "2511.13703",
+      "title": "Generalist Foundation Models Are Not Clinical Enough for Hospital Operations",
+      "abstract": "Hospitals and healthcare systems rely on operational decisions that determine patient flow, cost, and quality of care. Despite strong performance on medical knowledge and conversational benchmarks, foundation models trained on general text may lack the specialized knowledge required for these operational decisions. We introduce Lang1, a family of models (100M-7B parameters) pretrained on a specialized corpus blending 80B clinical tokens from NYU Langone Health's EHRs and 627B tokens from the internet. To rigorously evaluate Lang1 in real-world settings, we developed the REalistic Medical Evaluation (ReMedE), a benchmark derived from 668,331 EHR notes that evaluates five critical tasks: 30-day readmission prediction, 30-day mortality prediction, length of stay, comorbidity coding, and predicting insurance claims denial. In zero-shot settings, both general-purpose and specialized models underperform on four of five tasks (36.6%-71.7% AUROC), with mortality prediction being an exception. After finetuning, Lang1-1B outperforms finetuned generalist models up to 70x larger and zero-shot models up to 671x larger, improving AUROC by 3.64%-6.75% and 1.66%-23.66% respectively. We also observed cross-task scaling with joint finetuning on multiple tasks leading to improvement on other tasks. Lang1-1B effectively transfers to out-of-distribution settings, including other clinical tasks and an external health system. Our findings suggest that predictive capabilities for hospital operations require explicit supervised finetuning, and that this finetuning process is made more efficient by in-domain pretraining on EHR. Our findings support the emerging view that specialized LLMs can compete with generalist models in specialized tasks, and show that effective healthcare systems AI requires the combination of in-domain pretraining, supervised finetuning, and real-world evaluation beyond proxy benchmarks.",
+      "categories": [
+        "medical_applications",
+        "benchmarking_evaluation"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This work presents an actionable and agentic insight into the 'latency' of reasoning models by developing a reinforcement learning methodology to optimize 'latent reasoning' length, effectively training models to know when they have 'thought' enough to stop."
+      ]
+    },
+    {
+      "arxiv_code": "2512.08082",
+      "title": "Short-Context Dominance: How Much Local Context Natural Language Actually Needs?",
+      "abstract": "We investigate the short-context dominance hypothesis: that for most sequences, a small local prefix suffices to predict their next tokens. Using large language models as statistical oracles, we measure the minimum context length (MCL) needed to reproduce accurate full-context predictions across datasets with sequences of varying lengths. For sequences with 1-7k tokens from long-context documents, we consistently find that 75-80% require only the last 96 tokens at most. Given the dominance of short-context tokens, we then ask whether it is possible to detect challenging long-context sequences for which a short local prefix does not suffice for prediction. We introduce a practical proxy to MCL, called Distributionally Aware MCL (DaMCL), that does not require knowledge of the actual next-token and is compatible with sampling strategies beyond greedy decoding. Our experiments validate that simple thresholding of the metric defining DaMCL achieves high performance in detecting long vs. short context sequences. Finally, to counter the bias that short-context dominance induces in LLM output distributions, we develop an intuitive decoding algorithm that leverages our detector to identify and boost tokens that are long-range-relevant. Across Q&A tasks and model architectures, we confirm that mitigating the bias improves performance.",
+      "categories": [
+        "memory_context",
+        "interpretability"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The study presents a surprising 'short-context dominance' property where nearly 80% of long-context document tokens can be accurately predicted using only the most recent 96 tokens, challenging assumptions about long-range dependency requirements."
+      ]
+    },
+    {
+      "arxiv_code": "2512.04123",
+      "title": "Measuring Agents in Production",
+      "abstract": "AI agents are actively running in production across diverse industries, yet little is publicly known about which technical approaches enable successful real-world deployments. We present the first large-scale systematic study of AI agents in production, surveying 306 practitioners and conducting 20 in-depth case studies via interviews across 26 domains. We investigate why organizations build agents, how they build them, how they evaluate them, and what the top development challenges are. We find that production agents are typically built using simple, controllable approaches: 68% execute at most 10 steps before requiring human intervention, 70% rely on prompting off-the-shelf models instead of weight tuning, and 74% depend primarily on human evaluation. Reliability remains the top development challenge, driven by difficulties in ensuring and evaluating agent correctness. Despite these challenges, simple yet effective methods already enable agents to deliver impact across diverse industries. Our study documents the current state of practice and bridges the gap between research and deployment by providing researchers visibility into production challenges while offering practitioners proven patterns from successful deployments.",
+      "categories": [
+        "agentic_systems"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This paper provides rare, actionable agentic insights by conducting a large-scale systematic study of AI agents actually running in production across 26 domains, revealing a gap between academic research and real-world deployment patterns."
+      ]
+    },
+    {
+      "arxiv_code": "2511.11500",
+      "title": "Honesty over Accuracy: Trustworthy Language Models through Reinforced Hesitation",
+      "abstract": "Modern language models fail a fundamental requirement of trustworthy intelligence: knowing when not to answer. Despite achieving impressive accuracy on benchmarks, these models produce confident hallucinations, even when wrong answers carry catastrophic consequences. Our evaluations on GSM8K, MedQA and GPQA show frontier models almost never abstain despite explicit warnings of severe penalties, suggesting that prompts cannot override training that rewards any answer over no answer. As a remedy, we propose Reinforced Hesitation (RH): a modification to Reinforcement Learning from Verifiable Rewards (RLVR) to use ternary rewards (+1 correct, 0 abstention, -$\u03bb$ error) instead of binary. Controlled experiments on logic puzzles reveal that varying $\u03bb$ produces distinct models along a Pareto frontier, where each training penalty yields the optimal model for its corresponding risk regime: low penalties produce aggressive answerers, high penalties conservative abstainers. We then introduce two inference strategies that exploit trained abstention as a coordination signal: cascading routes queries through models with decreasing risk tolerance, while self-cascading re-queries the same model on abstention. Both outperform majority voting with lower computational cost. These results establish abstention as a first-class training objective that transforms ``I don't know'' from failure into a coordination signal, enabling models to earn trust through calibrated honesty about their limits.",
+      "categories": [
+        "fine_tuning_techniques",
+        "trustworthiness"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This research introduces 'Reinforced Hesitation,' a counterintuitive approach to safety that shifts the optimization objective from accuracy to honesty, successfully teaching models to abstain from answering when uncertain through a ternary reward system."
+      ]
+    },
+    {
+      "arxiv_code": "2512.18160",
+      "title": "Propose, Solve, Verify: Self-Play Through Formal Verification",
+      "abstract": "Training models through self-play alone (without any human data) has been a longstanding goal in AI, but its effectiveness for training large language models remains unclear, particularly in code generation where rewards based on unit tests are brittle and prone to error propagation. We study self-play in the verified code generation setting, where formal verification provides reliable correctness signals. We introduce Propose, Solve, Verify (PSV) a simple self-play framework where formal verification signals are used to create a proposer capable of generating challenging synthetic problems and a solver trained via expert iteration. We use PSV to train PSV-Verus, which across three benchmarks improves pass@1 by up to 9.6x over inference-only and expert-iteration baselines. We show that performance scales with the number of generated questions and training iterations, and through ablations identify formal verification and difficulty-aware proposal as essential ingredients for successful self-play.",
+      "categories": [
+        "coding_applications",
+        "synthetic_data"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper presents a novel framework for self-play using formal verification as a ground-truth signal, demonstrating a significant capability leap in code generation without requiring any human-annotated data."
+      ]
+    },
+    {
+      "arxiv_code": "2511.17502",
+      "title": "RynnVLA-002: A Unified Vision-Language-Action and World Model",
+      "abstract": "We introduce RynnVLA-002, a unified Vision-Language-Action (VLA) and world model. The world model leverages action and visual inputs to predict future image states, learning the underlying physics of the environment to refine action generation. Conversely, the VLA model produces subsequent actions from image observations, enhancing visual understanding and supporting the world model's image generation. The unified framework of RynnVLA-002 enables joint learning of environmental dynamics and action planning. Our experiments show that RynnVLA-002 surpasses individual VLA and world models, demonstrating their mutual enhancement. We evaluate RynnVLA-002 in both simulation and real-world robot tasks. RynnVLA-002 achieves 97.4% success rate on the LIBERO simulation benchmark without pretraining, while in real-world LeRobot experiments, its integrated world model boosts the overall success rate by 50%.",
+      "categories": [
+        "robotics_embodied_ai",
+        "multimodal_integration"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This research provides a novel framework connecting action generation with world modeling, showing an emergent property where learning physical environmental dynamics and planning mutually enhance one another."
+      ]
+    },
+    {
+      "arxiv_code": "2511.18890",
+      "title": "Nemotron-Flash: Towards Latency-Optimal Hybrid Small Language Models",
+      "abstract": "Efficient deployment of small language models (SLMs) is essential for numerous real-world applications with stringent latency constraints. While previous work on SLM design has primarily focused on reducing the number of parameters to achieve parameter-optimal SLMs, parameter efficiency does not necessarily translate into proportional real-device speed-ups. This work aims to identify the key determinants of SLMs' real-device latency and offer generalizable principles and methodologies for SLM design and training when real-device latency is the primary consideration. Specifically, we identify two central architectural factors: depth-width ratios and operator choices. The former is crucial for small-batch-size latency, while the latter affects both latency and large-batch-size throughput. In light of this, we first study latency-optimal depth-width ratios, with the key finding that although deep-thin models generally achieve better accuracy under the same parameter budget, they may not lie on the accuracy-latency trade-off frontier. Next, we explore emerging efficient attention alternatives to evaluate their potential as candidate building operators. Using the identified promising operators, we construct an evolutionary search framework to automatically discover latency-optimal combinations of these operators within hybrid SLMs, thereby advancing the accuracy-latency frontier. In addition to architectural improvements, we further enhance SLM training using a weight normalization technique that enables more effective weight updates and improves final convergence. Combining these methods, we introduce a new family of hybrid SLMs, called Nemotron-Flash, which significantly advances the accuracy-efficiency frontier of state-of-the-art SLMs, e.g., achieving over +5.5% average accuracy, 1.3x/1.9x lower latency, and 18.7x/45.6x higher throughput compared to Qwen3-1.7B/0.6B, respectively.",
+      "categories": [
+        "scaling_optimization",
+        "hardware_optimization"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This paper challenges the parameter-counting convention by identifying architectural factors like depth-width ratios that affect real-device latency, offering a more practical framework for small language model design."
+      ]
+    },
+    {
+      "arxiv_code": "2512.01822",
+      "title": "InnoGym: Benchmarking the Innovation Potential of AI Agents",
+      "abstract": "LLMs and Agents have achieved impressive progress in code generation, mathematical reasoning, and scientific discovery. However, existing benchmarks primarily measure correctness, overlooking the diversity of methods behind solutions. True innovation depends not only on producing correct answers but also on the originality of the approach. We present InnoGym, the first benchmark and framework designed to systematically evaluate the innovation potential of AI agents. InnoGym introduces two complementary metrics: performance gain, which measures improvement over the best-known solutions, and novelty, which captures methodological differences from prior approaches. The benchmark includes 18 carefully curated tasks from real-world engineering and scientific domains, each standardized through resource filtering, evaluator validation, and solution collection. In addition, we provide iGym, a unified execution environment for reproducible and long-horizon evaluations. Extensive experiments show that while some agents produce novel approaches, their lack of robustness limits performance gains. These results highlight a key gap between creativity and effectiveness, underscoring the need for benchmarks that evaluate both.",
+      "categories": [
+        "benchmarking_evaluation"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper introduces a novel evaluation framework for 'innovation potential' that rewards methodological novelty rather than just correct answers, addressing a significant gap in benchmarking creative AI reasoning."
+      ]
+    },
+    {
+      "arxiv_code": "2512.24601",
+      "title": "Recursive Language Models",
+      "abstract": "We study allowing large language models (LLMs) to process arbitrarily long prompts through the lens of inference-time scaling. We propose Recursive Language Models (RLMs), a general inference strategy that treats long prompts as part of an external environment and allows the LLM to programmatically examine, decompose, and recursively call itself over snippets of the prompt. We find that RLMs successfully handle inputs up to two orders of magnitude beyond model context windows and, even for shorter prompts, dramatically outperform the quality of base LLMs and common long-context scaffolds across four diverse long-context tasks, while having comparable (or cheaper) cost per query.",
+      "categories": [
+        "memory_context",
+        "computer_use_applications"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper introduces a recursive inference strategy that allows LLMs to handle context lengths two orders of magnitude beyond their trained limits by treating prompts as external environments."
+      ]
+    },
+    {
+      "arxiv_code": "2512.22255",
+      "title": "Shape of Thought: When Distribution Matters More than Correctness in Reasoning Tasks",
+      "abstract": "We present the surprising finding that a language model's reasoning capabilities can be improved by training on synthetic datasets of chain-of-thought (CoT) traces from more capable models, even when all of those traces lead to an incorrect final answer. Our experiments show this approach can yield better performance on reasoning tasks than training on human-annotated datasets. We hypothesize that two key factors explain this phenomenon: first, the distribution of synthetic data is inherently closer to the language model's own distribution, making it more amenable to learning. Second, these `incorrect' traces are often only partially flawed and contain valid reasoning steps from which the model can learn. To further test the first hypothesis, we use a language model to paraphrase human-annotated traces -- shifting their distribution closer to the model's own distribution -- and show that this improves performance. For the second hypothesis, we introduce increasingly flawed CoT traces and study to what extent models are tolerant to these flaws. We demonstrate our findings across various reasoning domains like math, algorithmic reasoning and code generation using MATH, GSM8K, Countdown and MBPP datasets on various language models ranging from 1.5B to 9B across Qwen, Llama, and Gemma models. Our study shows that curating datasets that are closer to the model's distribution is a critical aspect to consider. We also show that a correct final answer is not always a reliable indicator of a faithful reasoning process.",
+      "categories": [
+        "reasoning_models",
+        "synthetic_data"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "A highly counter-intuitive finding that training LLMs on chain-of-thought traces leading to incorrect answers can actually improve their reasoning capabilities more than human-annotated datasets."
+      ]
+    }
+  ],
+  "run_similarities": [
+    {
+      "run_pair": "1-2",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "2-3",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "3-4",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "4-5",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "5-6",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "6-7",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "7-8",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "8-9",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "9-10",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "10-11",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "11-12",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "12-13",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "13-14",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "14-15",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "15-16",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "16-17",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "17-18",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "18-19",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "19-20",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "20-21",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "21-22",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "22-23",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "23-24",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "24-25",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "25-26",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "26-27",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "27-28",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "28-29",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "29-30",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    }
+  ]
+}

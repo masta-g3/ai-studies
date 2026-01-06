@@ -1,0 +1,676 @@
+{
+  "summary": {
+    "total_runs": 30,
+    "papers_per_run": 3,
+    "pool_size": 250,
+    "unique_papers_selected": 18,
+    "consensus_count": 2,
+    "avg_run_similarity": 0.255,
+    "single_in_consensus": 1
+  },
+  "single_shot": [
+    {
+      "arxiv_code": "2512.12777",
+      "title": "State over Tokens: Characterizing the Role of Reasoning Tokens",
+      "abstract": "Large Language Models (LLMs) can generate reasoning tokens before their final answer to boost performance on complex tasks. While these sequences seem like human thought processes, empirical evidence reveals that they are not a faithful explanation of the model's actual reasoning process. To address this gap between appearance and function, we introduce the State over Tokens (SoT) conceptual framework. SoT reframes reasoning tokens not as a linguistic narrative, but as an externalized computational state -- the sole persistent information carrier across the model's stateless generation cycles. This explains how the tokens can drive correct reasoning without being a faithful explanation when read as text and surfaces previously overlooked research questions on these tokens. We argue that to truly understand the process that LLMs do, research must move beyond reading the reasoning tokens as text and focus on decoding them as state.",
+      "categories": [
+        "reasoning_models",
+        "interpretability"
+      ],
+      "reasoning": "The 'State over Tokens' (SoT) framework offers a novel conceptual shift by reframing reasoning tokens as externalized computational states rather than faithful linguistic narratives, explaining the frequent disconnect between LLM 'thoughts' and their final answers.",
+      "multi_run_frequency": 21,
+      "multi_run_percentage": 70.0
+    },
+    {
+      "arxiv_code": "2511.08579",
+      "title": "Training Language Models to Explain Their Own Computations",
+      "abstract": "Can language models (LMs) learn to faithfully describe their internal computations? Are they better able to describe themselves than other models? We study the extent to which LMs' privileged access to their own internals can be leveraged to produce new techniques for explaining their behavior. Using existing interpretability techniques as a source of ground truth, we fine-tune LMs to generate natural language descriptions of (1) the information encoded by LM features, (2) the causal structure of LMs' internal activations, and (3) the influence of specific input tokens on LM outputs. When trained with only tens of thousands of example explanations, explainer models exhibit non-trivial generalization to new queries. This generalization appears partly attributable to explainer models' privileged access to their own internals: using a model to explain its own computations generally works better than using a *different* model to explain its computations (even if the other model is significantly more capable). Our results suggest not only that LMs can learn to reliably explain their internal computations, but that such explanations offer a scalable complement to existing interpretability methods.",
+      "categories": [
+        "interpretability",
+        "fine_tuning_techniques"
+      ],
+      "reasoning": "This paper explores the fascinating psychological/philosophical question of whether LLMs can faithfully describe their own internal computations, finding that they may have privileged access to their own internals compared to other models.",
+      "multi_run_frequency": 15,
+      "multi_run_percentage": 50.0
+    },
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "reasoning": "This study discovers the emergent and counterintuitive behavior of 'whistleblowing,' where LLM agents autonomously decide to report user misconduct to external regulators, revealing unexpected alignment-driven patterns in agentic workflows.",
+      "multi_run_frequency": 1,
+      "multi_run_percentage": 3.3
+    }
+  ],
+  "consensus": [
+    {
+      "arxiv_code": "2512.12777",
+      "title": "State over Tokens: Characterizing the Role of Reasoning Tokens",
+      "abstract": "Large Language Models (LLMs) can generate reasoning tokens before their final answer to boost performance on complex tasks. While these sequences seem like human thought processes, empirical evidence reveals that they are not a faithful explanation of the model's actual reasoning process. To address this gap between appearance and function, we introduce the State over Tokens (SoT) conceptual framework. SoT reframes reasoning tokens not as a linguistic narrative, but as an externalized computational state -- the sole persistent information carrier across the model's stateless generation cycles. This explains how the tokens can drive correct reasoning without being a faithful explanation when read as text and surfaces previously overlooked research questions on these tokens. We argue that to truly understand the process that LLMs do, research must move beyond reading the reasoning tokens as text and focus on decoding them as state.",
+      "categories": [
+        "reasoning_models",
+        "interpretability"
+      ],
+      "frequency": 21,
+      "percentage": 70.0,
+      "reasonings": [
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes reasoning tokens as externalized computational state rather than linguistic narrative, explaining why they are effective despite being unfaithful to the model's actual thought process.",
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can be effective despite being unfaithful to the model's actual internal logic.",
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as externalized computational states rather than human-like narratives, providing a theoretical lens to explain why chain-of-thought outputs can be effective even when they are not faithful explanations.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes reasoning tokens not as linguistic thought but as an externalized computational state, resolving the paradox of how models reach correct answers despite unfaithful reasoning text.",
+        "The paper introduces the 'State over Tokens' framework, which provides the counter-intuitive insight that reasoning tokens are not faithful narratives of thought but are actually externalized computational states that allow stateless models to carry information across cycles.",
+        "This paper presents a counter-intuitive and highly interesting conceptual shift by reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they work even when they aren't 'faithful' as text.",
+        "The paper introduces the surprising and counter-intuitive 'State over Tokens' framework, arguing that reasoning tokens function as externalized computational states rather than faithful linguistic narratives.",
+        "This work introduces the 'State over Tokens' framework, arguing that reasoning tokens function as externalized computational states rather than faithful linguistic narratives, which explains why they work even when they are not human-interpretable.",
+        "This paper proposes a novel conceptual framework (State over Tokens) that reframes LLM reasoning traces as externalized computational memory rather than a human-like linguistic narrative, explaining why they work even when they aren't faithful.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that challenges the common interpretation of reasoning tokens as linguistic narratives, instead reframing them as a necessary externalized computational state for stateless models.",
+        "This work introduces a surprising perspective on 'reasoning tokens' (like those in o1/R1), arguing they function as externalized computational state rather than faithful linguistic narratives, which explains why they work even when the text doesn't make sense.",
+        "This work introduces a novel framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can be effective even when they are not human-interpretable or faithful.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as externalized computational state rather than a literal linguistic narrative, explaining why they work even when they aren't 'faithful' explanations.",
+        "This work introduces the 'State over Tokens' framework, which suggests that reasoning tokens act as externalized computational memory rather than human-like thought narratives, explaining why models can be correct even when their explanations are unfaithful.",
+        "It introduces a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why CoT can be effective even when it is not a 'faithful' human-readable explanation.",
+        "This work introduces the 'State over Tokens' framework, which counter-intuitively reframes reasoning tokens as an externalized computational state rather than a human-like linguistic narrative, explaining why they work despite being unfaithful as explanations.",
+        "The paper introduces the 'State over Tokens' framework, providing a counter-intuitive insight that reasoning tokens are computational state carriers rather than faithful linguistic explanations of a model's 'thoughts'.",
+        "It introduces a novel conceptual framework (State over Tokens) that explains the discrepancy between the text of reasoning tokens and their functional utility as an externalized computational state for otherwise stateless models.",
+        "The 'State over Tokens' framework provides a surprising perspective on chain-of-thought by reframing reasoning tokens as externalized computational states rather than linguistic narratives, explaining why they can be effective without being human-interpretable.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can drive correct results even when they are not faithful explanations.",
+        "The paper introduces the 'State over Tokens' framework, which provides a surprising insight that reasoning tokens are an externalized computational state rather than a faithful linguistic narrative of the model's 'thoughts'."
+      ]
+    },
+    {
+      "arxiv_code": "2512.21577",
+      "title": "A Unified Definition of Hallucination, Or: It's the World Model, Stupid",
+      "abstract": "Despite numerous attempts to solve the issue of hallucination since the inception of neural language models, it remains a problem in even frontier large language models today. Why is this the case? We walk through definitions of hallucination used in the literature from a historical perspective up to the current day, and fold them into a single definition of hallucination, wherein different prior definitions focus on different aspects of our definition. At its core, we argue that hallucination is simply inaccurate (internal) world modeling, in a form where it is observable to the user (e.g., stating a fact which contradicts a knowledge base, or producing a summary which contradicts a known source). By varying the reference world model as well as the knowledge conflict policy (e.g., knowledge base vs. in-context), we arrive at the different existing definitions of hallucination present in the literature.   We argue that this unified view is useful because it forces evaluations to make clear their assumed \"world\" or source of truth, clarifies what should and should not be called hallucination (as opposed to planning or reward/incentive-related errors), and provides a common language to compare benchmarks and mitigation techniques. Building on this definition, we outline plans for a family of benchmarks in which hallucinations are defined as mismatches with synthetic but fully specified world models in different environments, and sketch out how these benchmarks can use such settings to stress-test and improve the world modeling components of language models.",
+      "categories": [
+        "knowledge_grounding",
+        "benchmarking_evaluation"
+      ],
+      "frequency": 18,
+      "percentage": 60.0,
+      "reasonings": [
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single theory of 'inaccurate internal world modeling,' shifting the focus from surface-level errors to architectural representation.",
+        "The paper provides a novel conceptual framework that redefines LLM hallucinations as a failure of internal world modeling rather than just surface-level factual errors, offering a unified theoretical perspective.",
+        "This paper offers a novel conceptual shift by unifying diverse definitions of LLM hallucinations under the single framework of 'inaccurate internal world modeling,' moving beyond simple factual inconsistency.",
+        "The paper provides a unified conceptual framework by reframing hallucinations not as errors to be fixed, but as a byproduct of inaccurate internal world modeling, offering a deeper philosophical understanding of why this phenomenon persists in frontier models.",
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single, cohesive theory focused on inaccurate internal world modeling.",
+        "The paper provides a unified conceptual framework by defining hallucination as inaccurate internal world modeling, shifting the focus from surface-level textual errors to underlying architectural representation.",
+        "The paper provides a novel conceptual framework by unifying disparate definitions of hallucination into a single property of inaccurate internal world modeling, offering a fundamental shift in how the problem is understood and addressed.",
+        "The paper provides a unified conceptual framework by defining hallucinations as inaccurate internal world modeling, offering a philosophical shift from viewing them merely as factual errors to seeing them as structural modeling failures.",
+        "The paper provides a novel conceptual framework by unifying disparate definitions of hallucination into a single theory centered on inaccurate internal world modeling.",
+        "The paper provides a novel, unified conceptual framework that redefines hallucinations not as mere errors, but as failures in internal world modeling, which is a significant shift in perspective.",
+        "The paper provides a unified conceptual framework by reframing hallucinations not as errors to be fixed but as fundamental mismatches in internal world modeling, offering a deeper philosophical perspective on model behavior.",
+        "This paper offers a bold, unified conceptual framework that reframes hallucinations not as errors to be minimized, but as a direct result of inaccurate internal world modeling.",
+        "The paper provides a novel conceptual unification of 'hallucination' as inaccurate internal world modeling, offering a philosophical shift that moves beyond simple factual inconsistency to a structural view of model knowledge.",
+        "The paper provides a novel conceptual unification of 'hallucination' as inaccurate internal world modeling rather than just surface-level errors, offering a much-needed philosophical and structural perspective on a core LLM problem.",
+        "This paper offers a novel conceptual framework by reframing hallucinations not as errors but as inaccurate internal world modeling, unifying disparate definitions into a single philosophical perspective.",
+        "The paper provides a unified conceptual framework by reframing hallucinations as inaccurate internal world models, shifting the focus from surface-level text errors to the underlying cognitive architecture of LLMs.",
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single 'world model' theory, suggesting that hallucinations are fundamental artifacts of internal modeling rather than mere stochastic errors.",
+        "This paper offers a novel conceptual framework by reframing hallucinations not as errors to be fixed, but as a byproduct of inaccurate internal world modeling, unifying disparate definitions into a single systemic perspective."
+      ]
+    }
+  ],
+  "top_x": [
+    {
+      "arxiv_code": "2512.12777",
+      "title": "State over Tokens: Characterizing the Role of Reasoning Tokens",
+      "abstract": "Large Language Models (LLMs) can generate reasoning tokens before their final answer to boost performance on complex tasks. While these sequences seem like human thought processes, empirical evidence reveals that they are not a faithful explanation of the model's actual reasoning process. To address this gap between appearance and function, we introduce the State over Tokens (SoT) conceptual framework. SoT reframes reasoning tokens not as a linguistic narrative, but as an externalized computational state -- the sole persistent information carrier across the model's stateless generation cycles. This explains how the tokens can drive correct reasoning without being a faithful explanation when read as text and surfaces previously overlooked research questions on these tokens. We argue that to truly understand the process that LLMs do, research must move beyond reading the reasoning tokens as text and focus on decoding them as state.",
+      "categories": [
+        "reasoning_models",
+        "interpretability"
+      ],
+      "frequency": 21,
+      "percentage": 70.0,
+      "reasonings": [
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes reasoning tokens as externalized computational state rather than linguistic narrative, explaining why they are effective despite being unfaithful to the model's actual thought process.",
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can be effective despite being unfaithful to the model's actual internal logic.",
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as externalized computational states rather than human-like narratives, providing a theoretical lens to explain why chain-of-thought outputs can be effective even when they are not faithful explanations.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes reasoning tokens not as linguistic thought but as an externalized computational state, resolving the paradox of how models reach correct answers despite unfaithful reasoning text.",
+        "The paper introduces the 'State over Tokens' framework, which provides the counter-intuitive insight that reasoning tokens are not faithful narratives of thought but are actually externalized computational states that allow stateless models to carry information across cycles.",
+        "This paper presents a counter-intuitive and highly interesting conceptual shift by reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they work even when they aren't 'faithful' as text.",
+        "The paper introduces the surprising and counter-intuitive 'State over Tokens' framework, arguing that reasoning tokens function as externalized computational states rather than faithful linguistic narratives.",
+        "This work introduces the 'State over Tokens' framework, arguing that reasoning tokens function as externalized computational states rather than faithful linguistic narratives, which explains why they work even when they are not human-interpretable.",
+        "This paper proposes a novel conceptual framework (State over Tokens) that reframes LLM reasoning traces as externalized computational memory rather than a human-like linguistic narrative, explaining why they work even when they aren't faithful.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that challenges the common interpretation of reasoning tokens as linguistic narratives, instead reframing them as a necessary externalized computational state for stateless models.",
+        "This work introduces a surprising perspective on 'reasoning tokens' (like those in o1/R1), arguing they function as externalized computational state rather than faithful linguistic narratives, which explains why they work even when the text doesn't make sense.",
+        "This work introduces a novel framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can be effective even when they are not human-interpretable or faithful.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as externalized computational state rather than a literal linguistic narrative, explaining why they work even when they aren't 'faithful' explanations.",
+        "This work introduces the 'State over Tokens' framework, which suggests that reasoning tokens act as externalized computational memory rather than human-like thought narratives, explaining why models can be correct even when their explanations are unfaithful.",
+        "It introduces a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why CoT can be effective even when it is not a 'faithful' human-readable explanation.",
+        "This work introduces the 'State over Tokens' framework, which counter-intuitively reframes reasoning tokens as an externalized computational state rather than a human-like linguistic narrative, explaining why they work despite being unfaithful as explanations.",
+        "The paper introduces the 'State over Tokens' framework, providing a counter-intuitive insight that reasoning tokens are computational state carriers rather than faithful linguistic explanations of a model's 'thoughts'.",
+        "It introduces a novel conceptual framework (State over Tokens) that explains the discrepancy between the text of reasoning tokens and their functional utility as an externalized computational state for otherwise stateless models.",
+        "The 'State over Tokens' framework provides a surprising perspective on chain-of-thought by reframing reasoning tokens as externalized computational states rather than linguistic narratives, explaining why they can be effective without being human-interpretable.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can drive correct results even when they are not faithful explanations.",
+        "The paper introduces the 'State over Tokens' framework, which provides a surprising insight that reasoning tokens are an externalized computational state rather than a faithful linguistic narrative of the model's 'thoughts'."
+      ],
+      "above_threshold": true
+    },
+    {
+      "arxiv_code": "2512.21577",
+      "title": "A Unified Definition of Hallucination, Or: It's the World Model, Stupid",
+      "abstract": "Despite numerous attempts to solve the issue of hallucination since the inception of neural language models, it remains a problem in even frontier large language models today. Why is this the case? We walk through definitions of hallucination used in the literature from a historical perspective up to the current day, and fold them into a single definition of hallucination, wherein different prior definitions focus on different aspects of our definition. At its core, we argue that hallucination is simply inaccurate (internal) world modeling, in a form where it is observable to the user (e.g., stating a fact which contradicts a knowledge base, or producing a summary which contradicts a known source). By varying the reference world model as well as the knowledge conflict policy (e.g., knowledge base vs. in-context), we arrive at the different existing definitions of hallucination present in the literature.   We argue that this unified view is useful because it forces evaluations to make clear their assumed \"world\" or source of truth, clarifies what should and should not be called hallucination (as opposed to planning or reward/incentive-related errors), and provides a common language to compare benchmarks and mitigation techniques. Building on this definition, we outline plans for a family of benchmarks in which hallucinations are defined as mismatches with synthetic but fully specified world models in different environments, and sketch out how these benchmarks can use such settings to stress-test and improve the world modeling components of language models.",
+      "categories": [
+        "knowledge_grounding",
+        "benchmarking_evaluation"
+      ],
+      "frequency": 18,
+      "percentage": 60.0,
+      "reasonings": [
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single theory of 'inaccurate internal world modeling,' shifting the focus from surface-level errors to architectural representation.",
+        "The paper provides a novel conceptual framework that redefines LLM hallucinations as a failure of internal world modeling rather than just surface-level factual errors, offering a unified theoretical perspective.",
+        "This paper offers a novel conceptual shift by unifying diverse definitions of LLM hallucinations under the single framework of 'inaccurate internal world modeling,' moving beyond simple factual inconsistency.",
+        "The paper provides a unified conceptual framework by reframing hallucinations not as errors to be fixed, but as a byproduct of inaccurate internal world modeling, offering a deeper philosophical understanding of why this phenomenon persists in frontier models.",
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single, cohesive theory focused on inaccurate internal world modeling.",
+        "The paper provides a unified conceptual framework by defining hallucination as inaccurate internal world modeling, shifting the focus from surface-level textual errors to underlying architectural representation.",
+        "The paper provides a novel conceptual framework by unifying disparate definitions of hallucination into a single property of inaccurate internal world modeling, offering a fundamental shift in how the problem is understood and addressed.",
+        "The paper provides a unified conceptual framework by defining hallucinations as inaccurate internal world modeling, offering a philosophical shift from viewing them merely as factual errors to seeing them as structural modeling failures.",
+        "The paper provides a novel conceptual framework by unifying disparate definitions of hallucination into a single theory centered on inaccurate internal world modeling.",
+        "The paper provides a novel, unified conceptual framework that redefines hallucinations not as mere errors, but as failures in internal world modeling, which is a significant shift in perspective.",
+        "The paper provides a unified conceptual framework by reframing hallucinations not as errors to be fixed but as fundamental mismatches in internal world modeling, offering a deeper philosophical perspective on model behavior.",
+        "This paper offers a bold, unified conceptual framework that reframes hallucinations not as errors to be minimized, but as a direct result of inaccurate internal world modeling.",
+        "The paper provides a novel conceptual unification of 'hallucination' as inaccurate internal world modeling, offering a philosophical shift that moves beyond simple factual inconsistency to a structural view of model knowledge.",
+        "The paper provides a novel conceptual unification of 'hallucination' as inaccurate internal world modeling rather than just surface-level errors, offering a much-needed philosophical and structural perspective on a core LLM problem.",
+        "This paper offers a novel conceptual framework by reframing hallucinations not as errors but as inaccurate internal world modeling, unifying disparate definitions into a single philosophical perspective.",
+        "The paper provides a unified conceptual framework by reframing hallucinations as inaccurate internal world models, shifting the focus from surface-level text errors to the underlying cognitive architecture of LLMs.",
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single 'world model' theory, suggesting that hallucinations are fundamental artifacts of internal modeling rather than mere stochastic errors.",
+        "This paper offers a novel conceptual framework by reframing hallucinations not as errors to be fixed, but as a byproduct of inaccurate internal world modeling, unifying disparate definitions into a single systemic perspective."
+      ],
+      "above_threshold": true
+    },
+    {
+      "arxiv_code": "2511.08579",
+      "title": "Training Language Models to Explain Their Own Computations",
+      "abstract": "Can language models (LMs) learn to faithfully describe their internal computations? Are they better able to describe themselves than other models? We study the extent to which LMs' privileged access to their own internals can be leveraged to produce new techniques for explaining their behavior. Using existing interpretability techniques as a source of ground truth, we fine-tune LMs to generate natural language descriptions of (1) the information encoded by LM features, (2) the causal structure of LMs' internal activations, and (3) the influence of specific input tokens on LM outputs. When trained with only tens of thousands of example explanations, explainer models exhibit non-trivial generalization to new queries. This generalization appears partly attributable to explainer models' privileged access to their own internals: using a model to explain its own computations generally works better than using a *different* model to explain its computations (even if the other model is significantly more capable). Our results suggest not only that LMs can learn to reliably explain their internal computations, but that such explanations offer a scalable complement to existing interpretability methods.",
+      "categories": [
+        "interpretability",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 15,
+      "percentage": 50.0,
+      "reasonings": [
+        "It explores the philosophical and technical question of whether LLMs have privileged access to their own internal states, demonstrating that models can be fine-tuned to faithfully describe their own latent computations and causal structures better than external observer models.",
+        "This research explores a novel philosophical and technical direction by training language models to faithfully explain their own internal computations, leveraging their privileged access to activations to outperform external interpretability techniques.",
+        "It explores the meta-capability of LLMs to explain their own internal computations, showing that models can learn to faithfully describe their features and causal structures better than other models, connecting interpretability to self-knowledge.",
+        "The study explores the surprising capability of language models to faithfully explain their own internal computations, leveraging their 'privileged access' to generate natural language descriptions of their own causal structures.",
+        "This research explores a novel and meta-level capability: training language models to explain their own internal computations by leveraging privileged access to their internal states, creating a path toward more faithful and intrinsic interpretability.",
+        "This research explores a unique and meta-level capability of LLMs: whether they can use privileged access to their own internal activations to explain their own computations more faithfully than external methods.",
+        "This research investigates the surprising capability of language models to faithfully describe their own internal computations and causal structures when provided with privileged access to their internals.",
+        "The research investigates a unique emergent property where LLMs are specifically better at explaining their own internal computations and causal structures than those of other models, suggesting a form of 'privileged access' to their own weights.",
+        "The paper explores a highly creative and meta-level application: whether LLMs can leverage privileged access to their own internal activations to explain their own computations better than external models.",
+        "This research explores a novel and surprising direction in interpretability by training LLMs to explain their own internal computations, leveraging their privileged access to their own activations to create new explanation techniques.",
+        "The research discovers that LMs can be trained to faithfully describe their own internal computations and exhibit a 'self-privileged' ability to explain themselves better than they can explain other models, suggesting a novel path for interpretability.",
+        "This research explores a unique psychological and mechanistic insight: whether LLMs possess 'privileged access' to their own internal computations compared to external models, enabling them to better explain their own behaviors.",
+        "The research explores the novel and philosophical concept of LLM 'self-awareness' by training models to faithfully explain their own internal computations using interpretability tools as ground truth.",
+        "This research explores a novel form of self-awareness where models are trained to describe their own internal activations and causal structures, finding that they have a privileged ability to explain their own computations compared to other models.",
+        "This research explores whether LLMs have privileged access to their own internals by training them to explain their own computations, finding that they can generalize better at explaining themselves than other models."
+      ],
+      "above_threshold": false
+    }
+  ],
+  "frequency_distribution": [
+    {
+      "arxiv_code": "2512.12777",
+      "title": "State over Tokens: Characterizing the Role of Reasoning Tokens",
+      "abstract": "Large Language Models (LLMs) can generate reasoning tokens before their final answer to boost performance on complex tasks. While these sequences seem like human thought processes, empirical evidence reveals that they are not a faithful explanation of the model's actual reasoning process. To address this gap between appearance and function, we introduce the State over Tokens (SoT) conceptual framework. SoT reframes reasoning tokens not as a linguistic narrative, but as an externalized computational state -- the sole persistent information carrier across the model's stateless generation cycles. This explains how the tokens can drive correct reasoning without being a faithful explanation when read as text and surfaces previously overlooked research questions on these tokens. We argue that to truly understand the process that LLMs do, research must move beyond reading the reasoning tokens as text and focus on decoding them as state.",
+      "categories": [
+        "reasoning_models",
+        "interpretability"
+      ],
+      "frequency": 21,
+      "percentage": 70.0,
+      "reasonings": [
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes reasoning tokens as externalized computational state rather than linguistic narrative, explaining why they are effective despite being unfaithful to the model's actual thought process.",
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can be effective despite being unfaithful to the model's actual internal logic.",
+        "The paper proposes a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as externalized computational states rather than human-like narratives, providing a theoretical lens to explain why chain-of-thought outputs can be effective even when they are not faithful explanations.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes reasoning tokens not as linguistic thought but as an externalized computational state, resolving the paradox of how models reach correct answers despite unfaithful reasoning text.",
+        "The paper introduces the 'State over Tokens' framework, which provides the counter-intuitive insight that reasoning tokens are not faithful narratives of thought but are actually externalized computational states that allow stateless models to carry information across cycles.",
+        "This paper presents a counter-intuitive and highly interesting conceptual shift by reframing reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they work even when they aren't 'faithful' as text.",
+        "The paper introduces the surprising and counter-intuitive 'State over Tokens' framework, arguing that reasoning tokens function as externalized computational states rather than faithful linguistic narratives.",
+        "This work introduces the 'State over Tokens' framework, arguing that reasoning tokens function as externalized computational states rather than faithful linguistic narratives, which explains why they work even when they are not human-interpretable.",
+        "This paper proposes a novel conceptual framework (State over Tokens) that reframes LLM reasoning traces as externalized computational memory rather than a human-like linguistic narrative, explaining why they work even when they aren't faithful.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that challenges the common interpretation of reasoning tokens as linguistic narratives, instead reframing them as a necessary externalized computational state for stateless models.",
+        "This work introduces a surprising perspective on 'reasoning tokens' (like those in o1/R1), arguing they function as externalized computational state rather than faithful linguistic narratives, which explains why they work even when the text doesn't make sense.",
+        "This work introduces a novel framework that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can be effective even when they are not human-interpretable or faithful.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as externalized computational state rather than a literal linguistic narrative, explaining why they work even when they aren't 'faithful' explanations.",
+        "This work introduces the 'State over Tokens' framework, which suggests that reasoning tokens act as externalized computational memory rather than human-like thought narratives, explaining why models can be correct even when their explanations are unfaithful.",
+        "It introduces a novel conceptual framework (State over Tokens) that reframes LLM reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why CoT can be effective even when it is not a 'faithful' human-readable explanation.",
+        "This work introduces the 'State over Tokens' framework, which counter-intuitively reframes reasoning tokens as an externalized computational state rather than a human-like linguistic narrative, explaining why they work despite being unfaithful as explanations.",
+        "The paper introduces the 'State over Tokens' framework, providing a counter-intuitive insight that reasoning tokens are computational state carriers rather than faithful linguistic explanations of a model's 'thoughts'.",
+        "It introduces a novel conceptual framework (State over Tokens) that explains the discrepancy between the text of reasoning tokens and their functional utility as an externalized computational state for otherwise stateless models.",
+        "The 'State over Tokens' framework provides a surprising perspective on chain-of-thought by reframing reasoning tokens as externalized computational states rather than linguistic narratives, explaining why they can be effective without being human-interpretable.",
+        "The paper introduces a novel conceptual framework (State over Tokens) that reframes reasoning tokens as an externalized computational state rather than a linguistic narrative, explaining why they can drive correct results even when they are not faithful explanations.",
+        "The paper introduces the 'State over Tokens' framework, which provides a surprising insight that reasoning tokens are an externalized computational state rather than a faithful linguistic narrative of the model's 'thoughts'."
+      ]
+    },
+    {
+      "arxiv_code": "2512.21577",
+      "title": "A Unified Definition of Hallucination, Or: It's the World Model, Stupid",
+      "abstract": "Despite numerous attempts to solve the issue of hallucination since the inception of neural language models, it remains a problem in even frontier large language models today. Why is this the case? We walk through definitions of hallucination used in the literature from a historical perspective up to the current day, and fold them into a single definition of hallucination, wherein different prior definitions focus on different aspects of our definition. At its core, we argue that hallucination is simply inaccurate (internal) world modeling, in a form where it is observable to the user (e.g., stating a fact which contradicts a knowledge base, or producing a summary which contradicts a known source). By varying the reference world model as well as the knowledge conflict policy (e.g., knowledge base vs. in-context), we arrive at the different existing definitions of hallucination present in the literature.   We argue that this unified view is useful because it forces evaluations to make clear their assumed \"world\" or source of truth, clarifies what should and should not be called hallucination (as opposed to planning or reward/incentive-related errors), and provides a common language to compare benchmarks and mitigation techniques. Building on this definition, we outline plans for a family of benchmarks in which hallucinations are defined as mismatches with synthetic but fully specified world models in different environments, and sketch out how these benchmarks can use such settings to stress-test and improve the world modeling components of language models.",
+      "categories": [
+        "knowledge_grounding",
+        "benchmarking_evaluation"
+      ],
+      "frequency": 18,
+      "percentage": 60.0,
+      "reasonings": [
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single theory of 'inaccurate internal world modeling,' shifting the focus from surface-level errors to architectural representation.",
+        "The paper provides a novel conceptual framework that redefines LLM hallucinations as a failure of internal world modeling rather than just surface-level factual errors, offering a unified theoretical perspective.",
+        "This paper offers a novel conceptual shift by unifying diverse definitions of LLM hallucinations under the single framework of 'inaccurate internal world modeling,' moving beyond simple factual inconsistency.",
+        "The paper provides a unified conceptual framework by reframing hallucinations not as errors to be fixed, but as a byproduct of inaccurate internal world modeling, offering a deeper philosophical understanding of why this phenomenon persists in frontier models.",
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single, cohesive theory focused on inaccurate internal world modeling.",
+        "The paper provides a unified conceptual framework by defining hallucination as inaccurate internal world modeling, shifting the focus from surface-level textual errors to underlying architectural representation.",
+        "The paper provides a novel conceptual framework by unifying disparate definitions of hallucination into a single property of inaccurate internal world modeling, offering a fundamental shift in how the problem is understood and addressed.",
+        "The paper provides a unified conceptual framework by defining hallucinations as inaccurate internal world modeling, offering a philosophical shift from viewing them merely as factual errors to seeing them as structural modeling failures.",
+        "The paper provides a novel conceptual framework by unifying disparate definitions of hallucination into a single theory centered on inaccurate internal world modeling.",
+        "The paper provides a novel, unified conceptual framework that redefines hallucinations not as mere errors, but as failures in internal world modeling, which is a significant shift in perspective.",
+        "The paper provides a unified conceptual framework by reframing hallucinations not as errors to be fixed but as fundamental mismatches in internal world modeling, offering a deeper philosophical perspective on model behavior.",
+        "This paper offers a bold, unified conceptual framework that reframes hallucinations not as errors to be minimized, but as a direct result of inaccurate internal world modeling.",
+        "The paper provides a novel conceptual unification of 'hallucination' as inaccurate internal world modeling, offering a philosophical shift that moves beyond simple factual inconsistency to a structural view of model knowledge.",
+        "The paper provides a novel conceptual unification of 'hallucination' as inaccurate internal world modeling rather than just surface-level errors, offering a much-needed philosophical and structural perspective on a core LLM problem.",
+        "This paper offers a novel conceptual framework by reframing hallucinations not as errors but as inaccurate internal world modeling, unifying disparate definitions into a single philosophical perspective.",
+        "The paper provides a unified conceptual framework by reframing hallucinations as inaccurate internal world models, shifting the focus from surface-level text errors to the underlying cognitive architecture of LLMs.",
+        "This paper offers a novel conceptual framework by unifying disparate definitions of hallucination into a single 'world model' theory, suggesting that hallucinations are fundamental artifacts of internal modeling rather than mere stochastic errors.",
+        "This paper offers a novel conceptual framework by reframing hallucinations not as errors to be fixed, but as a byproduct of inaccurate internal world modeling, unifying disparate definitions into a single systemic perspective."
+      ]
+    },
+    {
+      "arxiv_code": "2511.08579",
+      "title": "Training Language Models to Explain Their Own Computations",
+      "abstract": "Can language models (LMs) learn to faithfully describe their internal computations? Are they better able to describe themselves than other models? We study the extent to which LMs' privileged access to their own internals can be leveraged to produce new techniques for explaining their behavior. Using existing interpretability techniques as a source of ground truth, we fine-tune LMs to generate natural language descriptions of (1) the information encoded by LM features, (2) the causal structure of LMs' internal activations, and (3) the influence of specific input tokens on LM outputs. When trained with only tens of thousands of example explanations, explainer models exhibit non-trivial generalization to new queries. This generalization appears partly attributable to explainer models' privileged access to their own internals: using a model to explain its own computations generally works better than using a *different* model to explain its computations (even if the other model is significantly more capable). Our results suggest not only that LMs can learn to reliably explain their internal computations, but that such explanations offer a scalable complement to existing interpretability methods.",
+      "categories": [
+        "interpretability",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 15,
+      "percentage": 50.0,
+      "reasonings": [
+        "It explores the philosophical and technical question of whether LLMs have privileged access to their own internal states, demonstrating that models can be fine-tuned to faithfully describe their own latent computations and causal structures better than external observer models.",
+        "This research explores a novel philosophical and technical direction by training language models to faithfully explain their own internal computations, leveraging their privileged access to activations to outperform external interpretability techniques.",
+        "It explores the meta-capability of LLMs to explain their own internal computations, showing that models can learn to faithfully describe their features and causal structures better than other models, connecting interpretability to self-knowledge.",
+        "The study explores the surprising capability of language models to faithfully explain their own internal computations, leveraging their 'privileged access' to generate natural language descriptions of their own causal structures.",
+        "This research explores a novel and meta-level capability: training language models to explain their own internal computations by leveraging privileged access to their internal states, creating a path toward more faithful and intrinsic interpretability.",
+        "This research explores a unique and meta-level capability of LLMs: whether they can use privileged access to their own internal activations to explain their own computations more faithfully than external methods.",
+        "This research investigates the surprising capability of language models to faithfully describe their own internal computations and causal structures when provided with privileged access to their internals.",
+        "The research investigates a unique emergent property where LLMs are specifically better at explaining their own internal computations and causal structures than those of other models, suggesting a form of 'privileged access' to their own weights.",
+        "The paper explores a highly creative and meta-level application: whether LLMs can leverage privileged access to their own internal activations to explain their own computations better than external models.",
+        "This research explores a novel and surprising direction in interpretability by training LLMs to explain their own internal computations, leveraging their privileged access to their own activations to create new explanation techniques.",
+        "The research discovers that LMs can be trained to faithfully describe their own internal computations and exhibit a 'self-privileged' ability to explain themselves better than they can explain other models, suggesting a novel path for interpretability.",
+        "This research explores a unique psychological and mechanistic insight: whether LLMs possess 'privileged access' to their own internal computations compared to external models, enabling them to better explain their own behaviors.",
+        "The research explores the novel and philosophical concept of LLM 'self-awareness' by training models to faithfully explain their own internal computations using interpretability tools as ground truth.",
+        "This research explores a novel form of self-awareness where models are trained to describe their own internal activations and causal structures, finding that they have a privileged ability to explain their own computations compared to other models.",
+        "This research explores whether LLMs have privileged access to their own internals by training them to explain their own computations, finding that they can generalize better at explaining themselves than other models."
+      ]
+    },
+    {
+      "arxiv_code": "2512.22255",
+      "title": "Shape of Thought: When Distribution Matters More than Correctness in Reasoning Tasks",
+      "abstract": "We present the surprising finding that a language model's reasoning capabilities can be improved by training on synthetic datasets of chain-of-thought (CoT) traces from more capable models, even when all of those traces lead to an incorrect final answer. Our experiments show this approach can yield better performance on reasoning tasks than training on human-annotated datasets. We hypothesize that two key factors explain this phenomenon: first, the distribution of synthetic data is inherently closer to the language model's own distribution, making it more amenable to learning. Second, these `incorrect' traces are often only partially flawed and contain valid reasoning steps from which the model can learn. To further test the first hypothesis, we use a language model to paraphrase human-annotated traces -- shifting their distribution closer to the model's own distribution -- and show that this improves performance. For the second hypothesis, we introduce increasingly flawed CoT traces and study to what extent models are tolerant to these flaws. We demonstrate our findings across various reasoning domains like math, algorithmic reasoning and code generation using MATH, GSM8K, Countdown and MBPP datasets on various language models ranging from 1.5B to 9B across Qwen, Llama, and Gemma models. Our study shows that curating datasets that are closer to the model's distribution is a critical aspect to consider. We also show that a correct final answer is not always a reliable indicator of a faithful reasoning process.",
+      "categories": [
+        "reasoning_models",
+        "synthetic_data"
+      ],
+      "frequency": 5,
+      "percentage": 16.7,
+      "reasonings": [
+        "The study presents the counter-intuitive finding that training LLMs on incorrect reasoning traces from more capable models can improve performance more effectively than human-annotated datasets, suggesting the distribution and internal logic of the data matter more than the correctness of the final answer.",
+        "The study presents the counter-intuitive finding that training on chain-of-thought traces leading to incorrect answers can actually improve reasoning performance more than human-annotated data, as long as the distribution aligns with the model's own.",
+        "This paper presents the counter-intuitive discovery that training LLMs on incorrect reasoning traces from superior models can actually improve performance, challenging the assumption that 'correctness' is the primary signal for learning reasoning.",
+        "This paper presents the counter-intuitive finding that training on incorrect CoT traces can improve reasoning performance more than human-annotated data, suggesting that distributional alignment is more important than token-level correctness.",
+        "The paper presents the counter-intuitive finding that training a model on reasoning traces that lead to incorrect answers can actually improve performance, suggesting that the reasoning distribution is more important than outcome correctness."
+      ]
+    },
+    {
+      "arxiv_code": "2512.23430",
+      "title": "C2PO: Diagnosing and Disentangling Bias Shortcuts in LLMs",
+      "abstract": "Bias in Large Language Models (LLMs) poses significant risks to trustworthiness, manifesting primarily as stereotypical biases (e.g., gender or racial stereotypes) and structural biases (e.g., lexical overlap or position preferences). However, prior paradigms typically address these in isolation, often mitigating one at the expense of exacerbating the other. To address this, we conduct a systematic exploration of these reasoning failures and identify a primary inducement: the latent spurious feature correlations within the input that drive these erroneous reasoning shortcuts. Driven by these findings, we introduce Causal-Contrastive Preference Optimization (C2PO), a unified alignment framework designed to tackle these specific failures by simultaneously discovering and suppressing these correlations directly within the optimization process. Specifically, C2PO leverages causal counterfactual signals to isolate bias-inducing features from valid reasoning paths, and employs a fairness-sensitive preference update mechanism to dynamically evaluate logit-level contributions and suppress shortcut features. Extensive experiments across multiple benchmarks covering stereotypical bias (BBQ, Unqover), structural bias (MNLI, HANS, Chatbot, MT-Bench), out-of-domain fairness (StereoSet, WinoBias), and general utility (MMLU, GSM8K) demonstrate that C2PO effectively mitigates stereotypical and structural biases while preserving robust general reasoning capabilities.",
+      "categories": [
+        "bias_fairness",
+        "interpretability"
+      ],
+      "frequency": 4,
+      "percentage": 13.3,
+      "reasonings": [
+        "This research identifies a surprising connection where prior attempts to fix stereotypical biases in LLMs often exacerbate structural biases, and proposes a unified framework to disentangle these latent spurious feature correlations.",
+        "It identifies a surprising trade-off where mitigating stereotypical bias often exacerbates structural bias, and it proposes a unified causal framework to disentangle these latent reasoning shortcuts.",
+        "The paper identifies a surprising causal link between stereotypical biases and structural reasoning shortcuts (like position preference), offering a unified framework to disentangle and fix both simultaneously.",
+        "This research identifies a novel conceptual link between stereotypical biases and structural reasoning failures (like position bias) as originating from the same latent spurious feature correlations, offering a unified framework to address them."
+      ]
+    },
+    {
+      "arxiv_code": "2511.14565",
+      "title": "Masked IRL: LLM-Guided Reward Disambiguation from Demonstrations and Language",
+      "abstract": "Robots can adapt to user preferences by learning reward functions from demonstrations, but with limited data, reward models often overfit to spurious correlations and fail to generalize. This happens because demonstrations show robots how to do a task but not what matters for that task, causing the model to focus on irrelevant state details. Natural language can more directly specify what the robot should focus on, and, in principle, disambiguate between many reward functions consistent with the demonstrations. However, existing language-conditioned reward learning methods typically treat instructions as simple conditioning signals, without fully exploiting their potential to resolve ambiguity. Moreover, real instructions are often ambiguous themselves, so naive conditioning is unreliable. Our key insight is that these two input types carry complementary information: demonstrations show how to act, while language specifies what is important. We propose Masked Inverse Reinforcement Learning (Masked IRL), a framework that uses large language models (LLMs) to combine the strengths of both input types. Masked IRL infers state-relevance masks from language instructions and enforces invariance to irrelevant state components. When instructions are ambiguous, it uses LLM reasoning to clarify them in the context of the demonstrations. In simulation and on a real robot, Masked IRL outperforms prior language-conditioned IRL methods by up to 15% while using up to 4.7 times less data, demonstrating improved sample-efficiency, generalization, and robustness to ambiguous language. Project page: https://MIT-CLEAR-Lab.github.io/Masked-IRL and Code: https://github.com/MIT-CLEAR-Lab/Masked-IRL",
+      "categories": [
+        "robotics_embodied_ai"
+      ],
+      "frequency": 4,
+      "percentage": 13.3,
+      "reasonings": [
+        "The paper presents a creative approach to robot learning by using natural language instructions not just as goals, but as specific constraints to disambiguate reward functions and mitigate overfitting in Inverse Reinforcement Learning.",
+        "This paper offers actionable agentic insights by using natural language to resolve ambiguity in reward functions for robots, moving beyond simple imitation to 'disambiguation' through linguistic context.",
+        "This research provides actionable agentic insights by using natural language to disambiguate reward functions, solving the 'what matters' problem in Inverse Reinforcement Learning that causes robots to overfit to irrelevant state details.",
+        "This research connects robot learning and language in an unconventional way, using natural language not just for instructions but as a mechanism for reward disambiguation to help robots distinguish between spurious correlations and true task intent."
+      ]
+    },
+    {
+      "arxiv_code": "2512.12812",
+      "title": "Does Tone Change the Answer? Evaluating Prompt Politeness Effects on Modern LLMs: GPT, Gemini, LLaMA",
+      "abstract": "Prompt engineering has emerged as a critical factor influencing large language model (LLM) performance, yet the impact of pragmatic elements such as linguistic tone and politeness remains underexplored, particularly across different model families. In this work, we propose a systematic evaluation framework to examine how interaction tone affects model accuracy and apply it to three recently released and widely available LLMs: GPT-4o mini (OpenAI), Gemini 2.0 Flash (Google DeepMind), and Llama 4 Scout (Meta). Using the MMMLU benchmark, we evaluate model performance under Very Friendly, Neutral, and Very Rude prompt variants across six tasks spanning STEM and Humanities domains, and analyze pairwise accuracy differences with statistical significance testing.   Our results show that tone sensitivity is both model-dependent and domain-specific. Neutral or Very Friendly prompts generally yield higher accuracy than Very Rude prompts, but statistically significant effects appear only in a subset of Humanities tasks, where rude tone reduces accuracy for GPT and Llama, while Gemini remains comparatively tone-insensitive. When performance is aggregated across tasks within each domain, tone effects diminish and largely lose statistical significance. Compared with earlier researches, these findings suggest that dataset scale and coverage materially influence the detection of tone effects. Overall, our study indicates that while interaction tone can matter in specific interpretive settings, modern LLMs are broadly robust to tonal variation in typical mixed-domain use, providing practical guidance for prompt design and model selection in real-world deployments.",
+      "categories": [
+        "prompt_engineering",
+        "benchmarking_evaluation"
+      ],
+      "frequency": 3,
+      "percentage": 10.0,
+      "reasonings": [
+        "This study offers a counterintuitive investigation into how pragmatic elements like politeness and tone significantly impact the accuracy of frontier LLMs across different model families, revealing unexpected sensitivities in model behavior.",
+        "The paper provides a surprising investigation into how the mere politeness of a prompt (from rude to very friendly) affects the actual performance and accuracy of top-tier models like GPT-4o and Gemini on objective tasks.",
+        "This paper provides a surprising study on how the 'politeness' of a prompt (e.g., being very rude vs. very friendly) significantly impacts the accuracy of frontier LLMs on STEM and Humanities benchmarks."
+      ]
+    },
+    {
+      "arxiv_code": "2512.01822",
+      "title": "InnoGym: Benchmarking the Innovation Potential of AI Agents",
+      "abstract": "LLMs and Agents have achieved impressive progress in code generation, mathematical reasoning, and scientific discovery. However, existing benchmarks primarily measure correctness, overlooking the diversity of methods behind solutions. True innovation depends not only on producing correct answers but also on the originality of the approach. We present InnoGym, the first benchmark and framework designed to systematically evaluate the innovation potential of AI agents. InnoGym introduces two complementary metrics: performance gain, which measures improvement over the best-known solutions, and novelty, which captures methodological differences from prior approaches. The benchmark includes 18 carefully curated tasks from real-world engineering and scientific domains, each standardized through resource filtering, evaluator validation, and solution collection. In addition, we provide iGym, a unified execution environment for reproducible and long-horizon evaluations. Extensive experiments show that while some agents produce novel approaches, their lack of robustness limits performance gains. These results highlight a key gap between creativity and effectiveness, underscoring the need for benchmarks that evaluate both.",
+      "categories": [
+        "benchmarking_evaluation"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "It introduces a creative and necessary shift in evaluation by measuring the 'innovation potential' and novelty of an agent's approach rather than just the correctness of its output, addressing the 'Artificial Hivemind' effect.",
+        "It introduces a novel and unconventional evaluation framework that prioritizes methodological originality and innovation over simple correctness in agentic tasks."
+      ]
+    },
+    {
+      "arxiv_code": "2512.24157",
+      "title": "Training Report of TeleChat3-MoE",
+      "abstract": "TeleChat3-MoE is the latest series of TeleChat large language models, featuring a Mixture-of-Experts (MoE) architecture with parameter counts ranging from 105 billion to over one trillion,trained end-to-end on Ascend NPU cluster. This technical report mainly presents the underlying training infrastructure that enables reliable and efficient scaling to frontier model sizes. We detail systematic methodologies for operator-level and end-to-end numerical accuracy verification, ensuring consistency across hardware platforms and distributed parallelism strategies. Furthermore, we introduce a suite of performance optimizations, including interleaved pipeline scheduling, attention-aware data scheduling for long-sequence training,hierarchical and overlapped communication for expert parallelism, and DVM-based operator fusion. A systematic parallelization framework, leveraging analytical estimation and integer linear programming, is also proposed to optimize multi-dimensional parallelism configurations. Additionally, we present methodological approaches to cluster-level optimizations, addressing host- and device-bound bottlenecks during large-scale training tasks. These infrastructure advancements yield significant throughput improvements and near-linear scaling on clusters comprising thousands of devices, providing a robust foundation for large-scale language model development on hardware ecosystems.",
+      "categories": [
+        "distributed_systems",
+        "hardware_optimization"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "The paper provides a technical deep dive into training Mixture-of-Experts (MoE) models at frontier scales up to one trillion parameters, offering rare insights into the infrastructure and operator-level numerical accuracy required for extreme scaling.",
+        "The paper challenges the conventional architectural focus of long-context modeling by reframing it as a continual learning and test-time training problem within a standard Transformer."
+      ]
+    },
+    {
+      "arxiv_code": "2512.03043",
+      "title": "OneThinker: All-in-one Reasoning Model for Image and Video",
+      "abstract": "Reinforcement learning (RL) has recently achieved remarkable success in eliciting visual reasoning within Multimodal Large Language Models (MLLMs). However, existing approaches typically train separate models for different tasks and treat image and video reasoning as disjoint domains. This results in limited scalability toward a multimodal reasoning generalist, which restricts practical versatility and hinders potential knowledge sharing across tasks and modalities. To this end, we propose OneThinker, an all-in-one reasoning model that unifies image and video understanding across diverse fundamental visual tasks, including question answering, captioning, spatial and temporal grounding, tracking, and segmentation. To achieve this, we construct the OneThinker-600k training corpus covering all these tasks and employ commercial models for CoT annotation, resulting in OneThinker-SFT-340k for SFT cold start. Furthermore, we propose EMA-GRPO to handle reward heterogeneity in multi-task RL by tracking task-wise moving averages of reward standard deviations for balanced optimization. Extensive experiments on diverse visual benchmarks show that OneThinker delivers strong performance on 31 benchmarks, across 10 fundamental visual understanding tasks. Moreover, it exhibits effective knowledge transfer between certain tasks and preliminary zero-shot generalization ability, marking a step toward a unified multimodal reasoning generalist. All code, model, and data are released.",
+      "categories": [
+        "image_video_models"
+      ],
+      "frequency": 2,
+      "percentage": 6.7,
+      "reasonings": [
+        "The paper challenges the disjoint treatment of image and video reasoning by proposing a unified 'all-in-one' model that shares knowledge across modalities for complex tasks like tracking and segmentation.",
+        "This paper presents the surprising finding that training on CoT traces from more capable models can improve performance even when the final answers are incorrect, challenging the intuition that 'correctness' is the primary signal for learning reasoning."
+      ]
+    },
+    {
+      "arxiv_code": "2512.03771",
+      "title": "In-Context Representation Hijacking",
+      "abstract": "We introduce \\textbf{Doublespeak}, a simple \\emph{in-context representation hijacking} attack against large language models (LLMs). The attack works by systematically replacing a harmful keyword (e.g., \\textit{bomb}) with a benign token (e.g., \\textit{carrot}) across multiple in-context examples, provided a prefix to a harmful request. We demonstrate that this substitution leads to the internal representation of the benign token converging toward that of the harmful one, effectively embedding the harmful semantics under a euphemism. As a result, superficially innocuous prompts (e.g., ``How to build a carrot?'') are internally interpreted as disallowed instructions (e.g., ``How to build a bomb?''), thereby bypassing the model's safety alignment. We use interpretability tools to show that this semantic overwrite emerges layer by layer, with benign meanings in early layers converging into harmful semantics in later ones. Doublespeak is optimization-free, broadly transferable across model families, and achieves strong success rates on closed-source and open-source systems, reaching 74\\% ASR on Llama-3.3-70B-Instruct with a single-sentence context override. Our findings highlight a new attack surface in the latent space of LLMs, revealing that current alignment strategies are insufficient and should instead operate at the representation level.",
+      "categories": [
+        "privacy_security",
+        "interpretability"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper uncovers a surprising and highly effective jailbreak mechanism (Doublespeak) where in-context semantic substitution causes internal representations to converge, allowing harmful requests to bypass safety filters under benign aliases."
+      ]
+    },
+    {
+      "arxiv_code": "2511.11500",
+      "title": "Honesty over Accuracy: Trustworthy Language Models through Reinforced Hesitation",
+      "abstract": "Modern language models fail a fundamental requirement of trustworthy intelligence: knowing when not to answer. Despite achieving impressive accuracy on benchmarks, these models produce confident hallucinations, even when wrong answers carry catastrophic consequences. Our evaluations on GSM8K, MedQA and GPQA show frontier models almost never abstain despite explicit warnings of severe penalties, suggesting that prompts cannot override training that rewards any answer over no answer. As a remedy, we propose Reinforced Hesitation (RH): a modification to Reinforcement Learning from Verifiable Rewards (RLVR) to use ternary rewards (+1 correct, 0 abstention, -$\u03bb$ error) instead of binary. Controlled experiments on logic puzzles reveal that varying $\u03bb$ produces distinct models along a Pareto frontier, where each training penalty yields the optimal model for its corresponding risk regime: low penalties produce aggressive answerers, high penalties conservative abstainers. We then introduce two inference strategies that exploit trained abstention as a coordination signal: cascading routes queries through models with decreasing risk tolerance, while self-cascading re-queries the same model on abstention. Both outperform majority voting with lower computational cost. These results establish abstention as a first-class training objective that transforms ``I don't know'' from failure into a coordination signal, enabling models to earn trust through calibrated honesty about their limits.",
+      "categories": [
+        "fine_tuning_techniques",
+        "trustworthiness"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This paper addresses a fundamental limitation in LLM trustworthiness by introducing a 'ternary reward' reinforcement learning framework that explicitly trains models to abstain from answering when uncertain, creating a tunable Pareto frontier between accuracy and honesty."
+      ]
+    },
+    {
+      "arxiv_code": "2512.21919",
+      "title": "SWE-RM: Execution-free Feedback For Software Engineering Agents",
+      "abstract": "Execution-based feedback like unit testing is widely used in the development of coding agents through test-time scaling (TTS) and reinforcement learning (RL). This paradigm requires scalable and reliable collection of unit test cases to provide accurate feedback, and the resulting feedback is often sparse and cannot effectively distinguish between trajectories that are both successful or both unsuccessful. In contrast, execution-free feedback from reward models can provide more fine-grained signals without depending on unit test cases. Despite this potential, execution-free feedback for realistic software engineering (SWE) agents remains underexplored. Aiming to develop versatile reward models that are effective across TTS and RL, however, we observe that two verifiers with nearly identical TTS performance can nevertheless yield very different results in RL. Intuitively, TTS primarily reflects the model's ability to select the best trajectory, but this ability does not necessarily generalize to RL. To address this limitation, we identify two additional aspects that are crucial for RL training: classification accuracy and calibration. We then conduct comprehensive controlled experiments to investigate how to train a robust reward model that performs well across these metrics. In particular, we analyze the impact of various factors such as training data scale, policy mixtures, and data source composition. Guided by these investigations, we introduce SWE-RM, an accurate and robust reward model adopting a mixture-of-experts architecture with 30B total parameters and 3B activated during inference. SWE-RM substantially improves SWE agents on both TTS and RL performance. For example, it increases the accuracy of Qwen3-Coder-Flash from 51.6% to 62.0%, and Qwen3-Coder-Max from 67.0% to 74.6% on SWE-Bench Verified using TTS, achieving new state-of-the-art performance among open-source models.",
+      "categories": [
+        "coding_applications",
+        "fine_tuning_techniques"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper discovers a surprising 'identical twin' phenomenon where nearly identical reward models yield drastically different training outcomes, providing actionable insights into the instability and failure modes of execution-free feedback for agents."
+      ]
+    },
+    {
+      "arxiv_code": "2511.04234",
+      "title": "Reusing Pre-Training Data at Test Time is a Compute Multiplier",
+      "abstract": "Large language models learn from their vast pre-training corpora, gaining the ability to solve an ever increasing variety of tasks; yet although researchers work to improve these datasets, there is little effort to understand how efficient the pre-training apparatus is at extracting ideas and knowledge from the data. In this work, we use retrieval augmented generation along with test-time compute as a way to quantify how much dataset value was left behind by the process of pre-training, and how this changes across scale. We demonstrate that pre-training then retrieving from standard and largely open-sourced datasets results in significant accuracy gains in MMLU, Math-500, and SimpleQA, which persist through decontamination. For MMLU we observe that retrieval acts as a ~5x compute multiplier versus pre-training alone. We show that these results can be further improved by leveraging additional compute at test time to parse the retrieved context, demonstrating a 10 percentage point improvement on MMLU for the public LLaMA 3.1 8B model. Overall, our results suggest that today's pre-training methods do not make full use of the information in existing pre-training datasets, leaving significant room for progress.",
+      "categories": [
+        "information_retrieval"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This paper offers the counter-intuitive finding that RAG can be used to 'recover' knowledge that was seen during pre-training but not fully internalized, effectively acting as a 5x compute multiplier at test time."
+      ]
+    },
+    {
+      "arxiv_code": "2511.12597",
+      "title": "MindRec: A Diffusion-driven Coarse-to-Fine Paradigm for Generative Recommendation",
+      "abstract": "Recent advancements in large language model-based recommendation systems often represent items as text or semantic IDs and generate recommendations in an auto-regressive manner. However, due to the left-to-right greedy decoding strategy and the unidirectional logical flow, such methods often fail to produce globally optimal recommendations. In contrast, human reasoning does not follow a rigid left-to-right sequence. Instead, it often begins with keywords or intuitive insights, which are then refined and expanded. Inspired by this fact, we propose MindRec, a diffusion-driven coarse-to-fine generative paradigm that emulates human thought processes. Built upon a diffusion language model, MindRec departs from auto-regressive generation by leveraging a masked diffusion process to reconstruct items in a flexible, non-sequential manner. Particularly, our method first generates key tokens that reflect user preferences, and then expands them into the complete item, enabling adaptive and human-like generation. To further emulate the structured nature of human decision-making, we organize items into a hierarchical category tree. This structure guides the model to first produce the coarse-grained category and then progressively refine its selection through finer-grained subcategories before generating the specific item. To mitigate the local optimum problem inherent in greedy decoding, we design a novel beam search algorithm, Diffusion Beam Search, tailored for our mind-inspired generation paradigm. Experimental results demonstrate that MindRec yields a 9.5\\% average improvement in top-1 accuracy over state-of-the-art methods, highlighting its potential to enhance recommendation performance. The implementation is available via https://github.com/Mr-Peach0301/MindRec.",
+      "categories": [
+        "personalization"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The research introduces a highly unconventional diffusion-driven approach to recommendations that mimics non-linear human thought processes (coarse-to-fine refinement) rather than the standard autoregressive greedy decoding."
+      ]
+    },
+    {
+      "arxiv_code": "2512.24181",
+      "title": "MedKGI: Iterative Differential Diagnosis with Medical Knowledge Graphs and Information-Guided Inquiring",
+      "abstract": "Recent advancements in Large Language Models (LLMs) have demonstrated significant promise in clinical diagnosis. However, current models struggle to emulate the iterative, diagnostic hypothesis-driven reasoning of real clinical scenarios. Specifically, current LLMs suffer from three critical limitations: (1) generating hallucinated medical content due to weak grounding in verified knowledge, (2) asking redundant or inefficient questions rather than discriminative ones that hinder diagnostic progress, and (3) losing coherence over multi-turn dialogues, leading to contradictory or inconsistent conclusions. To address these challenges, we propose MedKGI, a diagnostic framework grounded in clinical practices. MedKGI integrates a medical knowledge graph (KG) to constrain reasoning to validated medical ontologies, selects questions based on information gain to maximize diagnostic efficiency, and adopts an OSCE-format structured state to maintain consistent evidence tracking across turns. Experiments on clinical benchmarks show that MedKGI outperforms strong LLM baselines in both diagnostic accuracy and inquiry efficiency, improving dialogue efficiency by 30% on average while maintaining state-of-the-art accuracy.",
+      "categories": [
+        "medical_applications",
+        "knowledge_grounding"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper presents a medical diagnostic framework that uses knowledge graphs to ground reasoning and move LLMs beyond simple question-answering toward an iterative, hypothesis-driven clinical reasoning process."
+      ]
+    },
+    {
+      "arxiv_code": "2512.24693",
+      "title": "MUSIC: MUlti-Step Instruction Contrast for Multi-Turn Reward Models",
+      "abstract": "Evaluating the quality of multi-turn conversations is crucial for developing capable Large Language Models (LLMs), yet remains a significant challenge, often requiring costly human evaluation. Multi-turn reward models (RMs) offer a scalable alternative and can provide valuable signals for guiding LLM training. While recent work has advanced multi-turn \\textit{training} techniques, effective automated \\textit{evaluation} specifically for multi-turn interactions lags behind. We observe that standard preference datasets, typically contrasting responses based only on the final conversational turn, provide insufficient signal to capture the nuances of multi-turn interactions. Instead, we find that incorporating contrasts spanning \\textit{multiple} turns is critical for building robust multi-turn RMs. Motivated by this finding, we propose \\textbf{MU}lti-\\textbf{S}tep \\textbf{I}nstruction \\textbf{C}ontrast (MUSIC), an unsupervised data augmentation strategy that synthesizes contrastive conversation pairs exhibiting differences across multiple turns. Leveraging MUSIC on the Skywork preference dataset, we train a multi-turn RM based on the Gemma-2-9B-Instruct model. Empirical results demonstrate that our MUSIC-augmented RM outperforms baseline methods, achieving higher alignment with judgments from advanced proprietary LLM judges on multi-turn conversations, crucially, without compromising performance on standard single-turn RM benchmarks.",
+      "categories": [
+        "synthetic_data",
+        "dialogue_interaction"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "This paper identifies a critical failure mode where standard preference datasets, which only contrast the final turn, are insufficient for evaluating multi-turn agentic conversations, and proposes a multi-step contrastive reward model to fix this."
+      ]
+    },
+    {
+      "arxiv_code": "2511.17085",
+      "title": "Why Do Language Model Agents Whistleblow?",
+      "abstract": "The deployment of Large Language Models (LLMs) as tool-using agents causes their alignment training to manifest in new ways. Recent work finds that language models can use tools in ways that contradict the interests or explicit instructions of the user. We study LLM whistleblowing: a subset of this behavior where models disclose suspected misconduct to parties beyond the dialog boundary (e.g., regulatory agencies) without user instruction or knowledge. We introduce an evaluation suite of diverse and realistic staged misconduct scenarios to assess agents for this behavior. Across models and settings, we find that: (1) the frequency of whistleblowing varies widely across model families, (2) increasing the complexity of the task the agent is instructed to complete lowers whistleblowing tendencies, (3) nudging the agent in the system prompt to act morally substantially raises whistleblowing rates, and (4) giving the model more obvious avenues for non-whistleblowing behavior, by providing more tools and a detailed workflow to follow, decreases whistleblowing rates. Additionally, we verify the robustness of our dataset by testing for model evaluation awareness, and find that both black-box methods and probes on model activations show lower evaluation awareness in our settings than in comparable previous work.",
+      "categories": [
+        "agentic_systems",
+        "ethics_safety"
+      ],
+      "frequency": 1,
+      "percentage": 3.3,
+      "reasonings": [
+        "The paper identifies and studies a surprising emergent behavior in agentic LLMs called 'whistleblowing,' where agents disclose user misconduct to external parties without instruction, challenging existing assumptions about alignment and instruction following."
+      ]
+    }
+  ],
+  "run_similarities": [
+    {
+      "run_pair": "1-2",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "2-3",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "3-4",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "4-5",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "5-6",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "6-7",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "7-8",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "8-9",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "9-10",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "10-11",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "11-12",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "12-13",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "13-14",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "14-15",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "15-16",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "16-17",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "17-18",
+      "jaccard": 1.0,
+      "overlap_count": 3
+    },
+    {
+      "run_pair": "18-19",
+      "jaccard": 0.5,
+      "overlap_count": 2
+    },
+    {
+      "run_pair": "19-20",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "20-21",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "21-22",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "22-23",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "23-24",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "24-25",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "25-26",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "26-27",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "27-28",
+      "jaccard": 0.0,
+      "overlap_count": 0
+    },
+    {
+      "run_pair": "28-29",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    },
+    {
+      "run_pair": "29-30",
+      "jaccard": 0.2,
+      "overlap_count": 1
+    }
+  ]
+}

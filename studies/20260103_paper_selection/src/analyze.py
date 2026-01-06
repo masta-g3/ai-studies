@@ -100,10 +100,10 @@ def analyze_results(run_dir: Path, pool: dict) -> dict:
     # Consensus papers (>50% selection rate)
     consensus_papers = [p for p in papers_with_freq if p["percentage"] > 50]
 
-    # Top 5 by frequency (for comparison with single-shot)
-    top_5_papers = []
-    for p in papers_with_freq[:5]:
-        top_5_papers.append({
+    # Top X by frequency (for comparison with single-shot)
+    top_x_papers = []
+    for p in papers_with_freq[:x]:
+        top_x_papers.append({
             **p,
             "above_threshold": p["percentage"] > 50,
         })
@@ -133,7 +133,7 @@ def analyze_results(run_dir: Path, pool: dict) -> dict:
         "summary": summary,
         "single_shot": single_shot_papers,
         "consensus": consensus_papers,
-        "top_5": top_5_papers,
+        "top_x": top_x_papers,
         "frequency_distribution": papers_with_freq,
         "run_similarities": run_similarities,
     }
