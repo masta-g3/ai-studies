@@ -1,10 +1,11 @@
 ---
-title: "LLM Paper Selection Experiment"
+title: "Think Harder, Sample Once"
 description: "Comparing single-shot LLM paper selection against multi-run consensus voting."
 date: "2025-01-03"
-categories: [experiments, llm]
+categories: [nlp]
 resources:
-  - "viz/viz_data.json"
+  - "viz/models.json"
+  - "viz/data/*"
 format:
   html:
     page-layout: full
@@ -17,5 +18,8 @@ format:
 
 <link rel="stylesheet" href="viz/style.css">
 <script src="https://d3js.org/d3.v7.min.js"></script>
-<script>window.VIZ_DATA_PATH = './viz/viz_data.json';</script>
+<script>
+window.VIZ_MODELS_PATH = './viz/models.json';
+window.VIZ_DATA_BASE = './viz/';
+</script>
 <script src="viz/main.js" defer></script>

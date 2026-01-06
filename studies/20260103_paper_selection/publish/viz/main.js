@@ -298,3 +298,21 @@ async function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// Fix Quarto's page-columns grid override
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.comparison-container, .comparison-container > .column').forEach(el => {
+      el.classList.remove('page-columns', 'page-full');
+    });
+    const container = document.querySelector('.comparison-container');
+    if (container) {
+      container.style.display = 'grid';
+      container.style.gridTemplateColumns = '1fr 1fr';
+      container.style.gap = '48px';
+    }
+    document.querySelectorAll('.comparison-container > .column').forEach(el => {
+      el.style.width = '100%';
+    });
+  }, 0);
+});
