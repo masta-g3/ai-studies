@@ -1,6 +1,0 @@
-{
-  "enabledMcpjsonServers": [
-    "postgres"
-  ],
-  "enableAllProjectMcpServers": true
-}

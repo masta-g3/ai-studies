@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "embeddings-research"
+name = "ai-studies"
 version = "0.1.0"
 description = "Research repository for exploring embedding concepts from ML"
 requires-python = ">=3.11"
