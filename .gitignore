@@ -23,3 +23,6 @@ DATABASE_INVENTORY.md
 
 # Generated study data
 studies/*/data/
+
+# Local MCP config (holds DB credentials)
+.mcp.json
