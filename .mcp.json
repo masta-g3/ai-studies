@@ -6,7 +6,7 @@
       "args": [
         "-y",
         "@modelcontextprotocol/server-postgres",
-        "postgresql://llmpedia_user:altoids@5.161.106.149:5432/llmpedia"
+        "postgresql://llmpedia_user:altoids@5.161.106.149:5432/main"
       ],
       "env": {}
     }
